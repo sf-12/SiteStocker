@@ -24,14 +24,17 @@
 - お気に入りのWebサイトをタグやコメント付きで管理したいとき
 - 便利・面白いサイトを探したい、紹介したいとき<br>
 <br>
+
 ## 設計書
-<...>
+<後日記載します>
 <br>
+
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoahkU/edit?usp=sharing
 
 ## 開発環境
-- OS：Linux(Ubuntu)・・・Dockerコンテナを使用
+- OS：Linux(Ubuntu)<br>
+  ※ MacOS上で Docker / Docker Compose を使用して構築
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
