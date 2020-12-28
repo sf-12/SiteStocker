@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      TZ: "Asia/Tokyo"
+    volumes:
+      - "mysql-data:/var/lib/mysql"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/myapp"
+      - sockets:/myapp/tmp/sockets
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+    links:
+      - db
+
+  web:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    volumes:
+      - public-data:/myapp/public
+      - tmp-data:/myapp/tmp
+      - sockets:/myapp/tmp/sockets
+    ports:
+      - 80:80
+    depends_on:
+      - app
+
+volumes:
+  mysql-data:
+  public-data:
+  tmp-data:
+  sockets:
