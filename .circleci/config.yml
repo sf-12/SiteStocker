@@ -1,0 +1,57 @@
+version: 2.1
+
+# 共通事項の設定
+executors:
+  with_db:
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers
+        environment:
+          - DB_HOST_TEST: 127.0.0.1
+          - DB_USERNAME: 'root'
+          - BUNDLE_PATH: vendor/bundle
+          - RAILS_ENV: test
+      - image: circleci/mysql:5.7-ram
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '%'
+    working_directory: ~/SiteStocker
+
+# 処理内容
+jobs:
+  build:
+    executor: with_db
+    steps:
+      - checkout
+      - restore_cache:
+          name: gemキャッシュの復元
+          keys: 
+            - v1-bundle-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: gemのインストール
+          command: bundle check --path vendor/bundle || bundle install --deployment
+      - save_cache:
+          name: gemキャッシュの保存
+          key: v1-bundle-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: データベースの起動を待機
+          command: |
+            dockerize -wait \
+            tcp://${DB_HOST_TEST}:3306 -timeout 120s
+      - run:
+          name: データベースのセットアップ
+          command: bundle exec rails db:create
+      - run:
+          name: RSpecを実行
+          command: bundle exec rspec
+      - run:
+          name: RuboCopを実行
+          command: bundle exec rubocop
+
+# 実行順序の制御
+workflows:
+  version: 2.1
+  main:
+    jobs:
+      - build
