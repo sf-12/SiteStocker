@@ -51,6 +51,17 @@ jobs:
       - run:
           name: RuboCopを実行
           command: bundle exec rubocop
+      # 自動デプロイ
+      - add_ssh_keys:
+          fingerprints:
+            - 'ca:5a:fe:7f:70:2c:93:9c:6b:85:35:63:15:16:36:ef'
+      - deploy:
+          name: Capistrano deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+              exit 0
+            fi
+            bundle exec cap production deploy   
 
 # 実行順序の制御
 workflows:
