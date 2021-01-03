@@ -24,7 +24,7 @@ jobs:
       - checkout
       - restore_cache:
           name: gemキャッシュの復元
-          keys: 
+          keys:
             - v1-bundle-{{ checksum "Gemfile.lock" }}
       - run:
           name: gemのインストール
@@ -39,6 +39,9 @@ jobs:
           command: |
             dockerize -wait \
             tcp://${DB_HOST_TEST}:3306 -timeout 120s
+      - run:
+          name: CircleCI用のDB設定に切り替え
+          command: mv config/database.yml.ci config/database.yml
       - run:
           name: データベースのセットアップ
           command: bundle exec rails db:create
