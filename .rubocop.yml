@@ -7,7 +7,20 @@ require:
   - rubocop-performance
 
 AllCops:
+  TargetRubyVersion: 2.7.1
   # 以下のファイルは対象から外す
   Exclude:
+    - db/migrate/**/*
     - db/schema.rb
     - tmp/**/*
+    - vendor/**/*
+
+# --------Style--------
+# 日本語のコメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# --------Metrics--------
+# １行の文字数制限
+# Metrics/LineLength:
+#   Max: 120
