@@ -20,6 +20,10 @@ AllCops:
 Style/AsciiComments:
   Enabled: false
 
+# Classの継承の記述でcompact形式を許可
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 # --------Metrics--------
 # １行の文字数制限
 # Metrics/LineLength:
