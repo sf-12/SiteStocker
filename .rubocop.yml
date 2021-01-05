@@ -8,12 +8,15 @@ require:
 
 AllCops:
   TargetRubyVersion: 2.7.1
+  # 新規に追加されたルールも適用する
+  NewCops: enable
   # 以下のファイルは対象から外す
   Exclude:
     - db/migrate/**/*
     - db/schema.rb
     - tmp/**/*
     - vendor/**/*
+    - bin/**/*
 
 # --------Style--------
 # 日本語のコメントを許可
@@ -24,7 +27,6 @@ Style/AsciiComments:
 Style/ClassAndModuleChildren:
   Enabled: false
 
-# --------Metrics--------
-# １行の文字数制限
-# Metrics/LineLength:
-#   Max: 120
+# ドキュメント用のコメントを付けなくてもよい
+Style/Documentation:
+  Enabled: false

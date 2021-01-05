@@ -1,4 +1,3 @@
 module User::HomesHelper
-  def top
-  end
+  def top; end
 end
