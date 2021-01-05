@@ -1,0 +1,2 @@
+class TweetSite < ApplicationRecord
+end
