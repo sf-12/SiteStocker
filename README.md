@@ -35,7 +35,7 @@
 <br>
 <br>
 
-## チャレンジ要素一覧
+## 機能一覧
 https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoahkU/edit?usp=sharing
 
 ## 開発環境
