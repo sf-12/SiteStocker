@@ -61,7 +61,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" != "master" ]; then
               exit 0
             fi
-            bundle exec cap production deploy   
+            bundle exec cap production deploy
 
 # 実行順序の制御
 workflows:
