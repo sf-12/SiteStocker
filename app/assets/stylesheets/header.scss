@@ -1,0 +1,17 @@
+.header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dddddd;
+  height: 60px;
+
+  &__inner-left {
+    float: left;
+    padding-left: 10px;
+  }
+
+  &__inner-right {
+    float: right;
+    line-height: 40px;
+    padding-right: 10px;
+  }
+}

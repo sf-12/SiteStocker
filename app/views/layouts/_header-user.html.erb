@@ -1,0 +1,21 @@
+<header class='header'>
+  <div class='header__inner'>
+    <%# 左寄せ部分 %>
+    <div class='header__inner-left'>
+      <%= link_to home_path do %>
+        <%=image_tag('logo.png', size: '54x36') %>
+      <% end %>
+    </div>
+    <%# 右寄せ部分 %>
+    <div class='header__inner-right'>
+      <%= link_to 'マイページ', home_path %>
+      <%= link_to '投稿する', home_path %>
+      <%= link_to '設定', home_path %>
+      <%= link_to 'about', home_path %>
+      <%= link_to 'ログアウト', home_path %>
+      <%= link_to home_path do %>
+        <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: "user-default.png", size: "36x36" %>
+      <% end %>
+    </div>
+  </div>
+</header>
