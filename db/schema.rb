@@ -58,13 +58,6 @@ ActiveRecord::Schema.define(version: 2021_01_05_060610) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tweet_sites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.integer "tweet_id", null: false
-    t.integer "site_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tweet_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.integer "tweet_id", null: false
     t.integer "tag_id", null: false
