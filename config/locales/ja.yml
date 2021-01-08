@@ -1,0 +1,38 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        image_id: プロフィール画像
+        text: 自己紹介
+        is_active: 退会フラグ
+      admin:
+        email: メールアドレス
+        password: パスワード
+      tweet:
+        user_id: ユーザーID
+        text: 投稿記事
+        is_opened: タイムライン公開フラグ
+      comment:
+        user_id: ユーザーID
+        tweet_id: 投稿ID
+        text: コメント
+      relationship:
+        follower_id: フォロワーID
+        followee_id: フォロイーID
+      like:
+        user_id: ユーザーID
+        tweet_id: 投稿ID
+      tweet_tag:
+        tweet_id: 投稿ID
+        tag_id: タグID
+      tag:
+        name: タグ名
+      tweet_site:
+        tweet_id: 投稿ID
+        site_id: サイトID
+      site:
+        url: サイトURL
+

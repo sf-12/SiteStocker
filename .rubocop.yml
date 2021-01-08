@@ -16,6 +16,18 @@ AllCops:
     - vendor/**/*
     - bin/**/*
 
+# --------Lint--------
+# superで継承だけしているメソッドを許容
+Lint/UselessMethodDefinition:
+  Exclude:
+    - app/controllers/user/registrations_controller.rb
+
+# --------Metrics--------
+# rspec内の１ブロックあたりの行数はチェックしない
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
 # --------Style--------
 # 日本語のコメントを許可
 Style/AsciiComments:

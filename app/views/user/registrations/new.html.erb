@@ -1,29 +1,36 @@
-<h2>新規登録</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "user/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class='registration'>
+  <div class='registration__left bg-primary'>
+    おすすめサイトを共有しよう！
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class='registration__right bg-light'>
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', local: true do |f| %>
+      <%= render "user/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :name , 'ユーザー名' %>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+      <div class="field">
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.email_field :email, autocomplete: "email" %>
+      </div>
+      <div class="field">
+        <%= f.label :password, 'パスワード' %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, 'パスワード(確認用)' %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "登録する" %>
+      </div>
+    <% end %>
+    or<br>
+    <%= link_to new_user_session_path do %>
+      <button>ログイン</button>
+    <% end %>
+    <button>簡単ログイン</button><br>
+    <small>簡単ログインはポートフォリオ用の機能です。<br>
+    値を入力せずにログインすることができます</small>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "user/shared/links" %>
+</div>
