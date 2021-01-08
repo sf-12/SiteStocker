@@ -24,4 +24,14 @@ class User::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  # ログイン後に遷移するパス
+  def after_sign_in_path_for(_resource)
+    home_path
+  end
+
+  # ログアウト後に遷移するパス
+  def after_sign_out_path_for(_resource)
+    root_path
+  end
 end

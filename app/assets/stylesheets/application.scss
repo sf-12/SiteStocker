@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+// リセットCSS
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.application {
+  min-height: 100vh;
+  // height: 100%;
+  position: relative;
+  // footerの高さ
+  padding-bottom: 40px;
+}

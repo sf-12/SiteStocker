@@ -58,6 +58,10 @@ gem 'dotenv-rails'
 gem 'rails-i18n'
 # warning回避のためRubyバージョンに合わせる
 gem 'parser', '< 2.7.2.0'
+# 画像のアップロードに使用
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+# アップロードした画像のリサイズに使用
+gem 'refile-mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -69,6 +73,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+
+  # rails c を見やすくする
+  gem 'awesome_print'
 end
 
 group :development do
@@ -91,4 +98,6 @@ group :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  # System Spec用にChromeDriverを導入する
+  gem 'webdrivers'
 end

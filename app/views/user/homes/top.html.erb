@@ -1,8 +1,11 @@
-<h1>トップページです。 v1.2</h1>
+<%= link_to new_user_registration_path do %>
+  <button>ユーザー登録</button>
+<% end %>
 
-<div>
-  <%= link_to "ログイン", new_user_session_path %>
-</div>
-<div>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-</div>
+<%= link_to new_user_session_path do %>
+  <button>ログイン</button>
+<% end %>
+
+<%= link_to '' do %>
+  <button>簡単ログイン</button>
+<% end %>
