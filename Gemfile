@@ -98,4 +98,6 @@ group :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  # System Spec用にChromeDriverを導入する
+  gem 'webdrivers'
 end

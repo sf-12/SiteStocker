@@ -5,9 +5,11 @@ ja:
         name: ユーザー名
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード（確認）
         image_id: プロフィール画像
         text: 自己紹介
         is_active: 退会フラグ
+        remember_me: ログインしたままにする
       admin:
         email: メールアドレス
         password: パスワード
