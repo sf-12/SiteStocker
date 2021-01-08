@@ -28,6 +28,15 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
+# --------RSpec--------
+# contextが'when','with','without'で始まらなくてもよい
+RSpec/ContextWording:
+  Enabled: false
+
+# itの中の最大行数
+RSpec/ExampleLength:
+  Max: 10
+
 # --------Style--------
 # 日本語のコメントを許可
 Style/AsciiComments:

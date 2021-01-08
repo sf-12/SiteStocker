@@ -1,0 +1,10 @@
+.session {
+  display: flex;
+
+  &__left {
+    width: 50%;
+  }
+  &__right {
+    width: 50%;
+  }
+}

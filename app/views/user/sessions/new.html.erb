@@ -1,25 +1,41 @@
-<h2>ログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class='session'>
+  <div class='session__left bg-primary'>
+    おすすめサイトを共有しよう！
   </div>
+  <div class='session__right bg-light'>
+    <%= form_with model: @user, url: new_user_session_path, id: 'new_sesson', local:  true do |f| %>
+      <%= render "user/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'log_in_user-email__input' %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", id: 'log_in_user-password__input' %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "ログイン" %>
+      </div>
+    <% end %>
+
+    or<br>
+    <button>簡単ログイン</button><br>
+    <small>簡単ログインはポートフォリオ用の機能です。<br>
+    値を入力せずにログインすることができます</small><br>
+    or<br>
+    ユーザー登録がまだの方はこちら<br>
+    <%= link_to new_user_registration_path do %>
+      <button>ユーザー登録する</button>
+    <% end %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
+</div>
