@@ -46,6 +46,12 @@ RSpec.describe User, type: :model do
       expect(user.errors[:password]).not_to include('は6文字以上で入力してください')
     end
 
+    it 'パスワードと確認用パスワードが一致していなければ無効な状態であること' do
+      user = FactoryBot.build(:user, password: '123456', password_confirmation: '654321')
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include('とパスワードの入力が一致しません')
+    end
+
     it '自己紹介がなくても有効な状態であること' do
       user = FactoryBot.build(:user, text: nil)
       user.valid?

@@ -20,6 +20,16 @@ RSpec.describe 'Users', type: :system do
         click_button '登録する'
         expect(page).to have_current_path '/home'
       end
+
+      it 'ユーザー登録成功のフラッシュメッセージが表示される' do
+        visit new_user_registration_path
+        fill_in 'new_user-name__input', with: '鈴木太郎'
+        fill_in 'new_user-email__input', with: 'suzuki.taro@gmail.com'
+        fill_in 'new_user-password__input', with: 'aaaaaa'
+        fill_in 'new_user-password_confirmation__input', with: 'aaaaaa'
+        click_button '登録する'
+        expect(page).to have_content 'ユーザー登録しました！　SiteStockerへようこそ！'
+      end
     end
   end
 
@@ -41,21 +51,53 @@ RSpec.describe 'Users', type: :system do
         click_button 'ログイン'
         expect(page).to have_current_path '/home'
       end
+
+      it 'ログイン成功のフラッシュメッセージが表示される' do
+        visit '/users/sign_in'
+        fill_in 'log_in_user-email__input', with: user.email
+        fill_in 'log_in_user-password__input', with: user.password
+        click_button 'ログイン'
+        expect(page).to have_content 'ログインしました'
+      end
     end
   end
 
   describe 'ログアウト' do
-    context 'ログアウトに成功する場合' do
-      # あらかじめユーザーを作成しておく
-      let(:user) { FactoryBot.create(:user) }
+    # あらかじめユーザーを作成しておく
+    let(:user) { FactoryBot.create(:user) }
 
-      it 'ヘッダーからログアウトできる' do
-        # sign_in @user
-        sign_in user
-        visit '/home'
-        click_link 'ログアウト'
-        expect(page).to have_current_path '/'
-      end
+    it 'ヘッダーからログアウトできる' do
+      sign_in user
+      visit '/home'
+      click_link 'ログアウト'
+      expect(page).to have_current_path '/'
+    end
+
+    it 'ログアウト成功のフラッシュメッセージが表示される' do
+      sign_in user
+      visit '/home'
+      click_link 'ログアウト'
+      expect(page).to have_content 'ログアウトしました'
+    end
+  end
+
+  describe '簡単ログイン' do
+    it 'トップページから簡単ログインできる' do
+      visit root_path
+      click_button '簡単ログイン'
+      expect(page).to have_current_path '/home'
+    end
+
+    it '新規ユーザー登録ページから簡単ログインできる' do
+      visit new_user_registration_path
+      click_button '簡単ログイン'
+      expect(page).to have_current_path '/home'
+    end
+
+    it 'ログインページから簡単ログインできる' do
+      visit new_user_session_path
+      click_button '簡単ログイン'
+      expect(page).to have_current_path '/home'
     end
   end
 end
