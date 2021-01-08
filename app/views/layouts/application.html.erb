@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>SiteStocker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,8 +11,16 @@
 
   <body>
     <div class=application>
+      <%# ヘッダー %>
       <%= render 'layouts/header-user' %>
+
+      <%# フラッシュメッセージ %>
+      <%= render 'layouts/notifications' %>
+
+      <%# メイン %>
       <main><%= yield %></main>
+
+      <%# フッター %>
       <%= render 'layouts/footer' %>
     </div>
   </body>

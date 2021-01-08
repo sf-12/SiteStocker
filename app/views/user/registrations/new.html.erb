@@ -35,7 +35,9 @@
     <%= link_to new_user_session_path do %>
       <button>ログイン</button>
     <% end %>
-    <button>簡単ログイン</button><br>
+    <%= link_to user_guest_sign_in_path, method: :post do %>
+      <button>簡単ログイン</button>
+    <% end %>
     <small>簡単ログインはポートフォリオ用の機能です。<br>
     値を入力せずにログインすることができます</small>
   </div>

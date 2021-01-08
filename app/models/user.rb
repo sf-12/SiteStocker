@@ -18,6 +18,15 @@ class User < ApplicationRecord
   # validation
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, confirmation: true
+  validates :password_confirmation, presence: true
   validates :is_active, presence: true
+
+  # 簡単ログイン機能
+  def self.guest
+    find_or_create_by!(name: 'ゲストユーザー', email: 'guest@example.com', is_active: 'true') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+    end
+  end
 end
