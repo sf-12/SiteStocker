@@ -13,20 +13,20 @@ RSpec.describe 'Users', type: :system do
 
       it 'ユーザー登録するとホーム画面に遷移する' do
         visit new_user_registration_path
-        fill_in 'new_user-name__input', with: '鈴木太郎'
-        fill_in 'new_user-email__input', with: 'suzuki.taro@gmail.com'
-        fill_in 'new_user-password__input', with: 'aaaaaa'
-        fill_in 'new_user-password_confirmation__input', with: 'aaaaaa'
+        fill_in 'new_user_name__input', with: '鈴木太郎'
+        fill_in 'new_user_email__input', with: 'suzuki.taro@gmail.com'
+        fill_in 'new_user_password__input', with: 'aaaaaa'
+        fill_in 'new_user_password_confirmation__input', with: 'aaaaaa'
         click_button '登録する'
         expect(page).to have_current_path '/home'
       end
 
       it 'ユーザー登録成功のフラッシュメッセージが表示される' do
         visit new_user_registration_path
-        fill_in 'new_user-name__input', with: '鈴木太郎'
-        fill_in 'new_user-email__input', with: 'suzuki.taro@gmail.com'
-        fill_in 'new_user-password__input', with: 'aaaaaa'
-        fill_in 'new_user-password_confirmation__input', with: 'aaaaaa'
+        fill_in 'new_user_name__input', with: '鈴木太郎'
+        fill_in 'new_user_email__input', with: 'suzuki.taro@gmail.com'
+        fill_in 'new_user_password__input', with: 'aaaaaa'
+        fill_in 'new_user_password_confirmation__input', with: 'aaaaaa'
         click_button '登録する'
         expect(page).to have_content 'ユーザー登録しました！　SiteStockerへようこそ！'
       end
@@ -46,16 +46,16 @@ RSpec.describe 'Users', type: :system do
 
       it 'ログインするとホーム画面に遷移する' do
         visit '/users/sign_in'
-        fill_in 'log_in_user-email__input', with: user.email
-        fill_in 'log_in_user-password__input', with: user.password
+        fill_in 'log_in_user_email__input', with: user.email
+        fill_in 'log_in_user_password__input', with: user.password
         click_button 'ログイン'
         expect(page).to have_current_path '/home'
       end
 
       it 'ログイン成功のフラッシュメッセージが表示される' do
         visit '/users/sign_in'
-        fill_in 'log_in_user-email__input', with: user.email
-        fill_in 'log_in_user-password__input', with: user.password
+        fill_in 'log_in_user_email__input', with: user.email
+        fill_in 'log_in_user_password__input', with: user.password
         click_button 'ログイン'
         expect(page).to have_content 'ログインしました'
       end
