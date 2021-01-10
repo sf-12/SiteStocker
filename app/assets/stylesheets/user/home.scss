@@ -1,0 +1,16 @@
+.home {
+  display: flex;
+
+  &__left-side {
+    width: 300px;
+    background-color: rgb(188, 176, 143);
+  }
+  &__main {
+    width: 550px;
+    background-color: rosybrown;
+  }
+  &__right-side {
+    width: 300px;
+    background-color: rgb(188, 176, 143);
+  }
+}

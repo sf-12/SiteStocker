@@ -5,5 +5,5 @@ class Site < ApplicationRecord
   validates :url, presence: true
 
   # association
-  has_many :tweets
+  has_many :tweets, dependent: :destroy
 end

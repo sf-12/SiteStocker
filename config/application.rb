@@ -45,5 +45,9 @@ module Myapp
     config.i18n.default_locale = :ja
     # config/locales以下のディレクトリ内にある全てのymlファイルを読み込む
     config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.yml').to_s]
+
+    # タイムゾーンを日本に変更
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end

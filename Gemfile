@@ -54,6 +54,8 @@ gem 'kaminari'
 gem 'font-awesome-sass'
 # 環境変数の管理
 gem 'dotenv-rails'
+# jsファイルで環境変数を使用できるようにする
+gem 'gon'
 # エラーメッセージの日本語化
 gem 'rails-i18n'
 # warning回避のためRubyバージョンに合わせる

@@ -8,12 +8,12 @@
       <%= render "user/shared/error_messages", resource: resource %>
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'log_in_user-email__input' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'log_in_user_email__input' %>
       </div>
 
       <div class="field">
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", id: 'log_in_user-password__input' %>
+        <%= f.password_field :password, autocomplete: "current-password", id: 'log_in_user_password__input' %>
       </div>
 
       <% if devise_mapping.rememberable? %>

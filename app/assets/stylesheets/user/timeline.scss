@@ -1,0 +1,20 @@
+.timeline {
+
+  &__box {
+    height: 300px;
+    display: block;
+    background-color: royalblue;
+  }
+
+  &__row1 {
+    display: flex;
+  }
+
+  &__row2 {
+    display: flex;
+  }
+
+  &__row3 {
+    display: flex;
+  }
+}

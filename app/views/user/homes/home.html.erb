@@ -1,1 +1,49 @@
 <h1>ホーム画面</h1>
+<div class="home">
+  <div class='home__left-side'>
+    <%= link_to new_tweet_path do %>
+      <button>投稿する</button>
+    <% end %>
+  </div>
+
+  <div class='home__main'>
+    <% @tweets.each do |tweet| %>
+      <%# サイトURLをAPIに送信する用 %>
+      <input id=<%='site_url_js' + tweet.id.to_s %>, type="hidden", value=<%= tweet.site.url %>>
+      <div class='timeline__box'>
+        <div class='timeline__row1'>
+          <%# アイコン %>
+          <%= attachment_image_tag tweet.user, :image, fallback: "user-default.png", size: "40x40"%>
+          <%# ユーザー名 %>
+          <%= tweet.user.name %>
+          <%# 投稿日 %>
+          <%= tweet.created_at %>
+        </div>
+        <div class='timeline__row2'>
+          <%# サイト画像 %>
+          <img id=<%="myimage_js" + tweet.id.to_s %> src="">
+          <%# サイト名 %>
+          <div id=<%='mysitename_js' + tweet.id.to_s %> class="mt-2 is-size-7">
+          </div>
+          <%# ページ名 %>
+          <div id=<%='myurl_js' + tweet.id.to_s %>>
+          </div>
+          <%# ページタイトル %>
+          <div id=<%='mytitle_js' + tweet.id.to_s  %>>
+          </div>
+          <%# 紹介文 %>
+          <%= tweet.text %>
+        </div>
+        <div class='timeline__row3'>
+          <%# コメント %>
+          コメント
+          <%# いいね %>
+          いいね
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='home__right-side'>
+  </div>
+</div>
