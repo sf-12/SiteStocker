@@ -3,8 +3,8 @@
 class User::HomesController < ApplicationController
   def home
     gon.linkpreview_key = ENV['LINK_PREVIEW_API_KEY']
-    gon.tweet_id_list = Tweet.all.ids
-    @tweets = Tweet.all
+    @tweets = Tweet.page(params[:page]).reverse_order
+    gon.tweet_id_list = @tweets.ids
   end
 
   def about; end

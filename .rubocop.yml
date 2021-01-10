@@ -49,3 +49,7 @@ Style/ClassAndModuleChildren:
 # ドキュメント用のコメントを付けなくてもよい
 Style/Documentation:
   Enabled: false
+
+# メソッド呼び出し時に"self."と付けるのを許可(特にmodel内ではその方がわかりやすい)
+Style/RedundantSelf:
+  Enabled: false
