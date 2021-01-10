@@ -1,0 +1,14 @@
+SiteStockerは
+<h1>皆さんのおすすめのサイトを見ることができます</h1>
+SiteStockerは
+<h1>自分のおすすめのサイトを投稿できます</h1>
+<h1>閲覧されているサイトを見てみよう</h1>
+<% if user_signed_in? %>
+  <%= link_to home_path do %>
+    <button>タイムラインを見る</button>
+  <% end %>
+<% else %>
+  <%= link_to new_user_registration_path do %>
+    <button>ユーザー登録する</button>
+  <% end %>
+<% end %>
