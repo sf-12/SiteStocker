@@ -64,4 +64,8 @@ RSpec.describe User, type: :model do
       expect(user.errors[:is_active]).to include('を入力してください')
     end
   end
+
+  describe 'アソシエーション' do
+    pending 'フォローテーブルを複数持つこと'
+  end
 end
