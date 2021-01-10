@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   scope module: 'user' do
     root 'homes#top'
     get 'home' => 'homes#home'
+    resources :tweets, only: %i[new create]
   end
 end
