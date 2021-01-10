@@ -6,4 +6,6 @@ class User::HomesController < ApplicationController
     gon.tweet_id_list = Tweet.all.ids
     @tweets = Tweet.all
   end
+
+  def about; end
 end
