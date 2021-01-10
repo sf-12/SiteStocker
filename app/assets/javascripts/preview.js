@@ -1,13 +1,13 @@
-// $(function () {
 document.addEventListener("turbolinks:load", function () {
 
   // 環境変数からAPI＿KEYを取得
   const API_KEY = gon.linkpreview_key;
-  // 投稿IDの一覧を取得
+  // controllerから投稿IDの一覧を取得
   const TWEET_ID_LIST = gon.tweet_id_list;
   // 追加リクエストの設定 (site_name:サイト名)
   const FIELDS = 'site_name';
-
+  // ログ出力
+  console.log('TWEET_ID_LIST: ' + TWEET_ID_LIST);
   // 投稿IDの数だけAPIを叩く
   TWEET_ID_LIST.forEach(function (elem) {
 
@@ -17,7 +17,7 @@ document.addEventListener("turbolinks:load", function () {
     site_url = undefined;
 
     // ログ出力
-    console.log('サイトURL:' + site_url);
+    console.log('サイトURL: ' + site_url);
 
     // サイトURLが入っていることを確認してAPIを叩く
     if (site_url != undefined) {
@@ -40,7 +40,7 @@ document.addEventListener("turbolinks:load", function () {
           // サイト画像
           document.getElementById('myimage_js' + elem).src = response.image
           // ページ URL
-          document.getElementById('myurl_js' + elem).innerHTML = response.url
+          // document.getElementById('myurl_js' + elem).innerHTML = response.url
           // サイトURL
           // document.getElementById('mysitename_js' + elem ).innerHTML = response.site_name
           // ログ出力
@@ -51,12 +51,7 @@ document.addEventListener("turbolinks:load", function () {
         })
     } else {
       document.getElementById('myimage_js' + elem).src = 'noimage.png'
-      // document.getElementById('mytitle_js' + elem).innerHTML = 'ページタイトル(取得不可)'
-      document.getElementById('mytitle_js' + elem).innerHTML = 'ページタイトルページタイトルページタイトルページタイトルページタイトル'
-      // document.getElementById('mydescription_js' + elem).innerHTML = 'ページ概要（取得不可）'
-      // document.getElementById('myurl_js' + elem).innerHTML = 'ページURL（取得不可）'
-      document.getElementById('myurl_js' + elem).innerHTML = 'ページURLページURLページURLページURLページURLページURLページURL'
-      // document.getElementById('mysitename_js' + elem ).innerHTML = 'サイトURL（取得不可）'
+      document.getElementById('mytitle_js' + elem).innerHTML = 'ページタイトル(取得できませんでした)'
       // ログ出力
       console.log('site_urlがundefinedだったため、LinkPreviewAPIにアクセスしませんでした');
     }

@@ -1,6 +1,5 @@
 <div class="home">
   <div class='home__left-side'>
-
     <%= link_to new_tweet_path do %>
       <button>投稿する</button>
     <% end %>
@@ -35,7 +34,7 @@
             <%# ページタイトル %>
             <div id=<%='mytitle_js' + tweet.id.to_s %> class='timeline__page-title' ></div>
             <%# ページURL %>
-            <div id=<%='myurl_js' + tweet.id.to_s %> class='timeline__page-url'></div>
+            <div class='timeline__page-url'><%= tweet.site.url %></div>
             <%# 紹介文 %>
             <div class='timeline__tweet-text'><%= tweet.text %></div>
           </div>
@@ -52,6 +51,7 @@
         </div>
       </div>
     <% end %>
+    <%= paginate @tweets %>
   </div>
 
   <div class='home__right-side'>
