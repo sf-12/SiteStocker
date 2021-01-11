@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function () {
+document.addEventListener("DOMContentLoaded", function () {
   // 環境変数からAPI＿KEYを取得
   const API_KEY = gon.linkpreview_key;
   // controllerから投稿IDの一覧を取得
