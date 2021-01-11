@@ -1,6 +1,8 @@
 <% tweets.each do |tweet| %>
+
   <%# サイトURLをAPIに送信する用 %>
   <input id=<%='site_url_js' + tweet.id.to_s %> type='hidden' value=<%= tweet.site.url %> >
+
   <div class='timeline__box'>
     <div class='timeline__row1'>
       <div class='timeline__row1-col1'>
