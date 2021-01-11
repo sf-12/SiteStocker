@@ -12,8 +12,8 @@ document.addEventListener("turbolinks:load", function () {
 
     // 投稿IDを頼りに、サイトurlをviewから取得
     // 料金節約のため、普段はAPIを叩かない
-    // site_url = $('#site_url_js' + elem).val();
-    site_url = undefined;
+    site_url = $('#site_url_js' + elem).val();
+    // site_url = undefined;
 
     // ログ出力
     console.log('サイトURL: ' + site_url);
