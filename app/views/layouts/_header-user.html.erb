@@ -10,7 +10,7 @@
       </div>
       <%# 右寄せ部分 %>
       <div class='header__inner-right'>
-        <%= link_to 'マイページ', home_path %>
+        <%= link_to 'マイページ', user_path(current_user.id) %>
         <%= link_to '投稿する', new_tweet_path %>
         <%= link_to '設定', home_path %>
         <%= link_to 'about', about_path %>

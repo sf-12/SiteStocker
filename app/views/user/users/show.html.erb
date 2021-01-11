@@ -1,8 +1,20 @@
 <div class="home">
   <%# 左サイド %>
   <div class='home__left-side'>
+    <%= attachment_image_tag @user, :image, fallback: "user-default.png",class: 'timeline__user-icon' %><br>
+    自己紹介文<br>
+    投稿数<br>
+    コメント数<br>
+    フォロー<br>
+    フォロワー<br>
+    良いねした<br>
+  　良いねされた<br>
+    <button>プロフィール変更</button><br>
     <%= link_to new_tweet_path do %>
       <button>投稿する</button>
+    <% end %><br>
+    <%= link_to home_path do %>
+      <button>タイムライン</button>
     <% end %>
   </div>
 

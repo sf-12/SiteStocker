@@ -1,5 +1,4 @@
 document.addEventListener("turbolinks:load", function () {
-
   // 環境変数からAPI＿KEYを取得
   const API_KEY = gon.linkpreview_key;
   // controllerから投稿IDの一覧を取得
@@ -38,7 +37,11 @@ document.addEventListener("turbolinks:load", function () {
           // ページ概要
           // document.getElementById('mydescription_js' + elem).innerHTML = response.description
           // サイト画像
-          document.getElementById('myimage_js' + elem).src = response.image
+          if (response.image != "") {
+            document.getElementById('myimage_js' + elem).src = response.image
+          } else {
+            document.getElementById('myimage_js' + elem).src = '/noimage.png'
+          }
           // ページ URL
           // document.getElementById('myurl_js' + elem).innerHTML = response.url
           // サイトURL
@@ -50,7 +53,7 @@ document.addEventListener("turbolinks:load", function () {
           console.log('LinkPreviewAPIにアクセスしましたが、失敗しました');
         })
     } else {
-      document.getElementById('myimage_js' + elem).src = 'noimage.png'
+      document.getElementById('myimage_js' + elem).src = '/noimage.png'
       document.getElementById('mytitle_js' + elem).innerHTML = 'ページタイトル(取得できませんでした)'
       // ログ出力
       console.log('site_urlがundefinedだったため、LinkPreviewAPIにアクセスしませんでした');

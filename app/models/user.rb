@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :ralationships, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :tweets, through: :tweet_tags
+  has_many :tweets, dependent: :destroy
 
   # 簡単ログイン機能
   def self.guest
