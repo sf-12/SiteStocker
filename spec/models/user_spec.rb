@@ -28,11 +28,12 @@ RSpec.describe User, type: :model do
       expect(user.errors[:email]).to include('はすでに存在します')
     end
 
-    it 'パスワードがなければ無効な状態であること' do
-      user = FactoryBot.build(:user, password: nil)
-      user.valid?
-      expect(user.errors[:password]).to include('を入力してください')
-    end
+    # バリデーション設定 allow_nil: true によってnilは許容される
+    # it 'パスワードがなければ無効な状態であること' do
+    #   user = FactoryBot.build(:user, password: nil)
+    #   user.valid?
+    #   expect(user.errors[:password]).to include('を入力してください')
+    # end
 
     it 'パスワードが5文字以下であれば無効な状態であること' do
       user = FactoryBot.build(:user, password: '12345')

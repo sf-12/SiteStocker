@@ -5,7 +5,7 @@
     <div class='timeline__row1'>
       <div class='timeline__row1-col1'>
         <%# アイコン %>
-        <%= attachment_image_tag tweet.user, :image, fallback: "user-default.png",class: 'timeline__user-icon' %>
+        <%= attachment_image_tag tweet.user, :image, fallback: "user_default.png",class: 'timeline__user-icon' %>
         <%# ユーザー名 %>
         <span class='timeline__user-name'>
           <%= tweet.user.name %>

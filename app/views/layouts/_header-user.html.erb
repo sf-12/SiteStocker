@@ -16,7 +16,7 @@
         <%= link_to 'about', about_path %>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
         <%= link_to home_path do %>
-          <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: "user-default.png", size: "36x36" %>
+          <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: "user_default.png", size: "36x36" %>
         <% end %>
       </div>
     </div>

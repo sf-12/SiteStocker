@@ -20,7 +20,7 @@ class User::SessionsController < Devise::SessionsController
 
   # 簡単ログイン機能
   def new_guest
-    user = User.guest
+    user = User.guest_login
     sign_in user
     redirect_to home_path, notice: 'ゲストユーザーとしてログインしました。'
   end
