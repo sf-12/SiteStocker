@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>SiteStocker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%# Font Awsome %>
+    <script src="https://kit.fontawesome.com/c826cbed9f.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# jsファイル内で環境変数を使用できるようにする %>
+    <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div class=application>
+      <%# ヘッダー %>
       <%= render 'layouts/header-user' %>
+
+      <%# フラッシュメッセージ %>
+      <%= render 'layouts/notifications' %>
+
+      <%# メイン %>
       <main><%= yield %></main>
+
+      <%# フッター %>
       <%= render 'layouts/footer' %>
     </div>
   </body>

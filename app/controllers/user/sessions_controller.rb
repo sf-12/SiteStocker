@@ -18,7 +18,15 @@ class User::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  # 簡単ログイン機能
+  def new_guest
+    user = User.guest_login
+    sign_in user
+    redirect_to home_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+  # クラス内、同一パッケージ、サブクラスからのみアクセス可
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

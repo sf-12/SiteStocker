@@ -16,6 +16,12 @@ AllCops:
     - vendor/**/*
     - bin/**/*
 
+# --------Layout--------
+# １行の長さ
+Layout/LineLength:
+  Exclude:
+  - config/initializers/application_controller_renderer.rb
+
 # --------Lint--------
 # superで継承だけしているメソッドを許容
 Lint/UselessMethodDefinition:
@@ -48,4 +54,8 @@ Style/ClassAndModuleChildren:
 
 # ドキュメント用のコメントを付けなくてもよい
 Style/Documentation:
+  Enabled: false
+
+# メソッド呼び出し時に"self."と付けるのを許可(特にmodel内ではその方がわかりやすい)
+Style/RedundantSelf:
   Enabled: false

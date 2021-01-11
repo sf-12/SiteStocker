@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-module User::HomesHelper
+module User::UsersHelper
 end

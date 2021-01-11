@@ -1,1 +1,20 @@
-<h1>ホーム画面</h1>
+<div class="home">
+  <%# 左サイド %>
+  <div class='home__left-side'>
+    <%= link_to new_tweet_path do %>
+      <button>投稿する</button>
+    <% end %>
+  </div>
+
+  <%# メイン部分 %>
+  <div class='home__main'>
+    <%= render 'user/shared/timeline', tweets: @tweets %>
+  </div>
+
+  <%# 右サイド %>
+  <div class='home__right-side'>
+  </div>
+</div>
+
+<%# タイムライン内でサイトのプレビューを表示 %>
+<%= javascript_include_tag 'preview.js' %>
