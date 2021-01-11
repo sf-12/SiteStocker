@@ -16,6 +16,12 @@ AllCops:
     - vendor/**/*
     - bin/**/*
 
+# --------Layout--------
+# １行の長さ
+Layout/LineLength:
+  Exclude:
+  - config/initializers/application_controller_renderer.rb
+
 # --------Lint--------
 # superで継承だけしているメソッドを許容
 Lint/UselessMethodDefinition:
