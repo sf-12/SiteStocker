@@ -3,7 +3,9 @@
 class User::HomesController < ApplicationController
   def home
     gon.linkpreview_key = ENV['LINK_PREVIEW_API_KEY']
-    @tweets = Tweet.page(params[:page]).reverse_order
+    # 退会済みユーザーの投稿は除外する
+    active_tweet = Tweet.where(user_id: User.where(is_active: true).ids)
+    @tweets = active_tweet.page(params[:page]).reverse_order
     gon.tweet_id_list = @tweets.ids
   end
 

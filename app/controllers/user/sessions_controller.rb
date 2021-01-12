@@ -2,16 +2,16 @@
 
 class User::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-
+  before_action :reject_user, only: [:create]
   # GET /resource/sign_in
   # def new
   #   super
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+  end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -41,5 +41,15 @@ class User::SessionsController < Devise::SessionsController
   # ログアウト後に遷移するパス
   def after_sign_out_path_for(_resource)
     root_path
+  end
+
+  # 退会済みユーザーがログインできないようにする
+  def reject_user
+    @user = User.find_by(email: params[:user][:email].downcase)
+    return unless @user
+    return unless @user.valid_password?(params[:user][:password]) && (@user.is_active == false)
+
+    flash[:error] = '退会済みのアカウントです。'
+    redirect_to new_user_session_path
   end
 end

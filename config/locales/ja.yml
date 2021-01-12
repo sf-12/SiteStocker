@@ -4,6 +4,7 @@ ja:
       user:
         name: ユーザー名
         email: メールアドレス
+        current_password: 現在のパスワード
         password: パスワード
         password_confirmation: パスワード（確認）
         image_id: プロフィール画像
@@ -37,8 +38,3 @@ ja:
         site_id: サイトID
       site:
         url: サイトURL
-  date:
-    formats:
-      default: ! '%Y/%m/%d'
-      long: ! '%Y年%-m月%-d日(%a)'
-      short: ! '%m/%d'

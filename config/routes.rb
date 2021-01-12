@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get 'home' => 'homes#home'
     get 'about' => 'homes#about'
     resources :tweets, only: %i[new create]
-    resources :users, only: %i[show]
+    get 'users/setting' => 'users#setting'
+    resources :users, only: %i[show destroy]
   end
 end

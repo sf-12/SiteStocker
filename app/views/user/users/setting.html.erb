@@ -1,0 +1,31 @@
+<h1>設定</h1>
+<h3>パスワード変更</h3>
+<%= form_with model: @user, url: user_registration_path, id: 'update_password', local: true do |f| %>
+  <%= render "user/shared/error_messages", resource: resource %>
+  <%# 現在のパスワード %>
+  <div class="field">
+    <%= f.label :current_password %><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <%# 新しいパスワード %>
+  <div class="field">
+    <%= f.label :password, '新しいパスワード' %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <%# 新しいパスワード（確認） %>
+  <div class="field">
+    <%= f.label :password_confirmation, '新しいパスワード (確認)' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "変更する" %>
+  </div>
+<% end %>
+
+<h3>退会</h3>
+<%= link_to user_path(current_user.id), method: :delete, "data-confirm" => "本当に退会しますか？" do %>
+  <button>退会する</button>
+<% end %>
