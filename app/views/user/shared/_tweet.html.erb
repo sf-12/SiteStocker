@@ -46,12 +46,20 @@
           <i class="far fa-thumbs-up"> いいね</i>
         <% end %>
       </div>
-      <%# 編集 %>
-      <div class='timeline__tweet-item'>
-        <%= link_to edit_tweet_path(tweet.id), class: 'timeline__link-show' do %>
-          <i class="far fa-edit"> 編集</i>
-        <% end %>
-      </div>
+      <%# 自分の投稿の場合のみの機能 %>
+      <% if current_user.id == tweet.user_id %>
+        <%# 編集 %>
+        <div class='timeline__tweet-item'>
+          <%= link_to edit_tweet_path(tweet.id), class: 'timeline__link-show' do %>
+            <i class="far fa-edit"> 編集</i>
+          <% end %>
+        </div>
+        <div class='timeline__tweet-item'>
+          <%= link_to tweet_path(tweet.id), method: :delete, class: 'timeline__link-show', "data-confirm" => "本当に削除しますか？" do %>
+            <i class="far fa-trash-alt"> 削除</i>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
