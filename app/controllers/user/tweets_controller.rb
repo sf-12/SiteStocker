@@ -17,4 +17,11 @@ class User::TweetsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    gon.linkpreview_key = ENV['LINK_PREVIEW_API_KEY']
+    @tweet = Tweet.find(params[:id])
+    # データは1つだが配列として渡す
+    gon.tweet_id_list = [@tweet.id]
+  end
 end
