@@ -45,4 +45,13 @@ class User::TweetsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    tweet = Tweet.find(params[:id])
+    return unless tweet.user_id == current_user.id
+
+    tweet.destroy
+    flash[:error] = '投稿を削除しました'
+    redirect_to user_path(current_user.id)
+  end
 end
