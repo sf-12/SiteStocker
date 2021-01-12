@@ -8,52 +8,7 @@
 
   <%# メイン部分 %>
   <div class='home__main'>
-
-    <%# サイトURLをAPIに送信する用 %>
-    <input id=<%='site_url_js' + @tweet.id.to_s %> type='hidden' value=<%= @tweet.site.url %> >
-
-    <%# タイムライン記事 %>
-    <div class='tweet-show__box'>
-      <div class='tweet-show__row1'>
-        <div class='tweet-show__row1-col1'>
-          <%# アイコン %>
-          <%= attachment_image_tag @tweet.user, :image, fallback: "user_default.png",class: 'tweet-show__user-icon' %>
-          <%# ユーザー名 %>
-          <span class='tweet-show__user-name'>
-            <%= @tweet.user.name %>
-          </span>
-        </div>
-        <%# 投稿日時 %>
-        <div class='tweet-show__tweeted-time'>
-          <small><%= @tweet.tweeted_at %></small>
-        </div>
-      </div>
-      <div class='tweet-show__row2'>
-        <div class='tweet-show__row2-col1'>
-          <%# サイト画像 %>
-          <img id=<%="myimage_js" + @tweet.id.to_s %> src="" class='tweet-show__site-image'>
-          <%# TODO:タグ %>
-        </div>
-        <div class='tweet-show__row2-col2'>
-          <%# ページタイトル %>
-          <div id=<%='mytitle_js' + @tweet.id.to_s %> class='tweet-show__page-title' ></div>
-          <%# ページURL %>
-          <div class='tweet-show__page-url'><%= @tweet.site.url %></div>
-          <%# 紹介文 %>
-          <div class='tweet-show__tweet-text'><%= @tweet.text %></div>
-        </div>
-      </div>
-      <div class='tweet-show__row3'>
-        <div class='tweet-show__tweet-comment'>
-          <%# コメント %>
-          <i class="far fa-comment-alt">コメント</i>
-        </div>
-        <div class='tweet-show__tweet-like'>
-          <%# いいね %>
-          <i class="far fa-thumbs-up">いいね</i>
-        </div>
-      </div>
-    </div>
+    <%= render 'user/shared/tweet', tweet: @tweet %>
   </div>
 
   <%# 右サイド %>

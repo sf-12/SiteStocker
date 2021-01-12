@@ -50,6 +50,7 @@
 
   &__row2 {
     display: flex;
+    padding-top: 2px;
   }
 
   &__row2-col1 {
@@ -92,6 +93,11 @@
     height: 40px;
     line-height: 40px;
     padding: 5px;
-    justify-content: space-evenly;
+    justify-content: center;
+  }
+
+  &__tweet-item {
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
