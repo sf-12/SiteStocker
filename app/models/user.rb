@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, confirmation: true, allow_nil: true
   validates :password_confirmation, presence: true, allow_nil: true
-  validates :is_active, presence: true
+  validates :is_active, inclusion: [true, false]
 
   # association
   has_many :ralationships, dependent: :destroy

@@ -27,6 +27,7 @@ Layout/LineLength:
 Lint/UselessMethodDefinition:
   Exclude:
     - app/controllers/user/registrations_controller.rb
+    - app/controllers/user/sessions_controller.rb
 
 # --------Metrics--------
 # rspec内の１ブロックあたりの行数はチェックしない
