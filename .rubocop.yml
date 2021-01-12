@@ -35,6 +35,10 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
+# AbcSizeチェックの許容上限値
+Metrics/AbcSize:
+  Max: 20
+
 # --------RSpec--------
 # contextが'when','with','without'で始まらなくてもよい
 RSpec/ContextWording:

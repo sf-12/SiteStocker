@@ -1,0 +1,24 @@
+<div class='tweet'>
+  <div class='tweet__left bg-primary'>
+    おすすめサイトを共有しよう！
+  </div>
+  <div class='tweet__right bg-light'>
+    <%= form_with model: @tweet, url: tweet_path, id: 'update_tweet', local:  true do |f| %>
+      <%= render "user/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :url %><br />
+        <%= f.text_field :url, autofocus: true,value: @site_url, id: 'update_tweet_url__input' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :text %><br />
+        <%= f.text_area :text, id: 'update_tweet_text__input' %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "編集する" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
