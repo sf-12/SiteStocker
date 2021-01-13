@@ -77,6 +77,12 @@
           <%= comment.user.name %>
           <%= comment.text %>
           <%= comment.created_at_ja %>
+          <%# 自分のコメントの場合のみの機能 %>
+          <% if current_user.id == comment.user_id %>
+            <%= link_to tweet_comment_path(@tweet.id, comment.id), method: :delete do %>
+              <button>削除</button>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </div>
