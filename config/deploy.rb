@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.14.1'
+lock '~> 3.15'
 
 set :application, 'SiteStocker'
 set :repo_url, 'git@github.com:sf-12/SiteStocker.git'
