@@ -23,6 +23,7 @@ class User::TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     # データは1つだが配列として渡す
     gon.tweet_id_list = [@tweet.id]
+    @new_comment = Comment.new
   end
 
   def edit

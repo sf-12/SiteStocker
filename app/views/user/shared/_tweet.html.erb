@@ -15,7 +15,7 @@
       </div>
       <%# 投稿日時 %>
       <div class='timeline__tweeted-time'>
-        <small><%= tweet.tweeted_at %></small>
+        <small><%= tweet.created_at_ja %></small>
       </div>
     </div>
     <div class='timeline__row2'>
@@ -36,8 +36,12 @@
     <div class='timeline__row3'>
       <%# コメント %>
       <div class='timeline__tweet-item'>
-        <%= link_to '', class: 'timeline__link-show' do %>
-          <i class="far fa-comment-alt"> コメント</i>
+        <%= link_to tweet_path(tweet.id), class: 'timeline__link-show' do %>
+          <i class="far fa-comment-alt">コメント </i>
+          <%# コメントされている時だけ件数表示 %>
+          <% if tweet.comments.count != 0 %>
+            <%= tweet.comments.count %>
+          <% end %>
         <% end %>
       </div>
       <%# いいね %>
