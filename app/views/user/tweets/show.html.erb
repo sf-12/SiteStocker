@@ -1,10 +1,12 @@
 <div class="home">
   <%# 左サイド %>
   <div class='home__left-side'>
-    <%# 投稿ボタン %>
-    <%= link_to new_tweet_path do %>
-      <button>投稿する</button>
-    <% end %>
+    <%= render 'user/shared/left_side', user: @tweet.user %>
+
+    <%# フォロー機能 %>
+    <br>
+    <%= render 'user/shared/follow', user: @tweet.user %>
+
     <%# コメント作成 %>
     <%= form_with(model:[@tweet, @new_comment], local: true) do |f| %>
       <%= f.text_area :text, placeholder: 'コメントを書く', class: 'comment__new' %>
@@ -22,12 +24,16 @@
     <div class='tweet-show__box'>
       <div class='tweet-show__row1'>
         <div class='tweet-show__row1-col1'>
-          <%# アイコン %>
-          <%= attachment_image_tag @tweet.user, :image, fallback: "user_default.png",class: 'tweet-show__user-icon' %>
-          <%# ユーザー名 %>
-          <span class='tweet-show__user-name'>
-            <%= @tweet.user.name %>
-          </span>
+          <object>
+            <%= link_to user_path(@tweet.user.id) do %>
+              <%# アイコン %>
+              <%= attachment_image_tag @tweet.user, :image, fallback: "user_default.png",class: 'tweet-show__user-icon' %>
+              <%# ユーザー名 %>
+              <span class='tweet-show__user-name'>
+                <%= @tweet.user.name %>
+              </span>
+            <% end %>
+          </object>
         </div>
         <%# 投稿日時 %>
         <div class='tweet-show__tweeted-time'>
