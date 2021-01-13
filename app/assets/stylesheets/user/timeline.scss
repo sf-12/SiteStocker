@@ -2,9 +2,9 @@
 
   &__box {
     display: block;
-    border-bottom:  1.5px solid #cccccc;
-    border-left:  1.5px solid #cccccc;
-    border-right:  1.5px solid #cccccc;
+    border-bottom:  1px solid #cccccc;
+    border-left:  1px solid #cccccc;
+    border-right:  1px solid #cccccc;
     font-size: 14px;
   }
 
@@ -93,11 +93,10 @@
     height: 40px;
     line-height: 40px;
     padding: 5px;
-    justify-content: center;
   }
 
   &__tweet-item {
-    padding-right: 20px;
+    width: 25%;
     padding-left: 20px;
   }
 }
