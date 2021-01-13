@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     resources :tweets, only: %i[new create show edit update destroy] do
       resources :comments, only: %i[create destroy]
+      resource :likes, only: %i[create destroy]
     end
     get 'users/setting' => 'users#setting'
     resources :users, only: %i[show destroy]
