@@ -3,10 +3,6 @@
   <div class='home__left-side'>
     <%= render 'user/shared/left_side', user: @tweet.user %>
 
-    <%# フォロー機能 %>
-    <br>
-    <%= render 'user/shared/follow', user: @tweet.user %>
-
     <%# コメント作成 %>
     <%= form_with(model:[@tweet, @new_comment], local: true) do |f| %>
       <%= f.text_area :text, placeholder: 'コメントを書く', class: 'comment__new' %>

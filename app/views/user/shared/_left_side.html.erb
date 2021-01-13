@@ -1,21 +1,56 @@
-<%= attachment_image_tag user, :image, fallback: "user_default.png",class: 'timeline__user-icon' %><br>
-<%= user.name %><br>
-<%= user.text %><br>
-投稿数<br>
-コメント数<br>
-フォロー<br>
-フォロワー<br>
-良いねした<br>
-良いねされた<br>
+<ul>
+  <li>
+    <%= attachment_image_tag user, :image, fallback: "user_default.png",class: 'timeline__user-icon' %><br>
+  </li>
+  <li>
+    <%= user.name %>
+  </li>
+  <li>
+    <%= user.text %>
+  </li>
+  <li>
+    投稿数
+  </li>
+  <li>
+    コメント数
+  </li>
+  <li>
+    <%= link_to user_followings_path(user.id) do %>
+      フォロー <%= user.followings.count %>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to user_followers_path(user.id) do %>
+      フォロワー <%= user.followers.count %>
+    <% end %>
+  </li>
+  <li>
+    良いねした
+  </li>
+  <li>
+    良いねされた
+  </li>
+  <li>
+    <% if user.id == current_user.id %>
+      <%= link_to edit_user_registration_path do %>
+        <button>プロフィール変更</button>
+      <% end %>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to new_tweet_path do %>
+      <button>投稿する</button>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to home_path do %>
+      <button>タイムライン</button>
+    <% end %>
+  </li>
 
-<% if user.id == current_user.id %>
-  <%= link_to edit_user_registration_path do %>
-    <button>プロフィール変更</button>
-  <% end %>
-<% end %><br>
-<%= link_to new_tweet_path do %>
-  <button>投稿する</button>
-<% end %><br>
-<%= link_to home_path do %>
-  <button>タイムライン</button>
-<% end %>
+  <%# フォロー機能 %>
+  <li>
+    <%= render 'user/shared/follow', user: user %>
+  </li>
+
+<ul>

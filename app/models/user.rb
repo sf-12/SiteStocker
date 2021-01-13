@@ -43,7 +43,7 @@ class User < ApplicationRecord
   # rubocop:enable Rails/InverseOf
 
   # @user.followedsで、ユーザーをフォローしている人の一覧を出す
-  has_many :followeds, through: :followed_relationships, source: :follower
+  has_many :followers, through: :followed_relationships, source: :follower
   # ----------------------------------------------------------
 
   # 簡単ログイン機能
