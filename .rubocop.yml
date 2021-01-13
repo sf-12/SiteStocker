@@ -27,12 +27,17 @@ Layout/LineLength:
 Lint/UselessMethodDefinition:
   Exclude:
     - app/controllers/user/registrations_controller.rb
+    - app/controllers/user/sessions_controller.rb
 
 # --------Metrics--------
 # rspec内の１ブロックあたりの行数はチェックしない
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+
+# AbcSizeチェックの許容上限値
+Metrics/AbcSize:
+  Max: 20
 
 # --------RSpec--------
 # contextが'when','with','without'で始まらなくてもよい

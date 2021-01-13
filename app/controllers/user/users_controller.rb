@@ -7,4 +7,17 @@ class User::UsersController < ApplicationController
     @tweets = @user.tweets.page(params[:page]).reverse_order
     gon.tweet_id_list = @tweets.ids
   end
+
+  def setting
+    @user = current_user
+  end
+
+  def exit; end
+
+  def destroy
+    user = current_user
+    user.update!(is_active: false)
+    reset_session
+    redirect_to root_path, notice: 'ありがとうございました。またのご利用を心よりお待ちしております。'
+  end
 end

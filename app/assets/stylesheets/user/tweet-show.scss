@@ -1,4 +1,4 @@
-.timeline {
+.tweet-show {
 
   &__box {
     display: block;
@@ -20,7 +20,6 @@
 
   &__box:hover {
     background-color: #f0f0f0;
-    cursor: pointer;
   }
 
   &__row1 {
@@ -93,10 +92,11 @@
     height: 40px;
     line-height: 40px;
     padding: 5px;
+    justify-content: center;
   }
 
   &__tweet-item {
-    width: 25%;
+    padding-right: 20px;
     padding-left: 20px;
   }
 }

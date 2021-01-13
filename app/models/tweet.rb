@@ -14,10 +14,4 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :tweet_tags, dependent: :destroy
   has_many :tags, through: :tweet_tags
-
-  # 投稿日時を日本語で返す
-  def tweeted_at
-    dw = %w[日 月 火 水 木 金 土]
-    self.created_at.strftime("%Y/%m/%d(#{dw[self.created_at.wday]}) %H:%M")
-  end
 end
