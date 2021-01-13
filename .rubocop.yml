@@ -30,10 +30,11 @@ Lint/UselessMethodDefinition:
     - app/controllers/user/sessions_controller.rb
 
 # --------Metrics--------
-# rspec内の１ブロックあたりの行数はチェックしない
+# １ブロックあたりの行数チェック（最大25行）
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'config/routes.rb'
 
 # AbcSizeチェックの許容上限値
 Metrics/AbcSize:

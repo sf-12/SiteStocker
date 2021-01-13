@@ -17,10 +17,34 @@ class User < ApplicationRecord
   validates :is_active, inclusion: [true, false]
 
   # association
-  has_many :ralationships, dependent: :destroy
+  has_many :relationships, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :tweets, dependent: :destroy
+
+  # フォロー機能------------------------------------------------
+  # フォローする側のRelationshipをfollow_relationshipsと定義
+  # rubocop:disable Rails/InverseOf
+  has_many  :follow_relationships,
+            class_name: 'Relationship',
+            foreign_key: 'follower_id',
+            dependent: :destroy
+  # rubocop:enable Rails/InverseOf
+
+  # @user.followinhgsで、ユーザーがフォローしている人の一覧を出す
+  has_many :followings, through: :follow_relationships, source: :followee
+
+  # フォローする側のRelationshipをfollowd_relationshipsと定義
+  # rubocop:disable Rails/InverseOf
+  has_many  :followed_relationships,
+            class_name: 'Relationship',
+            foreign_key: 'followee_id',
+            dependent: :destroy
+  # rubocop:enable Rails/InverseOf
+
+  # @user.followedsで、ユーザーをフォローしている人の一覧を出す
+  has_many :followers, through: :followed_relationships, source: :follower
+  # ----------------------------------------------------------
 
   # 簡単ログイン機能
   def self.guest_login
@@ -39,14 +63,27 @@ class User < ApplicationRecord
   # [devise用]パスワード入力なしで情報を更新する
   def update_without_current_password(params, *options)
     params.delete(:current_password)
-
     if params[:password].blank? && params[:password_confirmation].blank?
       params.delete(:password)
       params.delete(:password_confirmation)
     end
-
     result = update(params, *options)
     clean_up_passwords
     result
+  end
+
+  # ユーザーをフォローする
+  def follow(user_id)
+    self.follow_relationships.create(followee_id: user_id)
+  end
+
+  # ユーザーをフォロー解除する
+  def unfollow(user_id)
+    self.follow_relationships.find_by(followee_id: user_id).destroy
+  end
+
+  # ユーザーをフォローしているか調べる（true:している、false:していない）
+  def following?(user)
+    self.followings.include?(user)
   end
 end

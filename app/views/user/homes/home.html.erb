@@ -1,9 +1,7 @@
 <div class="home">
   <%# 左サイド %>
   <div class='home__left-side'>
-    <%= link_to new_tweet_path do %>
-      <button>投稿する</button>
-    <% end %>
+    <%= render 'user/shared/left_side', user: current_user %>
   </div>
 
   <%# メイン部分 %>

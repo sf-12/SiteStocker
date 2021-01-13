@@ -6,12 +6,16 @@
   <%= link_to tweet_path(tweet.id), class: 'timeline__link-show' do %>
     <div class='timeline__row1'>
       <div class='timeline__row1-col1'>
-        <%# アイコン %>
-        <%= attachment_image_tag tweet.user, :image, fallback: "user_default.png",class: 'timeline__user-icon' %>
-        <%# ユーザー名 %>
-        <span class='timeline__user-name'>
-          <%= tweet.user.name %>
-        </span>
+        <object>
+          <%= link_to user_path(tweet.user.id) do %>
+            <%# アイコン %>
+            <%= attachment_image_tag tweet.user, :image, fallback: "user_default.png", class: 'timeline__user-icon' %>
+            <%# ユーザー名 %>
+            <span class='timeline__user-name'>
+              <%= tweet.user.name %>
+            </span>
+          <% end %>
+        </object>
       </div>
       <%# 投稿日時 %>
       <div class='timeline__tweeted-time'>
