@@ -14,4 +14,14 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :tweet_tags, dependent: :destroy
   has_many :tags, through: :tweet_tags
+
+  # ユーザーが投稿にコメントしているか調べる（true:している、false:していない）
+  def commented_by?(user)
+    comments.exists?(user_id: user.id)
+  end
+
+  # ユーザーが投稿にいいねしているか調べる（true:している、false:していない）
+  def liked_by?(user)
+    likes.exists?(user_id: user.id)
+  end
 end
