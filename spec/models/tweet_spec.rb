@@ -38,7 +38,7 @@ RSpec.describe Tweet, type: :model do
       site = FactoryBot.create(:site)
       tweet = FactoryBot.build(:tweet, user_id: user.id, site_id: site.id, is_opened: nil)
       tweet.valid?
-      expect(tweet.errors[:is_opened]).to include('を入力してください')
+      expect(tweet.errors[:is_opened]).to include('は一覧にありません')
     end
   end
 end

@@ -17,13 +17,13 @@
 
       <div class="field">
         <%= f.label :tag_list %><br />
-        <%= f.text_field :tag_list, id: 'new_tweet_tag_list__input' %>
+        <%= f.text_field :tag_list, value: @tweet.tag_list.join(","), id: 'new_tweet_tag_list__input', class: 'tag_form_js' %>
       </div>
 
-      <%# <div class="field"> %>
-        <%# <%= f.label :is_opened %><br /> %>
-        <%#= f.text_field :is_opened, id: 'new_tweet_is_opened__input' %>
-      <%# </div> %>
+      <div class="field">
+        <%= f.label :is_opened %><br />
+        <%= f.check_box :is_opened, id: 'new_tweet_is_opened__input' %>
+      </div>
 
       <div class="actions">
         <%= f.submit "投稿する" %>
