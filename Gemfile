@@ -64,6 +64,8 @@ gem 'parser', '< 2.7.2.0'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 # アップロードした画像のリサイズに使用
 gem 'refile-mini_magick'
+# タグ機能を実装
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

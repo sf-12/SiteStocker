@@ -1,0 +1,41 @@
+
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <!-- フォロワー一覧テーブル -->
+      <h2>Follower Users</h2>
+      <table class='table table-hover table-inverse'>
+        <!-- テーブルタイトル -->
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan='3'></th>
+          </tr>
+        </thead>
+        <!-- テーブル中身 -->
+        <% @followings.each do |follower| %>
+          <tbody>
+            <tr>
+              <td>
+                <%= attachment_image_tag follower, :image, size:'40x40', fallback: "user_default.png" %>
+              </td>
+              <td>
+                <%= follower.name %>
+              </td>
+              <td>
+                <p>フォロー数：<%= follower.followings.count %></p>
+              </td>
+              <td>
+                <p>フォロワー数：<%= follower.followers.count %></p>
+              </td>
+              <td>
+                <%= link_to 'Show', user_path(follower) %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
