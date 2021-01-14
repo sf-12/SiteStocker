@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
 class User::TweetsController < ApplicationController
-  def new; end
+  def new
+    @tweet = Tweet.new
+  end
 
   def create
     # サイトを保存する
-    site = Site.create(url: params[:url])
-    # タグを保存する
-    # TODO: タグ保存機能の作成
+    site = Site.create(url: params[:tweet][:url])
     # 投稿を保存する
-    tweet = Tweet.new(user_id: current_user.id, site_id: site.id, text: params[:text])
-    if tweet.save
+    new_tweet = Tweet.new(tweet_params)
+    new_tweet.user_id = current_user.id
+    new_tweet.site_id = site.id
+    if new_tweet.save
       # ホーム画面に戻る
       redirect_to home_path
     else
@@ -54,5 +56,11 @@ class User::TweetsController < ApplicationController
     tweet.destroy
     flash[:error] = '投稿を削除しました'
     redirect_to user_path(current_user.id)
+  end
+
+  private
+
+  def tweet_params
+    params.require(:tweet).permit(:user_id, :site_id, :text, :tag_list)
   end
 end

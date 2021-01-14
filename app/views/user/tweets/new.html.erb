@@ -3,7 +3,7 @@
     おすすめサイトを共有しよう！
   </div>
   <div class='tweet__right bg-light'>
-    <%= form_with url: tweets_path, id: 'new_tweets', local:  true do |f| %>
+    <%= form_with model: @tweet, url: tweets_path, id: 'new_tweets', local:  true do |f| %>
       <%= render "user/shared/error_messages", resource: resource %>
       <div class="field">
         <%= f.label :url %><br />
@@ -15,10 +15,10 @@
         <%= f.text_area :text, id: 'new_tweet_text__input' %>
       </div>
 
-      <%# <div class="field"> %>
-        <%# <%= f.label :tag %><br /> %>
-        <%#= f.text_field :text, id: 'new_tweet_tag__input' %>
-      <%# </div> %>
+      <div class="field">
+        <%= f.label :tag_list %><br />
+        <%= f.text_field :tag_list, id: 'new_tweet_tag_list__input' %>
+      </div>
 
       <%# <div class="field"> %>
         <%# <%= f.label :is_opened %><br /> %>

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Tweet < ApplicationRecord
+  # acts-as-taggable-onを使用する
+  acts_as_taggable
+
   # validation
   validates :user_id, presence: true
   validates :site_id, presence: true
@@ -12,8 +15,6 @@ class Tweet < ApplicationRecord
   belongs_to :site
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :tweet_tags, dependent: :destroy
-  has_many :tags, through: :tweet_tags
 
   # ユーザーが投稿にコメントしているか調べる（true:している、false:していない）
   def commented_by?(user)
