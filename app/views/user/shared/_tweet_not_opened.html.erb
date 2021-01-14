@@ -1,0 +1,5 @@
+<%# 非公開設定の時だけ備考を表示する %>
+<% if tweet.is_opened == false %>
+  <br>
+  <small>非公開 : 他の人からは見えない投稿です</small>
+<% end %>

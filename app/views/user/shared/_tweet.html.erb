@@ -37,6 +37,8 @@
         <div class='timeline__tweet-text'><%= tweet.text %></div>
         <%# タグ %>
         <%= render 'user/shared/tag_list', tweet: tweet %>
+        <%# 非公開設定時の備考 %>
+        <%= render 'user/shared/tweet_not_opened', tweet: tweet %>
       </div>
     </div>
     <div class='timeline__row3'>

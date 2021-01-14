@@ -13,8 +13,8 @@ class User::TweetsController < ApplicationController
     new_tweet.user_id = current_user.id
     new_tweet.site_id = site.id
     if new_tweet.save
-      # ホーム画面に戻る
-      redirect_to home_path
+      # マイページに戻る
+      redirect_to user_path(current_user.id)
     else
       render :new
     end
@@ -36,12 +36,11 @@ class User::TweetsController < ApplicationController
   def update
     # サイトを保存する
     tweet = Tweet.find(params[:id])
-    site = tweet.site.id
+    site = tweet.site
     site.update(url: params[:tweet][:url])
-    # タグを保存する
-    # TODO: タグ保存機能の作成
     # 投稿を保存する
-    if tweet.update(site_id: site.id, text: params[:tweet][:text])
+    tweet.site_id = site.id
+    if tweet.update(tweet_params)
       # ホーム画面に戻る
       redirect_to tweet_path(tweet.id)
     else
@@ -61,6 +60,6 @@ class User::TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:user_id, :site_id, :text, :tag_list)
+    params.require(:tweet).permit(:user_id, :site_id, :text, :is_opened, :tag_list)
   end
 end
