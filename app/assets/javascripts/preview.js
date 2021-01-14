@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
   // 環境変数からAPI＿KEYを取得
   const API_KEY = gon.linkpreview_key;
+
   // controllerから投稿IDの一覧を取得
   const TWEET_ID_LIST = gon.tweet_id_list;
+  console.log('TWEET_ID_LIST: ' + TWEET_ID_LIST);
+
   // 追加リクエストの設定 (site_name:サイト名)
   const FIELDS = 'site_name';
-  // ログ出力
-  console.log('TWEET_ID_LIST: ' + TWEET_ID_LIST);
+
   // 投稿IDの数だけAPIを叩く
   TWEET_ID_LIST.forEach(function (elem) {
 
@@ -14,8 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // 料金節約のため、普段はAPIを叩かない
     site_url = $('#site_url_js' + elem).val();
     // site_url = undefined;
-
-    // ログ出力
     console.log('サイトURL: ' + site_url);
 
     // サイトURLが入っていることを確認してAPIを叩く
@@ -52,10 +52,20 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(response => {
           console.log('LinkPreviewAPIにアクセスしましたが、失敗しました');
         })
+
+      // 取得画像が404だった時は代替画像を表示
+      obj = document.getElementById('myimage_js' + elem);
+      var image = new Image();
+      image.src = obj.src;
+      console.log('image.width ' + image.width );
+      if (image.width == 0) {
+        console.log('画像リンク切れ');
+        document.getElementById('myimage_js' + elem).src = '/noimage.png';
+      }
+
     } else {
       document.getElementById('myimage_js' + elem).src = '/noimage.png'
       document.getElementById('mytitle_js' + elem).innerHTML = 'ページタイトル(取得できませんでした)'
-      // ログ出力
       console.log('site_urlがundefinedだったため、LinkPreviewAPIにアクセスしませんでした');
     }
     // ログ出力

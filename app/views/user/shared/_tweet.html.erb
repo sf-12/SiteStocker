@@ -35,6 +35,8 @@
         <div class='timeline__page-url'><%= tweet.site.url %></div>
         <%# 紹介文 %>
         <div class='timeline__tweet-text'><%= tweet.text %></div>
+        <%# タグ %>
+        <%= render 'user/shared/tag_list', tweet: tweet %>
       </div>
     </div>
     <div class='timeline__row3'>

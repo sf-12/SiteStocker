@@ -49,6 +49,8 @@
           <div class='tweet-show__page-url'><%= @tweet.site.url %></div>
           <%# 紹介文 %>
           <div class='tweet-show__tweet-text'><%= @tweet.text %></div>
+          <%# タグ %>
+          <%= render 'user/shared/tag_list', tweet: @tweet %>
         </div>
       </div>
       <div class='tweet-show__row3'>
