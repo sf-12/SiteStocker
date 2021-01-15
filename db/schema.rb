@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_01_13_122036) do
   end
 
   create_table "sites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
-    t.string "url", null: false
+    t.text "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
