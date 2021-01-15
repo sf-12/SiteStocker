@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
 
+  # 管理者側機能
+  namespace :admin do
+    get '/' => 'homes#home'
+  end
+
   # ユーザー側 新規登録・ログイン・ログアウト
   devise_for :users, controllers: {
     sessions: 'user/sessions',
@@ -13,7 +18,7 @@ Rails.application.routes.draw do
     registrations: 'user/registrations'
   }
 
-  # 簡単ログイン
+  # ユーザー側 簡単ログイン
   devise_scope :user do
     post 'user/guest_sign_in' => 'user/sessions#new_guest'
   end

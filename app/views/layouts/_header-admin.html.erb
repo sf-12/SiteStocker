@@ -1,0 +1,17 @@
+<header class='header'>
+  <div class='header__inner'>
+    <%# 左寄せ部分 %>
+    <div class='header__inner-left'>
+      <%= link_to admin_path do %>
+        <%=image_tag('logo.png', size: '54x36') %>
+      <% end %>
+    </div>
+    <%# 右寄せ部分 %>
+    <div class='header__inner-right'>
+      <%= link_to '投稿一覧', '' %>
+      <%= link_to 'ユーザー一覧', '' %>
+      <%= link_to 'タグ一覧', '' %>
+      <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+    </div>
+  </div>
+</header>
