@@ -15,7 +15,11 @@
   <body>
     <div class=application>
       <%# ヘッダー %>
-      <%= render 'layouts/header-user' %>
+      <% if admin_signed_in? %>
+        <%= render 'layouts/header-admin' %>
+      <% elsif user_signed_in? %>
+        <%= render 'layouts/header-user' %>
+      <% end %>
 
       <%# フラッシュメッセージ %>
       <%= render 'layouts/notifications' %>
