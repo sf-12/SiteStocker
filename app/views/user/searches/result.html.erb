@@ -6,6 +6,9 @@
 
   <%# メイン部分 %>
   <div class='home__main'>
+    <div class='search__name'>
+      <%= @search_type %>検索：<%= @search_target %>
+    </div>
     <%= render 'user/shared/timeline', tweets: @tweets %>
   </div>
 

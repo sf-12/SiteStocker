@@ -14,33 +14,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 投稿IDを頼りに、サイトurlをviewから取得
     // 料金節約のため、普段はAPIを叩かない
-    site_url = $('#site_url_js' + elem).val();
+    const SITE_URL = document.getElementById('site_url_js' + elem).value;
     // site_url = undefined;
-    console.log('サイトURL: ' + site_url);
+    console.log('サイトURL: ' + SITE_URL);
 
     // サイトURLが入っていることを確認してAPIを叩く
-    if (site_url != undefined) {
+    if (SITE_URL != undefined) {
 
       // サイト情報の取得に必要なパラメータをセット
-      var data = { key: API_KEY, fields: FIELDS, q: site_url };
+      const DATA = { key: API_KEY, fields: FIELDS, q: SITE_URL };
 
       // サイト情報の取得 & htmlへ埋め込み
       fetch('https://api.linkpreview.net', {
         method: 'POST',
         mode: 'cors',
-        body: JSON.stringify(data),
+        body: JSON.stringify(DATA),
       })
         .then(res => res.json())
         .then(response => {
+          console.log('response' + response);
           // ページタイトル
-          document.getElementById('mytitle_js' + elem).innerHTML = response.title
+          document.getElementById('lp_title_js' + elem).innerHTML = response.title
           // ページ概要
           // document.getElementById('mydescription_js' + elem).innerHTML = response.description
           // サイト画像
           if (response.image != "") {
-            document.getElementById('myimage_js' + elem).src = response.image
+              document.getElementById('lp_image_js' + elem).src = response.image
           } else {
-            document.getElementById('myimage_js' + elem).src = '/noimage.png'
+            document.getElementById('lp_image_js' + elem).src = '/no-image.png'
           }
           // ページ URL
           // document.getElementById('myurl_js' + elem).innerHTML = response.url
@@ -52,23 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(response => {
           console.log('LinkPreviewAPIにアクセスしましたが、失敗しました');
         })
-
-      // 取得画像が404だった時は代替画像を表示
-      obj = document.getElementById('myimage_js' + elem);
-      var image = new Image();
-      image.src = obj.src;
-      console.log('image.width ' + image.width );
-      if (image.width == 0) {
-        console.log('画像リンク切れ');
-        document.getElementById('myimage_js' + elem).src = '/noimage.png';
-      }
-
     } else {
-      document.getElementById('myimage_js' + elem).src = '/noimage.png'
-      document.getElementById('mytitle_js' + elem).innerHTML = 'ページタイトル(取得できませんでした)'
+      document.getElementById('lp_image_js' + elem).src = '/no-image.png'
+      document.getElementById('lp_title_js' + elem).innerHTML = 'ページタイトル(取得できませんでした)'
       console.log('site_urlがundefinedだったため、LinkPreviewAPIにアクセスしませんでした');
     }
-    // ログ出力
-    console.log('投稿ID' + elem + '---サイトURL:' + site_url);
   });
 });
