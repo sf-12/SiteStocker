@@ -8,7 +8,7 @@ class Tweet < ApplicationRecord
   validates :user_id, presence: true
   validates :site_id, presence: true
   validates :text, presence: true
-  validates :is_opened, presence: true
+  validates :is_opened, inclusion: { in: [true, false] }
 
   # association
   belongs_to :user

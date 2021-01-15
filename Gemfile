@@ -66,6 +66,8 @@ gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 # タグ機能を実装
 gem 'acts-as-taggable-on'
+# タグUI用jQueryプラグインTag-itの使用に必要
+gem 'jquery-ui-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,0 +1,45 @@
+# frozen_string_literal: true
+
+class User::SearchesController < ApplicationController
+  def result
+    # 検索フォームから取得した情報
+    @search_target = params[:target] # 検索対象
+    @search_type = params[:type] # 検索種別
+    # 検索
+    @tweets = search_tweet(@search_target, @search_type)
+    # APIキーと投稿リストを外部APIに渡す
+    gon.linkpreview_key = ENV['LINK_PREVIEW_API_KEY']
+    gon.tweet_id_list = @tweets.ids
+  end
+
+  private
+
+  # 検索内容に該当する投稿のid一覧を取得する
+  # target:検索内容
+  # type:検索種別（ユーザー or 投稿記事 or 投稿URL or タグ）
+  def search_tweet(target, type)
+    # 何も入力されていない場合は検索結果0件
+    if target == ''
+      Tweet.none.page(params[:page]).reverse_order
+    else
+      # 検索種別で場合分け
+      case type
+      when 'ユーザー'
+        users = User.where('name like ?', "%#{target}%")
+        results = Tweet.where(user_id: users.ids)
+      when '投稿記事'
+        results = Tweet.where('text like ?', "%#{target}%")
+      when '投稿URL'
+        sites = Site.where(' url like ?', "%#{target}%")
+        results = Tweet.where(site_id: sites.ids)
+      else
+        results = Tweet.tagged_with(target.to_s)
+      end
+
+      # 退会済みユーザーの投稿および非公開設定になっている投稿は除外する
+      active_tweet = Tweet.where(user_id: User.where(is_active: true).ids, is_opened: true)
+      # 検索結果を満たす投稿を抽出
+      active_tweet.where(id: results.ids).page(params[:page]).reverse_order
+    end
+  end
+end
