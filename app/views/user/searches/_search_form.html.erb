@@ -1,0 +1,6 @@
+<!--検索フォーム -->
+<%= form_with model: @search, url: searches_result_path, method: :get, local: true do |f| %>
+  <%= f.text_field :target %>
+  <%= f.select :type, [["ユーザー", "ユーザー"], ["投稿記事", "投稿記事"], ["投稿URL", "投稿URL"], ["タグ", "タグ"]] %>
+  <%= f.submit :検索 %>
+<% end %>

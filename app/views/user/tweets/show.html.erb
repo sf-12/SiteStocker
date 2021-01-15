@@ -39,12 +39,11 @@
       <div class='tweet-show__row2'>
         <div class='tweet-show__row2-col1'>
           <%# サイト画像 %>
-          <img id=<%="myimage_js" + @tweet.id.to_s %> src="" class='tweet-show__site-image'>
-          <%# TODO:タグ %>
+          <img id=<%="lp_image_js" + @tweet.id.to_s %> src="" class='tweet-show__site-image'>
         </div>
         <div class='tweet-show__row2-col2'>
           <%# ページタイトル %>
-          <div id=<%='mytitle_js' + @tweet.id.to_s %> class='tweet-show__page-title' ></div>
+          <div id=<%='lp_title_js' + @tweet.id.to_s %> class='tweet-show__page-title' ></div>
           <%# ページURL %>
           <div class='tweet-show__page-url'><%= @tweet.site.url %></div>
           <%# 紹介文 %>

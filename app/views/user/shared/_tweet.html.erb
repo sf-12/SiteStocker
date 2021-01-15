@@ -25,12 +25,11 @@
     <div class='timeline__row2'>
       <div class='timeline__row2-col1'>
         <%# サイト画像 %>
-        <img id=<%="myimage_js" + tweet.id.to_s %> src="" class='timeline__site-image'>
-        <%# TODO:タグ %>
+        <img id=<%="lp_image_js" + tweet.id.to_s %> src="" class='timeline__site-image'>
       </div>
       <div class='timeline__row2-col2'>
         <%# ページタイトル %>
-        <div id=<%='mytitle_js' + tweet.id.to_s %> class='timeline__page-title' ></div>
+        <div id=<%='lp_title_js' + tweet.id.to_s %> class='timeline__page-title' ></div>
         <%# ページURL %>
         <div class='timeline__page-url'><%= tweet.site.url %></div>
         <%# 紹介文 %>
