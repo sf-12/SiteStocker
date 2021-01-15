@@ -35,7 +35,7 @@ Lint/UselessMethodDefinition:
 Metrics/AbcSize:
   Max: 25
 
-  # １ブロックあたりの行数チェック（最大25行）
+# １ブロックあたりの行数チェック（最大25行）
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
