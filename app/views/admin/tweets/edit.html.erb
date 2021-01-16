@@ -1,0 +1,29 @@
+<%= form_with model: @tweet, url: admin_tweet_path, id: 'admin_update_tweet', local:  true do |f| %>
+  <%= render "user/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url, autofocus: true,value: @site_url, id: 'admin_update_tweet_url__input' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_area :text, id: 'admin_update_tweet_text__input' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list, value: @tweet.tag_list.join(","), id: 'admin_update_tweet_tag_list__input', class: 'tag_form_js' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_opened %><br />
+    <%= f.check_box :is_opened, id: 'admin_update_tweet_is_opened__input' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "編集する" %>
+  </div>
+<% end %>
+
+<%# tag-itを有効にする %>
+<%= javascript_include_tag 'tag-input.js' %>
