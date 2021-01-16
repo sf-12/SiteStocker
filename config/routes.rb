@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show edit update]
     resources :tweets, only: %i[index show edit update]
     resources :tags, only: %i[index show edit update]
+    resources :comments, only: %i[index show edit update]
   end
 
   # ユーザー側 新規登録・ログイン・ログアウト
