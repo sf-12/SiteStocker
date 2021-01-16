@@ -40,8 +40,12 @@
     <tr>
       <th>タグ</th>
       <td>タグ総数：</td>
-      <td><%= Tweet.tags_on(:tags).count %></td>
-      <td><button>タグ一覧</button></td>
+      <td><%= ActsAsTaggableOn::Tag.all.count %></td>
+      <td>
+        <%= link_to admin_tags_path do %>
+          <button>タグ一覧</button>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <th>コメント</th>
