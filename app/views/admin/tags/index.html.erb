@@ -1,0 +1,38 @@
+<h2>タグ一覧</h2>
+<table style="table-layout:fixed;width:100%;">
+  <!-- テーブルタイトル -->
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タグ名</th>
+      <th>使用回数</th>
+      <th>投稿</th>
+      <th></th>
+    </tr>
+  </thead>
+  <!-- テーブル中身 -->
+  <% @tags.each do |tag| %>
+    <tbody>
+      <tr>
+        <%# id %>
+        <td><%= tag.id %></td>
+        <%# タグ名 %>
+        <td><%= tag.name %></td>
+        <%# 使用回数 %>
+        <td><%= tag.taggings_count %></td>
+        <%# 投稿 %>
+        <td>
+          <%= tag.taggings_count %>
+        </td>
+        <%# 詳細画面 %>
+        <td>
+          <%= link_to admin_tag_path(tag.id) do %>
+            <button>詳細</button>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+
+<%= paginate @tags %>
