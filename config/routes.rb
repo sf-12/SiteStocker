@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # 管理者側機能
   namespace :admin do
     get '/' => 'homes#home'
+    resources :users, only: %i[index edit update]
   end
 
   # ユーザー側 新規登録・ログイン・ログアウト

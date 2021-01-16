@@ -8,4 +8,10 @@ class ApplicationRecord < ActiveRecord::Base
     dw = %w[日 月 火 水 木 金 土]
     self.created_at.strftime("%Y/%m/%d(#{dw[self.created_at.wday]}) %H:%M")
   end
+
+  # 更新日時を日本語で返す
+  def updated_at_ja
+    dw = %w[日 月 火 水 木 金 土]
+    self.updated_at.strftime("%Y/%m/%d(#{dw[self.updated_at.wday]}) %H:%M")
+  end
 end

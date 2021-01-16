@@ -5,7 +5,11 @@
       <th rowspan='3'>ユーザー</th>
       <td>ユーザー総数：</td>
       <td><%= User.all.count %></td>
-      <td rowspan='3'><button>ユーザー一覧</button></td>
+      <td rowspan='3'>
+        <%= link_to admin_users_path do %>
+          <button>ユーザー一覧</button>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <td>現在のユーザー数：</td>
