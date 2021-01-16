@@ -8,7 +8,7 @@ class User::TweetsController < ApplicationController
   def create
     # サイトがデータベースに無ければ保存する
     site = Site.find_by(url: params[:tweet][:url])
-    site = Site.create(url: params[:tweet][:url]) if nil?
+    site = Site.create(url: params[:tweet][:url]) if site.nil?
 
     # 投稿を保存する
     new_tweet = Tweet.new(tweet_params)

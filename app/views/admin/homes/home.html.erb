@@ -23,7 +23,11 @@
       <th rowspan='3'>投稿</th>
       <td>投稿総数：</td>
       <td><%= Tweet.all.count %></td>
-      <td rowspan='3'><button>投稿一覧</button></td>
+      <td rowspan='3'>
+        <%= link_to admin_tweets_path do %>
+          <button>投稿一覧</button>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <td>公開投稿数：</td>

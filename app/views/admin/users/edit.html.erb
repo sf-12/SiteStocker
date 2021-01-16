@@ -25,6 +25,6 @@
     <%= f.submit "編集する" %>
   </div>
 <% end %>
-<%= link_to admin_users_path do %>
+<%= link_to admin_user_path(@user.id) do %>
   <button>編集しないで戻る</button>
 <% end %>
