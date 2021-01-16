@@ -24,6 +24,9 @@
     <%= f.submit "編集する" %>
   </div>
 <% end %>
+<%= link_to admin_tweet_path(@tweet.id) do %>
+  <button>編集しないで戻る</button>
+<% end %>
 
 <%# tag-itを有効にする %>
 <%= javascript_include_tag 'tag-input.js' %>

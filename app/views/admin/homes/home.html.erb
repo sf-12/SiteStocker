@@ -51,7 +51,11 @@
       <th>コメント</th>
       <td>コメント総数：</td>
       <td><%= Comment.all.count %></td>
-      <td><button>コメント一覧</button></td>
+      <td>
+        <%= link_to admin_comments_path do %>
+          <button>コメント一覧</button>
+        <% end %>
+      </td>
     </tr>
   </tbody>
 </table>

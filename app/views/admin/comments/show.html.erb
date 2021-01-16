@@ -1,0 +1,22 @@
+<%# id %>
+<%= @comment.id %><br>
+<%# ユーザー名 %>
+<%= @comment.user.name %><br>
+<%# 投稿ID %>
+<%= @comment.tweet.id %><br>
+<%# 投稿内容 %>
+<%= @comment.tweet.text %><br>
+<%# コメント内容 %>
+<%= @comment.text %><br>
+<%# 登録日時 %>
+<%= @comment.created_at_ja %><br>
+<%# 更新日時 %>
+<%= @comment.updated_at_ja %><br>
+<%# 編集 %>
+<%= link_to edit_admin_comment_path(@comment.id) do %>
+  <button>編集</button>
+<% end %>
+<%# 一覧 %>
+<%= link_to admin_comments_path do %>
+  <button>コメント一覧に戻る</button>
+<% end %>
