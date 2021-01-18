@@ -36,7 +36,8 @@
     background-color: rgba(0, 0, 0, 0.5); /* 背景色を半透明の黒にする */
   }
 
-  &__right-content {
+  &__right-content,
+  &__signup {
     color: black;
     position: relative;
     top: 50%;
@@ -70,7 +71,7 @@
 
     &__left-content-second {
       position: absolute;
-      top: 35%;
+      top: 30%;
       left: 50%;
       transform: translateY(-50%) translateX(-50%);
       padding: 20px;
@@ -85,12 +86,23 @@
     &__right-content {
       top: 70%;
       left: 50%;
-      transform: translateY(-50%) translateX(-50%);
-      text-align: center;
       padding: 30px;
       border-radius: 5%;
       width: 390px;
       background-color: rgba(255, 255, 255, 0.8); /* 背景色を半透明の白にする */
+    }
+
+    &__signup {
+      top: 55%;
+      left: 50%;
+      padding: 30px;
+      border-radius: 5%;
+      width: 390px;
+      background-color: rgba(255, 255, 255, 0.8); /* 背景色を半透明の白にする */
+    }
+
+    &__delete-800px {
+      display: none;
     }
   }
 }
