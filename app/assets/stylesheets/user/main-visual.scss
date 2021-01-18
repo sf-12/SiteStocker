@@ -1,21 +1,18 @@
 .main-visual {
-  &__box {
-    height: 100vh;
-    position: relative;
-    display: flex;
-  }
 
-  &__content {
+  height: 100vh;
+  display: flex;
+
+  &__box-1 {
     position: relative;
     width: 50%;
-    height: 100%;
     background-image: image-url('route.jpg');
     background-size: cover;
     background-position: center; /* 背景画像を中央に配置 */
     color: white;
   }
 
-  &__left-content-first {
+  &__box-1-content-1 {
     position: absolute;
     top: 20%;
     left: 50%;
@@ -26,7 +23,8 @@
     font-size: 350%;
   }
 
-  &__left-content-second {
+  &__box-1-content-2 {
+    width: 200px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -36,42 +34,68 @@
     background-color: rgba(0, 0, 0, 0.5); /* 背景色を半透明の黒にする */
   }
 
-  &__right-content,
-  &__signup {
+  &__box-2 {
+    position: relative;
+    width: 50%;
+  }
+
+  &__box-2-content-1 {
     color: black;
     position: relative;
+    width: 320px;
     top: 50%;
-    left: 150%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+  }
+
+  &__box-2-content-1__signup {
+    color: black;
+    position: relative;
+    width: 320px;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+  }
+
+  &__notifications {
+    color: black;
+    position: relative;
+    width: 320px;
+    top: 35%;
+    left: 50%;
     transform: translateY(-50%) translateX(-50%);
     text-align: center;
   }
 }
 
-/* 画面の横幅が800px下の際に適用される設定 */
-@media screen and (max-width:800px) {
+// /* 画面の横幅が650px下の際に適用される設定 */
+@media screen and (max-width:650px) {
   .main-visual {
-    &__box {
-      display: block;
-    }
+    display: block;
+    height: auto;
 
-    &__content {
+    &__box-1 {
       width: 100%;
-      background-image: image-url('route.jpg');
-      background-size: cover;
-      background-position: center; /* 背景画像を中央に配置 */
-      color: white;
+      height: 350px;
     }
 
-    &__left-content-first {
+    &__box-1-content-1 {
       position: absolute;
-      top: 10%;
+      top: 20%;
       left: 50%;
       transform: translateY(-50%) translateX(-50%);
     }
 
-    &__left-content-second {
+    &__title {
+      font-size: 350%;
+    }
+
+    &__box-1-content-2 {
+      width: 200px;
       position: absolute;
-      top: 30%;
+      top: 60%;
       left: 50%;
       transform: translateY(-50%) translateX(-50%);
       padding: 20px;
@@ -79,39 +103,37 @@
       background-color: rgba(0, 0, 0, 0.5); /* 背景色を半透明の黒にする */
     }
 
-    &__right-box {
+    &__box-2 {
       width: 100%;
+      height: 500px;
     }
 
-    &__right-content {
-      top: 70%;
+    &__box-2-content-1 {
+      position: absolute;
+      top: 50%;
       left: 50%;
-      padding: 30px;
-      border-radius: 5%;
-      width: 390px;
-      background-color: rgba(255, 255, 255, 0.8); /* 背景色を半透明の白にする */
+      transform: translateY(-50%) translateX(-50%);
+      text-align: center;
     }
 
-    &__signup {
-      top: 55%;
+    &__notifications {
+      position: absolute;
+      top: 25%;
       left: 50%;
-      padding: 30px;
-      border-radius: 5%;
-      width: 390px;
-      background-color: rgba(255, 255, 255, 0.8); /* 背景色を半透明の白にする */
+      transform: translateY(-50%) translateX(-50%);
+      text-align: center;
     }
 
-    &__delete-800px {
+    &__box-2-content-1__signup {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      text-align: center;
+    }
+
+    &__annotation {
       display: none;
-    }
-  }
-}
-
-/* 画面の横幅が425px下の際に適用される設定 */
-@media screen and (max-width:425px) {
-  .main-visual {
-    &__left-content-second {
-      width: 200px;
     }
   }
 }
