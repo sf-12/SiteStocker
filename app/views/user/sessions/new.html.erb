@@ -1,43 +1,46 @@
-
-<div class='session'>
-  <div class='session__left bg-primary'>
-    おすすめサイトを共有しよう！
+<div class='main-visual'>
+  <%# 左側 %>
+  <div class='main-visual__box-1'>
+    <div class='main-visual__box-1-content-1'>
+      <span class='main-visual__title'>SiteStocker</span>
+    </div>
+    <div class='main-visual__box-1-content-2'>
+      <p>まだ知らないサイトを</p>
+      <h3>見つけよう</h3>
+      <h3>共有しよう</h3>
+      <h3>語り合おう</h3>
+    </div>
   </div>
-  <div class='session__right bg-light'>
-    <%= form_with model: @user, url: new_user_session_path, id: 'new_sesson', local:  true do |f| %>
-      <%= render "user/shared/error_messages", resource: resource %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'log_in_user_email__input' %>
+
+  <%# 右側 %>
+  <div class='main-visual__box-2'>
+    <div class='main-visual__box-2-content-1__signup'>
+      <div align='center'>
+        <%= render 'layouts/notifications' %>
+        <%= form_with model: @user, url: new_user_session_path, id: 'new_sesson', local:  true do |f| %>
+          <table>
+            <tr>
+              <td><%= f.label :email, class: 'form__text' %></td>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'log_in_user_email__input' %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :password, class: 'form__text' %></td>
+              <td><%= f.password_field :password, autocomplete: "current-password", id: 'log_in_user_password__input' %></td>
+            </tr>
+          </table>
+          <br>
+          <%= f.submit "ログイン", class: 'button__black button__wide' %>
+        <% end %>
       </div>
-
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", id: 'log_in_user_password__input' %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
-
-      <div class="actions">
-        <%= f.submit "ログイン" %>
-      </div>
-    <% end %>
-
-    or<br>
-    <%= link_to user_guest_sign_in_path, method: :post do %>
-      <button>簡単ログイン</button>
-    <% end %>
-    <small>簡単ログインはポートフォリオ用の機能です。<br>
-    値を入力せずにログインすることができます</small><br>
-    or<br>
-    ユーザー登録がまだの方はこちら<br>
-    <%= link_to new_user_registration_path do %>
-      <button>ユーザー登録する</button>
-    <% end %>
+      <br>
+      or<br>
+      <br>
+      <%= link_to '簡単ログイン', user_guest_sign_in_path, method: :post, class: 'button__outline-black' %>
+      <br>
+      <br>
+      ユーザー登録がまだの方はこちら<br>
+      <br>
+      <%= link_to 'ユーザー登録', new_user_registration_path, class: 'button__outline-black' %>
+    </div>
   </div>
 </div>

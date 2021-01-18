@@ -96,7 +96,7 @@ RSpec.describe 'Users', type: :system do
 
     it 'ログインページから簡単ログインできる' do
       visit new_user_session_path
-      click_button '簡単ログイン'
+      click_link '簡単ログイン'
       expect(page).to have_current_path '/home'
     end
   end

@@ -22,7 +22,7 @@ class User::SessionsController < Devise::SessionsController
   def new_guest
     user = User.guest_login
     sign_in user
-    redirect_to home_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to home_path, notice: 'ゲストユーザーとしてログインしました'
   end
 
   # クラス内、同一パッケージ、サブクラスからのみアクセス可
@@ -49,7 +49,7 @@ class User::SessionsController < Devise::SessionsController
     return unless @user
     return unless @user.valid_password?(params[:user][:password]) && (@user.is_active == false)
 
-    flash[:error] = '退会済みのアカウントです'
+    flash[:alert] = '退会済みのアカウントです'
     redirect_to new_user_session_path
   end
 end
