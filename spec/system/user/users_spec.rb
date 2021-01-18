@@ -7,7 +7,7 @@ RSpec.describe 'Users', type: :system do
     context '登録に成功する場合' do
       it '新規ユーザー登録画面に遷移する' do
         visit root_path
-        click_button 'ユーザー登録'
+        click_link 'ユーザー登録'
         expect(page).to have_current_path '/users/sign_up'
       end
 
@@ -40,7 +40,7 @@ RSpec.describe 'Users', type: :system do
 
       it 'ログイン画面に遷移する' do
         visit root_path
-        click_button 'ログイン'
+        click_link 'ログイン'
         expect(page).to have_current_path '/users/sign_in'
       end
 
@@ -84,13 +84,13 @@ RSpec.describe 'Users', type: :system do
   describe '簡単ログイン' do
     it 'トップページから簡単ログインできる' do
       visit root_path
-      click_button '簡単ログイン'
+      click_link '簡単ログイン'
       expect(page).to have_current_path '/home'
     end
 
     it '新規ユーザー登録ページから簡単ログインできる' do
       visit new_user_registration_path
-      click_button '簡単ログイン'
+      click_link '簡単ログイン'
       expect(page).to have_current_path '/home'
     end
 
