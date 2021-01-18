@@ -23,11 +23,11 @@
         <%= render 'layouts/header-user' %>
       <% end %>
 
-      <%# フラッシュメッセージ %>
-      <%= render 'layouts/notifications' %>
-
       <%# メイン %>
       <main><%= yield %></main>
+
+      <%# ヘッダー %>
+      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>

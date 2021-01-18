@@ -1,43 +1,45 @@
-<div class='main-visual__box'>
-  <div class='main-visual__content'>
-    <%# 左側 %>
-    <div class='main-visual__left-content-first'>
+<div class='main-visual'>
+  <%# 左側 %>
+  <div class='main-visual__box-1'>
+    <div class='main-visual__box-1-content-1'>
       <span class='main-visual__title'>SiteStocker</span>
     </div>
-    <div class='main-visual__left-content-second main-visual__delete-800px'>
+    <div class='main-visual__box-1-content-2'>
       <p>まだ知らないサイトを</p>
       <h3>見つけよう</h3>
       <h3>共有しよう</h3>
       <h3>語り合おう</h3>
     </div>
+  </div>
 
-    <%# 右側 %>
-    <div class='main-visual__signup'>
+  <%# 右側 %>
+  <div class='main-visual__box-2'>
+    <div class='main-visual__box-2-content-1__signup'>
       <div align='center'>
         <%= render "user/shared/error_messages", resource: resource %>
         <%= form_with model: @user, url: user_registration_path, id: 'new_user', local: true do |f| %>
-            <table>
-              <tr>
-                <td><%= f.label :name , 'ユーザー名' %></td>
-                <td><%= f.text_field :name, autofocus: true, id: 'new_user_name__input', class: 'form-width' %></td>
-              </tr>
-              <tr>
-                <td><%= f.label :email %></td>
-                <td><%= f.email_field :email, autocomplete: "email", id: 'new_user_email__input', class: 'form-width' %></td>
-              </tr>
-              <tr>
-                <td><%= f.label :password %></td>
-                <td><%= f.password_field :password, autocomplete: "new-password", id: 'new_user_password__input', class: 'form-width' %></td>
-              </tr>
-              <tr>
-                <td><%= f.label :password_confirmation %></td>
-                <td><%= f.password_field :password_confirmation, autocomplete: "new-password", id: 'new_user_password_confirmation__input', class: 'form-width' %></td>
-              </tr>
-            </table>
-          </div>
-        <br>
-        <%= f.submit "登録する", class: 'button__black button__wide' %>
-      <% end %>
+          <table>
+            <tr>
+              <td><%= f.label :name , 'ユーザー名', class: 'form__text' %></td>
+              <td><%= f.text_field :name, autofocus: true, id: 'new_user_name__input' %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :email, class: 'form__text' %></td>
+              <td><%= f.email_field :email, autocomplete: "email", id: 'new_user_email__input' %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :password, class: 'form__text' %></td>
+              <td><%= f.password_field :password, autocomplete: "new-password", id: 'new_user_password__input' %></td>
+            </tr>
+            <tr>
+              <td><%= f.label :password_confirmation, class: 'form__text' %></td>
+              <td><%= f.password_field :password_confirmation, autocomplete: "new-password", id: 'new_user_password_confirmation__input' %></td>
+            </tr>
+          </table>
+          <br>
+          <%= f.submit "登録する", class: 'button__black button__wide' %>
+        <% end %>
+      </div>
       <br>
       or
       <br>
@@ -46,13 +48,7 @@
       <%= link_to '簡単ログイン', user_guest_sign_in_path, method: :post, class: 'button__outline-black' %>
       <br>
       <br>
-      <small>
-        ※簡単ログインはポートフォリオ用の機能です。<br>
-        <span class='text__space'>アドレスやパスワードを入力せずに閲覧できます。</span>
-      </small>
     </div>
   </div>
-
-  <%# フッター %>
-  <%= render 'layouts/footer' %>
 </div>
+

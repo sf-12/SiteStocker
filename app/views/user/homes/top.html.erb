@@ -1,18 +1,23 @@
-<div class='main-visual__box'>
-  <div class='main-visual__content'>
-    <%# 左側 %>
-    <div class='main-visual__left-content-first'>
+<div class='main-visual'>
+  <%# 左側 %>
+  <div class='main-visual__box-1'>
+    <div class='main-visual__box-1-content-1'>
       <span class='main-visual__title'>SiteStocker</span>
     </div>
-    <div class='main-visual__left-content-second'>
+    <div class='main-visual__box-1-content-2'>
       <p>まだ知らないサイトを</p>
       <h3>見つけよう</h3>
       <h3>共有しよう</h3>
       <h3>語り合おう</h3>
     </div>
+  </div>
 
-    <%# 右側 %>
-    <div class='main-visual__right-content'>
+  <%# 右側 %>
+  <div class='main-visual__box-2'>
+    <div class='main-visual__notifications'>
+      <%= render 'layouts/notifications' %>
+    </div>
+    <div class='main-visual__box-2-content-1'>
       <%= link_to 'ユーザー登録', new_user_registration_path, class: 'button__black button__wide' %>
       <br>
       <br>
@@ -23,13 +28,6 @@
       <%= link_to '簡単ログイン', user_guest_sign_in_path, method: :post, class: 'button__outline-black' %>
       <br>
       <br>
-      <small>
-        ※簡単ログインはポートフォリオ用の機能です。<br>
-        <span class='text__space'>アドレスやパスワードを入力せずに閲覧できます。</span>
-      </small>
     </div>
   </div>
-
-  <%# フッター %>
-  <%= render 'layouts/footer' %>
 </div>
