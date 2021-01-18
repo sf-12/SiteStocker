@@ -1,0 +1,117 @@
+.main-visual {
+  &__box {
+    height: 100vh;
+    position: relative;
+    display: flex;
+  }
+
+  &__content {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-image: image-url('route.jpg');
+    background-size: cover;
+    background-position: center; /* 背景画像を中央に配置 */
+    color: white;
+  }
+
+  &__left-content-first {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  &__title {
+    font-size: 350%;
+  }
+
+  &__left-content-second {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    padding: 20px;
+    border-radius: 5%;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景色を半透明の黒にする */
+  }
+
+  &__right-content,
+  &__signup {
+    color: black;
+    position: relative;
+    top: 50%;
+    left: 150%;
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+  }
+}
+
+/* 画面の横幅が800px下の際に適用される設定 */
+@media screen and (max-width:800px) {
+  .main-visual {
+    &__box {
+      display: block;
+    }
+
+    &__content {
+      width: 100%;
+      background-image: image-url('route.jpg');
+      background-size: cover;
+      background-position: center; /* 背景画像を中央に配置 */
+      color: white;
+    }
+
+    &__left-content-first {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+
+    &__left-content-second {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      padding: 20px;
+      border-radius: 5%;
+      background-color: rgba(0, 0, 0, 0.5); /* 背景色を半透明の黒にする */
+    }
+
+    &__right-box {
+      width: 100%;
+    }
+
+    &__right-content {
+      top: 70%;
+      left: 50%;
+      padding: 30px;
+      border-radius: 5%;
+      width: 390px;
+      background-color: rgba(255, 255, 255, 0.8); /* 背景色を半透明の白にする */
+    }
+
+    &__signup {
+      top: 55%;
+      left: 50%;
+      padding: 30px;
+      border-radius: 5%;
+      width: 390px;
+      background-color: rgba(255, 255, 255, 0.8); /* 背景色を半透明の白にする */
+    }
+
+    &__delete-800px {
+      display: none;
+    }
+  }
+}
+
+/* 画面の横幅が425px下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .main-visual {
+    &__left-content-second {
+      width: 200px;
+    }
+  }
+}

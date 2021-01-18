@@ -4,6 +4,8 @@
     <title>SiteStocker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%# レスポンシブ対応 %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%# Font Awsome %>
     <script src="https://kit.fontawesome.com/c826cbed9f.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all'%>
@@ -15,16 +17,17 @@
   <body>
     <div class=application>
       <%# ヘッダー %>
-      <%= render 'layouts/header-user' %>
+      <% if admin_signed_in? %>
+        <%= render 'layouts/header-admin' %>
+      <% elsif user_signed_in? %>
+        <%= render 'layouts/header-user' %>
+      <% end %>
 
       <%# フラッシュメッセージ %>
       <%= render 'layouts/notifications' %>
 
       <%# メイン %>
       <main><%= yield %></main>
-
-      <%# フッター %>
-      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>

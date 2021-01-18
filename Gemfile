@@ -68,6 +68,8 @@ gem 'refile-mini_magick'
 gem 'acts-as-taggable-on'
 # タグUI用jQueryプラグインTag-itの使用に必要
 gem 'jquery-ui-rails'
+# 初期データ作成に使用
+gem 'seed-fu'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

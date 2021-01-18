@@ -1,0 +1,24 @@
+<%# id %>
+<%= @user.id %><br>
+<%# アイコン %>
+<%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "user_default.png", size: "36x36" %><br>
+<%# 名前 %>
+<%= @user.name %><br>
+<%# メールアドレス %>
+<%= @user.email %><br>
+<%# 自己紹介 %>
+<%= @user.text %><br>
+<%# 有効会員フラグ %>
+<%= @user.is_active %><br>
+<%# 登録日時 %>
+<%= @user.created_at_ja %><br>
+<%# 更新日時 %>
+<%= @user.updated_at_ja %><br>
+<%# 編集 %>
+<%= link_to edit_admin_user_path(@user.id) do %>
+  <button>編集</button>
+<% end %>
+<%# 一覧 %>
+<%= link_to admin_users_path do %>
+  <button>ユーザー一覧に戻る</button>
+<% end %>

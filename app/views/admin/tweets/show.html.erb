@@ -1,0 +1,28 @@
+<%# id %>
+<%= @tweet.id %><br>
+<%# ユーザーID %>
+<%= @tweet.user.id %><br>
+<%# ユーザー名 %>
+<%= @tweet.user.name %><br>
+<%# サイトID %>
+<%= @tweet.site.id %><br>
+<%# サイトURL %>
+<%= @tweet.site.url %><br>
+<%# 投稿記事 %>
+<%= @tweet.text %><br>
+<%# タグ %>
+<% @tweet.tag_list.each do |tag| %>
+  <span class='tag-text'><%= tag %></span>
+<% end %><br>
+<%# 登録日時 %>
+<%= @tweet.created_at_ja %><br>
+<%# 更新日時 %>
+<%= @tweet.updated_at_ja %><br>
+<%# 編集 %>
+<%= link_to edit_admin_tweet_path(@tweet.id) do %>
+  <button>編集</button>
+<% end %>
+<%# 一覧 %>
+<%= link_to admin_tweets_path do %>
+  <button>投稿一覧に戻る</button>
+<% end %>

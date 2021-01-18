@@ -1,0 +1,50 @@
+<h2>ユーザー一覧</h2>
+<table style="table-layout:fixed;width:100%;">
+  <!-- テーブルタイトル -->
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>アイコン</th>
+      <th>名前</th>
+      <th>メールアドレス</th>
+      <th>自己紹介</th>
+      <th>有効会員フラグ</th>
+      <th>登録日時</th>
+      <th>更新日時</th>
+      <th></th>
+    </tr>
+  </thead>
+  <!-- テーブル中身 -->
+  <% @users.each do |user| %>
+    <tbody>
+      <tr>
+        <%# id %>
+        <td><%= user.id %></td>
+        <%# アイコン %>
+        <td>
+          <%= attachment_image_tag user, :image, format: 'jpeg', fallback: "user_default.png", size: "36x36" %>
+        </td>
+        <%# 名前 %>
+        <td><%= user.name %></td>
+        <%# メールアドレス %>
+        <td><%= user.email %></td>
+        <%# 自己紹介 %>
+        <td style="word-wrap:break-word;"><%= user.text %></td>
+        <%# 有効会員フラグ %>
+        <td><%= user.is_active %></td>
+        <%# 登録日時 %>
+        <td><%= user.created_at_ja %></td>
+        <%# 更新日時 %>
+        <td><%= user.updated_at_ja %></td>
+        <%# 編集画面 %>
+        <td>
+          <%= link_to admin_user_path(user.id) do %>
+            <button>詳細</button>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+
+<%= paginate @users %>

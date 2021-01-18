@@ -1,0 +1,61 @@
+<h1>管理者ホーム画面</h1>
+<table>
+  <tbody>
+    <tr>
+      <th rowspan='3'>ユーザー</th>
+      <td>ユーザー総数：</td>
+      <td><%= User.all.count %></td>
+      <td rowspan='3'>
+        <%= link_to admin_users_path do %>
+          <button>ユーザー一覧</button>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>現在のユーザー数：</td>
+      <td><%= User.all.where(is_active: true).count %></td>
+    </tr>
+    <tr>
+      <td>退会済みユーザー数：</td>
+      <td><%= User.all.where(is_active: false).count %></td>
+    </tr>
+    <tr>
+      <th rowspan='3'>投稿</th>
+      <td>投稿総数：</td>
+      <td><%= Tweet.all.count %></td>
+      <td rowspan='3'>
+        <%= link_to admin_tweets_path do %>
+          <button>投稿一覧</button>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>公開投稿数：</td>
+      <td><%= Tweet.all.where(is_opened: true).count %></td>
+    </tr>
+    <tr>
+      <td>非公開投稿数：</td>
+      <td><%= Tweet.all.where(is_opened: false).count %></td>
+    </tr>
+    <tr>
+      <th>タグ</th>
+      <td>タグ総数：</td>
+      <td><%= ActsAsTaggableOn::Tag.all.count %></td>
+      <td>
+        <%= link_to admin_tags_path do %>
+          <button>タグ一覧</button>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>コメント</th>
+      <td>コメント総数：</td>
+      <td><%= Comment.all.count %></td>
+      <td>
+        <%= link_to admin_comments_path do %>
+          <button>コメント一覧</button>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

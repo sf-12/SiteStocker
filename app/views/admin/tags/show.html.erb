@@ -1,0 +1,18 @@
+<%# id %>
+<%= @tag.id %><br>
+<%# name %>
+<%= @tag.name %><br>
+<%# 作成日時 %>
+<%= @tag_created_at %><br>
+<%# 更新日時 %>
+<%= @tag_updated_at %><br>
+<%# 使用回数 %>
+<%= @tag.taggings_count %><br>
+<%# 編集 %>
+<%= link_to edit_admin_tag_path(@tag.id) do %>
+  <button>編集</button>
+<% end %>
+<%# 一覧 %>
+<%= link_to admin_tags_path do %>
+  <button>タグ一覧に戻る</button>
+<% end %>

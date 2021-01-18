@@ -1,0 +1,14 @@
+<%= form_with model: @comment, url: admin_comment_path, id: 'admin_update_comment', local:  true do |f| %>
+  <%= render "user/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_field :text, autofocus: true, id: 'admin_update_comment__input' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "編集する" %>
+  </div>
+<% end %>
+<%= link_to admin_comment_path(@comment.id) do %>
+  <button>編集しないで戻る</button>
+<% end %>

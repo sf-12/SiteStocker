@@ -1,11 +1,35 @@
-<%= link_to new_user_registration_path do %>
-  <button>ユーザー登録</button>
-<% end %>
+<div class='main-visual__box'>
+  <div class='main-visual__content'>
+    <%# 左側 %>
+    <div class='main-visual__left-content-first'>
+      <span class='main-visual__title'>SiteStocker</span>
+    </div>
+    <div class='main-visual__left-content-second'>
+      <p>まだ知らないサイトを</p>
+      <h3>見つけよう</h3>
+      <h3>共有しよう</h3>
+      <h3>語り合おう</h3>
+    </div>
 
-<%= link_to new_user_session_path do %>
-  <button>ログイン</button>
-<% end %>
+    <%# 右側 %>
+    <div class='main-visual__right-content'>
+      <%= link_to 'ユーザー登録', new_user_registration_path, class: 'button__black button__wide' %>
+      <br>
+      <br>
+      or
+      <br>
+      <br>
+      <%= link_to 'ログイン', new_user_session_path, class: 'button__outline-black' %>
+      <%= link_to '簡単ログイン', user_guest_sign_in_path, method: :post, class: 'button__outline-black' %>
+      <br>
+      <br>
+      <small>
+        ※簡単ログインはポートフォリオ用の機能です。<br>
+        <span class='text__space'>アドレスやパスワードを入力せずに閲覧できます。</span>
+      </small>
+    </div>
+  </div>
 
-<%= link_to user_guest_sign_in_path, method: :post do %>
-  <button>簡単ログイン</button>
-<% end %>
+  <%# フッター %>
+  <%= render 'layouts/footer' %>
+</div>
