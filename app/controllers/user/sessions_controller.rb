@@ -22,7 +22,8 @@ class User::SessionsController < Devise::SessionsController
   def new_guest
     user = User.guest_login
     sign_in user
-    redirect_to home_path, notice: 'ゲストユーザーとしてログインしました'
+    flash[:notice__home] = 'ゲストユーザーとしてログインしました'
+    redirect_to home_path
   end
 
   # クラス内、同一パッケージ、サブクラスからのみアクセス可

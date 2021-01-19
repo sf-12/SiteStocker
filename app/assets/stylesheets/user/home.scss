@@ -1,15 +1,54 @@
 .home {
   display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
 
   &__left-side {
     width: 300px;
-    // background-color: rgb(188, 176, 143);
+    background-color: rgb(188, 176, 143);
   }
   &__main {
-    width: 550px;
+    width: 600px;
   }
   &__right-side {
     width: 300px;
-    // background-color: rgb(188, 176, 143);
+    background-color: rgb(188, 176, 143);
+  }
+}
+
+// /* 画面の横幅が1200px下の際に適用される設定 */
+@media screen and (max-width:1200px) {
+  .home {
+    &__right-side {
+      display: none;
+    }
+  }
+}
+
+// /* 画面の横幅が900px下の際に適用される設定 */
+@media screen and (max-width:900px) {
+  .home {
+
+    &__left-side {
+      width: 100px;
+    }
+
+    &__main {
+      width: 100%;
+    }
+  }
+}
+
+/* 画面の横幅が700px下の際に適用される設定 */
+@media screen and (max-width:700px) {
+  .home {
+
+    &__left-side {
+      display: none;
+    }
+
+    &__main {
+      width: 100%;
+    }
   }
 }
