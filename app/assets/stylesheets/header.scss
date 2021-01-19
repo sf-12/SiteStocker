@@ -3,6 +3,9 @@
   padding-bottom: 10px;
   border-bottom: 1px solid #dddddd;
   height: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgb(53, 53, 53);
 
   &__inner-left {
     float: left;

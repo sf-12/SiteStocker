@@ -17,3 +17,7 @@
 //= require jquery-ui
 //= require tag-it
 //= require activestorage
+
+$(function(){
+  setTimeout("$('.time-limit').fadeOut('slow')", 2000)
+})
