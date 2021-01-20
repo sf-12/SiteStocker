@@ -1,0 +1,22 @@
+<%# 引数1　unit   単位 %>
+<%# 引数2　tags ランキングの結果 %>
+<% tags.each_with_index do |tag, i| %>
+  <div class='ranking__table-box'>
+    <%= link_to searches_result_path(target: ActsAsTaggableOn::Tag.find(tag).name, value: 'タグ'), class: 'ranking__table-link' do %>
+      <table class='ranking__table'>
+        <tr>
+          <%# 順位 %>
+          <td rowspan='2' class='ranking__rank'><%= i+1 %></td>
+          <%# タグ名 %>
+            <td rowspan='2' class='ranking__count'><%= ActsAsTaggableOn::Tag.find(tag).name %></td>
+          <%# 件数 %>
+            <td class='ranking__count'><%= count[i] %></td>
+        </tr>
+        <tr>
+          <%# 件数の単位 %>
+          <td class='ranking__unit'><%= unit %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+<% end %>

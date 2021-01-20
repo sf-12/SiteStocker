@@ -1,0 +1,30 @@
+<%# 引数1　unit   単位 %>
+<%# 引数2　tweets ランキングの結果 %>
+<% tweets.each_with_index do |tweet, i| %>
+  <div class='ranking__table-box'>
+    <%= link_to tweet_path(tweet), class: 'ranking__table-link' do %>
+      <table class='ranking__table'>
+        <tr>
+          <%# 順位 %>
+          <td rowspan='2' class='ranking__rank'><%= i+1 %></td>
+          <%# ユーザーアイコン %>
+          <td class='ranking__icon-box'><%= attachment_image_tag Tweet.find(tweet).user, :image, fallback: "user_default.png", class: 'ranking__icon' %></td>
+          <%# ユーザー名 %>
+          <td><%= Tweet.find(tweet).user.name.truncate(10) %></td>
+          <%# 件数 %>
+          <% if unit == 'likes' %>
+            <td class='ranking__count'><%= Tweet.find(tweet).likes.count %></td>
+          <% else %>
+            <td class='ranking__count'><%= Tweet.find(tweet).comments.count %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <%# サイト名 %>
+          <td colspan='2'><%= Tweet.find(tweet).site.url.truncate(25) %></td>
+          <%# 件数の単位 %>
+          <td class='ranking__unit'><%= unit %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+<% end %>
