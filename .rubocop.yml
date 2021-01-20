@@ -33,7 +33,7 @@ Lint/UselessMethodDefinition:
 # AbcSizeチェックの許容上限値
 # できれば20くらいにしたい
 Metrics/AbcSize:
-  Max: 25
+  Max: 30
 
 # １ブロックあたりの行数チェック（最大25行）
 Metrics/BlockLength:

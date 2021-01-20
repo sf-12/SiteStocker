@@ -3,6 +3,10 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
+  # 検索ロジック用
+  scope :span_month, -> { where(created_at: Time.now.in_time_zone.all_month) }
+  scope :span_year, -> { where(created_at: Time.now.in_time_zone.all_month) }
+
   # 作成日時を日本語で返す
   def created_at_ja
     dw = %w[日 月 火 水 木 金 土]
