@@ -50,8 +50,7 @@
       </div>
     </div>
 
-    <%# モーダルbox ----------------%>
-    <%# ボタン %>
+    <%# モーダル ボタン %>
     <div class='left-side__modal-box'>
       <div id="search_button_js">
         <div class='left-side__icon-outer'>
@@ -61,21 +60,12 @@
       </div>
     </div>
 
-    <%# 背景 %>
-    <div id="search_cover_js"  class='left-side__modal-cover'></div>
-
-    <%# ウィンドウ %>
-    <div id='search_modal_js' class='left-side__modal-content'>
-      <%= render 'user/searches/search_form', search: @search %>
-    </div>
-
     <%# 投稿box----------------------------------------------------------------- %>
     <div class='left-side__tweet-box'>
       <%= link_to '投稿する', new_tweet_path, class: 'button__black button__wide' %>
     </div>
 
-    <%# モーダルbox ----------------%>
-    <%# ボタン %>
+    <%# モーダル ボタン %>
     <div class='left-side__modal-box'>
       <div id="tweet_button_js">
         <div class='left-side__icon-outer'>
@@ -84,15 +74,25 @@
         <div class='left-side__text'>投稿する</div>
       </div>
     </div>
-
-    <%# 背景 %>
-    <div id="tweet_cover_js"  class='left-side__modal-cover'></div>
-
-    <%# ウィンドウ %>
-    <div id='tweet_modal_js' class='left-side__modal-content'>
-      <%= link_to '投稿する', new_tweet_path, class: 'button__black button__wide' %>
-    </div>
   </div>
+</div>
+
+<%# モーダル (検索) %>
+<%# 背景 %>
+<div id="search_cover_js"  class='left-side__modal-cover'></div>
+
+<%# ウィンドウ %>
+<div id='search_modal_js' class='left-side__modal-content'>
+  <%= render 'user/searches/search_form', search: @search %>
+</div>
+
+<%# モーダル (投稿) %>
+<%# 背景 %>
+<div id="tweet_cover_js"  class='left-side__modal-cover'></div>
+
+<%# ウィンドウ %>
+<div id='tweet_modal_js' class='left-side__modal-content'>
+  <%= link_to '投稿する', new_tweet_path, class: 'button__black button__wide' %>
 </div>
 
 <%# モーダルウィンドウ %>
