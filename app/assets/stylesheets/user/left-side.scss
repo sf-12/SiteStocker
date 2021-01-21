@@ -107,8 +107,9 @@
     padding-left: 19px;
     padding-right: 19px;
     position: fixed;
-    top: 30%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
     width: auto;
     height: auto;
     background: rgba(255,255,255, 1);
@@ -131,9 +132,12 @@
   }
 }
 
-// /* 画面の横幅が900px下の際に適用される設定 */
-@media screen and (max-width:900px) {
+// /* 画面の横幅が768px下の際に適用される設定 */
+@media screen and (max-width:768px) {
   .left-side {
+
+    width: 90px;
+
     // リンク集box---------------------
     &__links-box {
       padding-top: 0;
@@ -181,6 +185,26 @@
     }
     &__search-close {
       display: inline;
+    }
+  }
+}
+
+// /* 画面の横幅が425px下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .left-side {
+    &__modal-box {
+      padding: 0;
+    }
+    &__link {
+      padding: 0;
+    }
+    &__text {
+      line-height: 10px;
+      padding-top: 2px;
+      width: 100%;
+    }
+    &__icon-profile {
+      margin-bottom: 2px;
     }
   }
 }

@@ -10,3 +10,10 @@
   position: absolute;
   bottom: 0;
 }
+
+/* 画面の横幅が425px下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .footer {
+    display: none;
+  }
+}

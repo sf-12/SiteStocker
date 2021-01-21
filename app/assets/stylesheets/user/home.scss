@@ -10,7 +10,6 @@
   }
   &__left-side {
     width: 300px;
-    // background-color: rgb(188, 176, 143);
   }
   &__main {
     background-color: white;
@@ -22,8 +21,8 @@
   }
 }
 
-// /* 画面の横幅が1200px下の際に適用される設定 */
-@media screen and (max-width:1200px) {
+// /* 画面の横幅が1100px下の際に適用される設定 */
+@media screen and (max-width:1100px) {
   .home {
     &__right-side {
       display: none;
@@ -31,8 +30,8 @@
   }
 }
 
-// /* 画面の横幅が900px下の際に適用される設定 */
-@media screen and (max-width:900px) {
+// /* 画面の横幅が768px下の際に適用される設定 */
+@media screen and (max-width:768px) {
   .home {
 
     &__left-side {
@@ -45,8 +44,8 @@
   }
 }
 
-/* 画面の横幅が700px下の際に適用される設定 */
-@media screen and (max-width:700px) {
+/* 画面の横幅が425px下の際に適用される設定 */
+@media screen and (max-width:425px) {
   .home {
 
     &__left-side {
