@@ -11,9 +11,11 @@
     border-color: rgb(80, 80, 80);
     border-radius: 100vh;
     text-align: center;
+    outline: none;
   }
 
-  &__black:hover {
+  &__black:hover,
+  &__black:active {
     text-decoration: none;
     color: #fff;
     background-color: rgb(40, 40, 40);
@@ -31,6 +33,7 @@
     border-color: black;
     border-radius: 100vh;
     text-align: center;
+    outline: none;
   }
 
   &__outline-black:hover {

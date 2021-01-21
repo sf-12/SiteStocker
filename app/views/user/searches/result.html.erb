@@ -1,20 +1,21 @@
 <div class="home">
-  <%# 左サイド %>
-  <div class='home__left-side'>
-    <%= render 'user/shared/left_side', user: current_user %>
-  </div>
-
-  <%# メイン部分 %>
-  <div class='home__main'>
-    <div class='search__name'>
-      <%= @search_type %>検索：<%= @search_target %>
+  <div class='home__box'>
+    <%# 左サイド %>
+    <div class='home__left-side'>
+      <%= render 'user/shared/left_side', user: current_user %>
     </div>
-    <%= render 'user/shared/timeline', tweets: @tweets %>
-  </div>
 
-  <%# 右サイド %>
-  <div class='home__right-side'>
-    <%= render 'user/searches/search_form', tweets: @tweets %>
+    <%# メイン部分 %>
+    <div class='home__main'>
+      <div class='search__name'>
+        <%= @search_type %>検索：<%= @search_target %>
+      </div>
+      <%= render 'user/shared/timeline', tweets: @tweets %>
+    </div>
+
+    <%# 右サイド %>
+    <div class='home__right-side'>
+    </div>
   </div>
 </div>
 

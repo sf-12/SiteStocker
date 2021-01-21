@@ -69,14 +69,14 @@ RSpec.describe 'Users', type: :system do
     it 'ヘッダーからログアウトできる' do
       sign_in user
       visit '/home'
-      click_link 'ログアウト'
+      find('#header_logout_test').click
       expect(page).to have_current_path '/'
     end
 
     it 'ログアウト成功のフラッシュメッセージが表示される' do
       sign_in user
       visit '/home'
-      click_link 'ログアウト'
+      find('#header_logout_test').click
       expect(page).to have_content 'ログアウトしました'
     end
   end

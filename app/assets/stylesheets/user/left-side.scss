@@ -1,0 +1,186 @@
+.left-side {
+  border-left: 1px solid #cccccc;
+  background-color: white;
+  height: 100%;
+
+  &__sticky {
+    position: sticky;
+    top: 0;
+  }
+  // リンク集box============================
+  &__links-box {
+    padding-bottom: 10px;
+  }
+  &__link {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    display: flex;
+    color: black;
+  }
+  &__link:hover {
+    text-decoration: none;
+    color: black;
+    background-color: #f0f0f0;
+  }
+  &__icon-outer {
+    width: 40px;
+    padding: 0 auto;
+  }
+  &__icon {
+    font-size: 35px;
+    line-height: 35px;
+  }
+  &__icon-profile {
+    width: 35px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 50%;
+  }
+  &__text {
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 35px;
+  }
+
+  // 検索box============================
+  &__search-box {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &__search-content {
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+  &__search-title {
+    padding-bottom: 15px;
+  }
+  &__text-form {
+    margin-bottom: 15px;
+    width:219px;
+  }
+  &__select-form {
+    margin-bottom: 15px;
+    height: 26px;
+    width:142px;
+  }
+  &__submit-form {
+    margin-left: 19px;
+    margin-bottom: 10px;
+    height: 35px;
+    line-height: 15px;
+  }
+
+  // 投稿box============================
+  &__tweet-box {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 44px;
+  }
+
+  // モーダルbox============================
+  &__modal-box {
+    display: none;
+  }
+  &__modal-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background: rgba(0,0,0,0.25);
+    z-index: 1; // より大きな z-index を持つ要素はより小さな要素の上に重なる
+    display: none;
+  }
+  &__modal-content {
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 19px;
+    padding-right: 19px;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    width: auto;
+    height: auto;
+    background: rgba(255,255,255, 1);
+    z-index: 2; // より大きな z-index を持つ要素はより小さな要素の上に重なる
+    display: none;
+  }
+  &__search-close {
+    display: none;
+    border-radius: 50%;
+    font-size: 20px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    float: right;
+  }
+  &__search-close:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+}
+
+// /* 画面の横幅が900px下の際に適用される設定 */
+@media screen and (max-width:900px) {
+  .left-side {
+    // リンク集box---------------------
+    &__links-box {
+      padding-top: 0;
+      padding-bottom: 0;
+      border-bottom: 1px solid #cccccc;
+    }
+    &__link {
+      padding-left: 0;
+      display: block;
+    }
+    &__link:hover {
+      background-color: #f0f0f0;
+    }
+    &__icon-outer {
+      width: 35px;
+      margin: 0 auto;
+    }
+    &__text {
+      padding-left: 0;
+      font-size: 8px;
+      text-align: center;
+    }
+
+    // 検索box---------------------
+    &__search-box {
+      display: none;
+    }
+
+    // 投稿box---------------------
+    &__tweet-box {
+      display: none;
+    }
+
+    // モーダルbox---------------------
+    &__modal-box {
+      display: block;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    &__modal-box:hover {
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+    &__search-close {
+      display: inline;
+    }
+  }
+}
