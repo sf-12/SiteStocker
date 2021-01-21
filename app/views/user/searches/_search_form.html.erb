@@ -1,6 +1,11 @@
 <!--検索フォーム -->
-<%= form_with model: @search, url: searches_result_path, method: :get, local: true do |f| %>
-  <%= f.text_field :target %>
-  <%= f.select :type, [["ユーザー", "ユーザー"], ["投稿記事", "投稿記事"], ["投稿URL", "投稿URL"], ["タグ", "タグ"]] %>
-  <%= f.submit :検索 %>
+<i class="fas fa-search left-side__search-title">検索する</i>
+<span id="search_close_js"><i class="fas fa-times left-side__search-close"></i></span>
+<%= form_with model: search, url: searches_result_path, method: :get, local: true do |f| %>
+  <%= f.text_field :target, placeholder: "キーワードを入力", class: 'left-side__text-form' %>
+  <br>
+  検索対象 :
+  <%= f.select :type, [["ユーザー", "ユーザー"], ["投稿記事", "投稿記事"], ["投稿URL", "投稿URL"], ["タグ", "タグ"]] , {}, { class: 'left-side__select-form'} %>
+  <br>
+  <%= f.submit :検索, class: 'left-side__submit-form button__black button__wide' %>
 <% end %>

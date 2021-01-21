@@ -1,17 +1,19 @@
 <div class="home">
-  <%# 左サイド %>
-  <div class='home__left-side'>
-    <%= render 'user/shared/left_side', user: @user %>
+  <div class='home__box'>
+    <%# 左サイド %>
+    <div class='home__left-side'>
+      <%= render 'user/shared/left_side', user: @user %>
 
-  </div>
+    </div>
 
-  <%# メイン部分 %>
-  <div class='home__main'>
-    <%= render 'user/shared/timeline', tweets: @tweets %>
-  </div>
+    <%# メイン部分 %>
+    <div class='home__main'>
+      <%= render 'user/shared/timeline', tweets: @tweets %>
+    </div>
 
-  <%# 右サイド %>
-  <div class='home__right-side'>
+    <%# 右サイド %>
+    <div class='home__right-side'>
+    </div>
   </div>
 </div>
 

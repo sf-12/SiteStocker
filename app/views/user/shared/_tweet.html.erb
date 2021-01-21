@@ -31,7 +31,7 @@
         <%# ページタイトル %>
         <div id=<%='lp_title_js' + tweet.id.to_s %> class='timeline__page-title' ></div>
         <%# ページURL %>
-        <div class='timeline__page-url'><%= tweet.site.url %></div>
+        <div class='timeline__page-url'><%= tweet.site.url.truncate(40) %></div>
         <%# 紹介文 %>
         <div class='timeline__tweet-text'><%= tweet.text %></div>
         <%# タグ %>

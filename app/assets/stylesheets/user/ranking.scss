@@ -1,0 +1,90 @@
+.ranking {
+
+  &__title {
+    background-color: rgb(80, 80, 80);
+    margin-top: 20px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: white;
+    padding: 5px;
+    font-size: 13px;
+  }
+  &__content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 20px;
+  }
+  &__span-ul {
+    font-size: 13px;
+  }
+  &__span-li {
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+  }
+  &__span-li:hover {
+    background-color: #f0f0f0;
+  }
+  &__span-a {
+    width: 50px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    color: black;
+  }
+  &__span-a:hover {
+    color: black;
+  }
+  &__table-box {
+    border-top: 1px solid #cccccc;
+    padding: 5px;
+  }
+  &__table-box:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  &__table-link {
+    color: black;
+  }
+  &__table-link:hover {
+    color: black;
+    text-decoration: none;
+  }
+  &__table {
+    font-size: 13px;
+    width: 100%;
+  }
+  &__rank {
+    text-align: center;
+    width: 30px;
+    font-weight: bold;
+  }
+  &__icon-box {
+    width: 27px;
+    height: 27px;
+    padding-right: 5px;
+  }
+  &__icon {
+    width: 27px;
+    height: 27px;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+  }
+  &__count {
+    text-align: center;
+    font-weight: bold;
+  }
+  &__unit {
+    width: 80px;
+    font-size: 9px;
+    color: #999999;
+    text-align: center;
+    font-weight: bold;
+  }
+}
