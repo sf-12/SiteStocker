@@ -1,56 +1,99 @@
-<ul>
-  <li>
-    <%= attachment_image_tag user, :image, fallback: "user_default.png",class: 'timeline__user-icon' %><br>
-  </li>
-  <li>
-    <%= user.name %>
-  </li>
-  <li>
-    <%= user.text %>
-  </li>
-  <li>
-    投稿数
-  </li>
-  <li>
-    コメント数
-  </li>
-  <li>
-    <%= link_to user_followings_path(user.id) do %>
-      フォロー <%= user.followings.count %>
-    <% end %>
-  </li>
-  <li>
-    <%= link_to user_followers_path(user.id) do %>
-      フォロワー <%= user.followers.count %>
-    <% end %>
-  </li>
-  <li>
-    良いねした
-  </li>
-  <li>
-    良いねされた
-  </li>
-  <li>
-    <% if user.id == current_user.id %>
-      <%= link_to edit_user_registration_path do %>
-        <button>プロフィール変更</button>
+<div class='left-side'>
+  <div class='left-side__sticky'>
+    <%# リンク集box -------------------------------------------------------------%>
+    <div class='left-side__links-box'>
+      <%# ホーム %>
+      <%= link_to  home_path, class: 'left-side__link' do %>
+        <div class='left-side__icon-outer'>
+          <%=image_tag('logo.png', size: '33x33') %>
+        </div>
+        <div class='left-side__text'>ホーム</div>
       <% end %>
-    <% end %>
-  </li>
-  <li>
-    <%= link_to new_tweet_path do %>
-      <button>投稿する</button>
-    <% end %>
-  </li>
-  <li>
-    <%= link_to home_path do %>
-      <button>タイムライン</button>
-    <% end %>
-  </li>
 
-  <%# フォロー機能 %>
-  <li>
-    <%= render 'user/shared/follow', user: user %>
-  </li>
+      <%# プロフィール %>
+      <%= link_to user_path(current_user.id), class: 'left-side__link' do %>
+        <div class='left-side__icon-outer'>
+          <%= attachment_image_tag user, :image, fallback: "user_default.png",class: 'left-side__icon-profile' %>
+        </div>
+        <div class='left-side__text'>プロフィール</div>
+      <% end %>
 
-<ul>
+      <%# 設定 %>
+      <%= link_to  users_setting_path, class: 'left-side__link' do %>
+        <div class='left-side__icon-outer'>
+          <i class="fas fa-cog left-side__icon"></i>
+        </div>
+        <div class='left-side__text'>設定</div>
+      <% end %>
+
+      <%# about %>
+      <%= link_to about_path, class: 'left-side__link' do %>
+        <div class='left-side__icon-outer'>
+          <i class="fas fa-list-alt left-side__icon"></i>
+        </div>
+        <div class='left-side__text'>about</div>
+      <% end %>
+
+      <%# ログアウト %>
+      <%= link_to destroy_user_session_path, method: :delete, class: 'left-side__link' do %>
+        <div class='left-side__icon-outer'>
+          <i class="fas fa-sign-out-alt left-side__icon"></i>
+        </div>
+        <div class='left-side__text'>ログアウト</div>
+      <% end %>
+    </div>
+
+    <%# 検索box -----------------------------------------------------------------%>
+    <div class='left-side__search-box'>
+      <div class='left-side__search-content'>
+        <%= render 'user/searches/search_form', search: @search %>
+      </div>
+    </div>
+
+    <%# モーダルbox ----------------%>
+    <%# ボタン %>
+    <div class='left-side__modal-box'>
+      <div id="search_button_js">
+        <div class='left-side__icon-outer'>
+          <i class="fas fa-search left-side__icon"></i>
+        </div>
+        <div class='left-side__text'>検索する</div>
+      </div>
+    </div>
+
+    <%# 背景 %>
+    <div id="search_cover_js"  class='left-side__modal-cover'></div>
+
+    <%# ウィンドウ %>
+    <div id='search_modal_js' class='left-side__modal-content'>
+      <%= render 'user/searches/search_form', search: @search %>
+    </div>
+
+    <%# 投稿box----------------------------------------------------------------- %>
+    <div class='left-side__tweet-box'>
+      <%= link_to '投稿する', new_tweet_path, class: 'button__black button__wide' %>
+    </div>
+
+    <%# モーダルbox ----------------%>
+    <%# ボタン %>
+    <div class='left-side__modal-box'>
+      <div id="tweet_button_js">
+        <div class='left-side__icon-outer'>
+          <i class="fas fa-sticky-note left-side__icon"></i>
+        </div>
+        <div class='left-side__text'>投稿する</div>
+      </div>
+    </div>
+
+    <%# 背景 %>
+    <div id="tweet_cover_js"  class='left-side__modal-cover'></div>
+
+    <%# ウィンドウ %>
+    <div id='tweet_modal_js' class='left-side__modal-content'>
+      <%= link_to '投稿する', new_tweet_path, class: 'button__black button__wide' %>
+    </div>
+  </div>
+</div>
+
+<%# モーダルウィンドウ %>
+<%= javascript_include_tag 'modal.js' %>

@@ -1,13 +1,13 @@
 .ranking {
 
   &__title {
-    background-color: rgb(50, 50, 50);
-    margin-top: 10px;
+    background-color: rgb(80, 80, 80);
+    margin-top: 20px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     color: white;
     padding: 5px;
-    font-size: 15px;
+    font-size: 13px;
   }
   &__content {
     overflow: hidden;
@@ -19,7 +19,7 @@
     background-color: white;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   &__span-ul {
     font-size: 13px;
