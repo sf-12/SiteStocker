@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <%# モーダル ボタン %>
+    <%# モーダル ボタン(検索) %>
     <div class='left-side__modal-box'>
       <div id="search_button_js">
         <div class='left-side__icon-outer'>
@@ -62,10 +62,10 @@
 
     <%# 投稿box----------------------------------------------------------------- %>
     <div class='left-side__tweet-box'>
-      <%= link_to '投稿する', new_tweet_path, class: 'button__black button__wide' %>
+      <button id='tweet_button_pc_js' class='button__black button__wide'>投稿する</button>
     </div>
 
-    <%# モーダル ボタン %>
+    <%# モーダル ボタン(投稿) %>
     <div class='left-side__modal-box'>
       <div id="tweet_button_js">
         <div class='left-side__icon-outer'>
@@ -74,6 +74,7 @@
         <div class='left-side__text'>投稿する</div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -92,7 +93,7 @@
 
 <%# ウィンドウ %>
 <div id='tweet_modal_js' class='left-side__modal-content'>
-  <%= link_to '投稿する', new_tweet_path, class: 'button__black button__wide' %>
+  <%= render 'user/tweets/new' %>
 </div>
 
 <%# モーダルウィンドウ %>

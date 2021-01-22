@@ -20,7 +20,7 @@ $('#search_button_phone_js').click(function(){
   console.log('ウィンドウを表示');
 });
 // ウィンドウを閉じる
-$('#search_close_phone_js, #search_cover_phone_js').click(function(){
+$('#search_close_js, #search_cover_phone_js').click(function(){
   $('#search_cover_phone_js, #search_modal_phone_js').fadeTo(200,0).hide();
 });
 
@@ -28,8 +28,9 @@ $('#search_close_phone_js, #search_cover_phone_js').click(function(){
 
 // PC・タブレット
 // ウィンドウを表示
-$('#tweet_button_js').click(function(){
+$('#tweet_button_js, #tweet_button_pc_js').click(function(){
   $('#tweet_cover_js, #tweet_modal_js').fadeTo(200,1);
+  console.log('ウィンドウを表示');
 });
 // ウィンドウを閉じる
 $('#tweet_close_js, #tweet_cover_js').click(function(){
@@ -40,8 +41,9 @@ $('#tweet_close_js, #tweet_cover_js').click(function(){
 // ウィンドウを表示
 $('#tweet_button_phone_js').click(function(){
   $('#tweet_cover_phone_js, #tweet_modal_phone_js').fadeTo(200,1);
+  console.log('ウィンドウを表示');
 });
 // ウィンドウを閉じる
-$('#tweet_close_phone_js, #tweet_cover_phone_js').click(function(){
+$('#tweet_close_js, #tweet_cover_phone_js').click(function(){
   $('#tweet_cover_phone_js, #tweet_modal_phone_js').fadeTo(200,0).hide();
 });

@@ -9,7 +9,7 @@
     <%# 右寄せ部分 %>
     <div class='header__inner-right'>
       <%= link_to 'マイページ', user_path(current_user.id) %>
-      <%= link_to '投稿する', new_tweet_path %>
+      <%= link_to '投稿する', '#' %>
       <%= link_to '設定', users_setting_path %>
       <%= link_to 'about', about_path %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, id: 'header_logout_test' %>
