@@ -6,6 +6,8 @@ class User::UsersController < ApplicationController
     @user = User.find(params[:id])
     @tweets = @user.tweets.page(params[:page]).per(20).reverse_order
     gon.tweet_id_list = @tweets.ids
+    # 新規投稿用
+    @new_tweet = Tweet.new
   end
 
   def setting

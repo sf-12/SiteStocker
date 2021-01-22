@@ -15,6 +15,8 @@ class User::HomesController < ApplicationController
     @ranking_tags_month, @ranking_tags_month_count,
     @ranking_tags_year, @ranking_tags_year_count,
     @ranking_tags_all, @ranking_tags_all_count = tag_ranking
+    # 新規投稿用
+    @new_tweet = Tweet.new
   end
 
   def about; end
@@ -55,12 +57,12 @@ class User::HomesController < ApplicationController
     [ranking_month, ranking_month_count, ranking_year, ranking_year_count, ranking_all, ranking_all_count]
   end
 
-  # 今月１ヶ月間
+  # 今月1ヶ月間
   def tagging_span_month
     Time.now.in_time_zone.all_month
   end
 
-  # 今年１年間
+  # 今年1年間
   def tagging_span_year
     Time.now.in_time_zone.all_year
   end

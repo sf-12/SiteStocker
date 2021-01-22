@@ -17,7 +17,7 @@
       <%= render 'user/shared/ranking', title: 'いいね数', unit: 'likes', ranking_month: @ranking_likes_month, ranking_year: @ranking_likes_year, ranking_all: @ranking_likes_all %>
       <%# コメント数ランキング %>
       <%= render 'user/shared/ranking', title: 'コメント数', unit: 'comments', ranking_month: @ranking_comments_month, ranking_year: @ranking_comments_year, ranking_all: @ranking_comments_all %>
-      <%# タグランキング %>
+      <%# タグ・ランキング %>
       <%= render 'user/shared/ranking', title: 'タグ・', unit: 'posts', ranking_month: @ranking_tags_month, ranking_year: @ranking_tags_year, ranking_all: @ranking_tags_all, ranking_month_count: @ranking_tags_month_count, ranking_year_count: @ranking_tags_year_count, ranking_all_count: @ranking_tags_all_count %>
     </div>
 
