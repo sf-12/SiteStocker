@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class User::TweetsController < ApplicationController
-  def new
-    @tweet = Tweet.new
-  end
+  # def new
+  #   @tweet = Tweet.new
+  # end
 
   def create
     # サイトがデータベースに無ければ保存する
