@@ -10,7 +10,7 @@ class User < ApplicationRecord
   attachment :image
 
   # validation
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, confirmation: true, allow_nil: true
   validates :password_confirmation, presence: true, allow_nil: true
