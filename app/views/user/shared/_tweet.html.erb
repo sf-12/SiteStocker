@@ -4,32 +4,50 @@
 <%# タイムライン記事 %>
 <div class='timeline__box'>
   <%= link_to tweet_path(tweet.id), class: 'timeline__link-show' do %>
-    <div class='timeline__row1'>
-      <div class='timeline__row1-col1'>
+
+    <%# ヘッダーブロック : ユーザー名、投稿日時 ------------------------------------ %>
+    <div class='timeline__header timeline__table'>
+
+      <%# 投稿ユーザー %>
+      <div class="timeline__cell timeline__text">
         <object>
-          <%= link_to user_path(tweet.user.id) do %>
-            <%# アイコン %>
-            <%= attachment_image_tag tweet.user, :image, fallback: "user_default.png", class: 'timeline__user-icon' %>
-            <%# ユーザー名 %>
-            <span class='timeline__user-name'>
-              <%= tweet.user.name %>
-            </span>
+          <%= link_to user_path(tweet.user.id), class: 'timeline__user-link' do %>
+            <div class='timeline__user'>
+              <%# アイコン %>
+              <%= attachment_image_tag tweet.user, :image, fallback: "user_default.png", class: 'timeline__user-icon' %>
+              <%# ユーザー名 %>
+              <span class='timeline__user-name'><%= tweet.user.name %></span>
+            </div>
           <% end %>
         </object>
       </div>
+
       <%# 投稿日時 %>
-      <div class='timeline__tweeted-time'>
+      <div class="timeline__cell timeline__date">
         <small><%= tweet.created_at_ja %></small>
       </div>
     </div>
-    <div class='timeline__row2'>
-      <div class='timeline__row2-col1'>
-        <%# サイト画像 %>
-        <img id=<%="lp_image_js" + tweet.id.to_s %> src="" class='timeline__site-image'>
+
+    <%# メインブロック : プレビュー、ページ情報 etc ------------------------------- %>
+    <div class='timeline__main'>
+
+      <%# プレビュー %>
+      <div class='timeline__preview-box'>
+        <object>
+          <div class='timeline__preview-background'>
+            <%= link_to tweet.site.url, target: :_blank, rel: "noopener noreferrer" do %>
+              <img id=<%="lp_image_js" + tweet.id.to_s %> class='timeline__preview'>
+            <% end %>
+            <div class='timeline__annotation'>サイトに移動</div>
+          </div>
+        </object>
       </div>
-      <div class='timeline__row2-col2'>
+
+      <%# ページ情報、紹介文、タグ %>
+      <div class='timeline__information'>
+
         <%# ページタイトル %>
-        <div id=<%='lp_title_js' + tweet.id.to_s %> class='timeline__page-title' ></div>
+        <div id=<%='lp_title_js' + tweet.id.to_s %> class='timeline__page-title'></div>
         <%# ページURL %>
         <div class='timeline__page-url'><%= tweet.site.url.truncate(40) %></div>
         <%# 紹介文 %>
@@ -38,58 +56,97 @@
         <%= render 'user/shared/tag_list', tweet: tweet %>
         <%# 非公開設定時の備考 %>
         <%= render 'user/shared/tweet_not_opened', tweet: tweet %>
+
       </div>
     </div>
-    <div class='timeline__row3'>
+
+    <%# フッターブロック : コメント、いいね etc ----------------------------------- %>
+    <div class='timeline__footer'>
       <%# コメント %>
-      <div class='timeline__tweet-item'>
-        <%= link_to tweet_path(tweet.id), class: 'timeline__link-show' do %>
-          <% if tweet.commented_by?(current_user) %>
-            <%# 自分がコメントしている場合 %>
-            <i class="fas fa-comment">コメント</i>
-          <% else %>
-            <%# 自分がコメントしていない場合 %>
-            <i class="far fa-comment">コメント</i>
+      <div class='timeline__footer-box'>
+        <object>
+          <%= link_to tweet_path(tweet.id), class:'timeline__footer-link' do %>
+            <div>
+              <%# アイコン(自分のコメント有のときは塗りつぶし) %>
+              <% if tweet.commented_by?(current_user) %>
+                <i class="fas fa-comment">
+                </i>
+              <% else %>
+                <i class="far fa-comment"></i>
+              <% end %>
+
+              <%# コメント件数（0件の時は表示しない %>
+              <% if tweet.comments.count != 0 %>
+                <%= tweet.comments.count %>
+              <% end %>
+            </div>
+            <div>
+              <small class='timeline__footer-text'>コメント</small>
+            </div>
+
           <% end %>
-          <%# コメントされている時だけ件数表示 %>
-          <% if tweet.comments.count != 0 %>
-            <%= tweet.comments.count %>
-          <% end %>
-        <% end %>
+        </object>
       </div>
+
       <%# いいね %>
-      <div class='timeline__tweet-item'>
-        <% if tweet.liked_by?(current_user) %>
-          <%# 自分がいいねしている場合 %>
-          <%= link_to tweet_likes_path(tweet.id), method: :delete, class: 'timeline__link-show' do %>
-            <i class="fas fa-thumbs-up"> いいね</i>
-          <% end %>
-        <% else %>
-          <%# 自分がいいねしていない場合 %>
-          <%= link_to tweet_likes_path(tweet.id), method: :post, class: 'timeline__link-show' do %>
-            <i class="far fa-thumbs-up"> いいね</i>
-          <% end %>
-        <% end %>
-        <%# 自分や他の人にいいねされている時だけ件数表示 %>
-        <% if tweet.likes.count != 0 %>
-          <%= tweet.likes.count %>
-        <% end %>
+      <div class='timeline__footer-box'>
+        <object>
+          <div>
+            <% if tweet.liked_by?(current_user) %>
+              <%# 自分がいいねしている場合 %>
+              <%= link_to tweet_likes_path(tweet.id), method: :delete, class: 'timeline__footer-link' do %>
+                <i class="fas fa-thumbs-up"></i>
+              <% end %>
+            <% else %>
+              <%# 自分がいいねしていない場合 %>
+              <%= link_to tweet_likes_path(tweet.id), method: :post, class: 'timeline__footer-link' do %>
+                <i class="far fa-thumbs-up"></i>
+              <% end %>
+            <% end %>
+            <%# 自分や他の人にいいねされている時だけ件数表示 %>
+            <% if tweet.likes.count != 0 %>
+              <%= tweet.likes.count %>
+            <% end %>
+          </div>
+          <div>
+            <small class='timeline__footer-text'>いいね</small>
+          </div>
+        </object>
       </div>
+
       <%# 自分の投稿の場合のみの機能 %>
       <% if current_user.id == tweet.user_id %>
-        <%# 投稿の編集 %>
-        <div class='timeline__tweet-item'>
-          <%= link_to edit_tweet_path(tweet.id), class: 'timeline__link-show' do %>
-            <i class="far fa-edit"> 編集</i>
-          <% end %>
+        <%# 編集 %>
+        <div class='timeline__footer-box'>
+          <object>
+            <div>
+              <%= link_to edit_tweet_path(tweet.id), class: 'timeline__footer-link' do %>
+                <i class="far fa-edit"></i>
+              <% end %>
+            </div>
+            <div>
+              <small class='timeline__footer-text'>編集</small>
+            </div>
+          </object>
         </div>
-        <%# 投稿の削除 %>
-        <div class='timeline__tweet-item'>
-          <%= link_to tweet_path(tweet.id), method: :delete, class: 'timeline__link-show', "data-confirm" => "本当に削除しますか？" do %>
-            <i class="far fa-trash-alt"> 削除</i>
-          <% end %>
+
+        <%# 削除 %>
+        <div class='timeline__footer-box'>
+          <object>
+            <div>
+              <%= link_to tweet_path(tweet.id), method: :delete, class: 'timeline__link-show', "data-confirm" => "本当に削除しますか？" do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </div>
+            <div>
+              <small class='timeline__footer-text'>削除</small>
+            </div>
+          </object>
         </div>
       <% end %>
     </div>
+
   <% end %>
 </div>
+
+

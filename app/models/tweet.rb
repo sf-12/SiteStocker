@@ -7,7 +7,7 @@ class Tweet < ApplicationRecord
   # validation
   validates :user_id, presence: true
   validates :site_id, presence: true
-  validates :text, presence: true
+  validates :text, presence: true, length: { maximum: 250 }
   validates :is_opened, inclusion: { in: [true, false] }
 
   # association

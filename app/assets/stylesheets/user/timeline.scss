@@ -1,21 +1,20 @@
 .timeline {
 
   &__box {
-    display: block;
     border-bottom:  1px solid #cccccc;
     border-left:  1px solid #cccccc;
     border-right:  1px solid #cccccc;
     font-size: 14px;
   }
 
-  // リスト全体に対するリンク
+  // 投稿全体に対するリンク
   &__link-show:link,
   &__link-show:visited,
   &__link-show:hover,
-  &__link-show:active
-  {
+  &__link-show:active {
     color: #000000;
     text-decoration: none;
+    transition: 0.3s;
   }
 
   &__box:hover {
@@ -23,79 +22,196 @@
     cursor: pointer;
   }
 
-  &__row1 {
-    display: flex;
-    justify-content: space-between;
+  // ヘッダーブロック -------------------------------------------------------------
+  &__header {
     padding: 5px;
+  }
+  &__table {
+    display: table;
+  }
+  &__cell {
+    display: table-cell;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  &__text {
+    max-width: 1px; // text-overflow: ellipsis; を有効にするため
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  &__user {
+    display: flex;
+    border-radius: 8px;
+    padding-left: 3px;
+    padding-right: 6px;
+  }
+  &__user:hover {
+    background-color: #dfdfdf;
+    transition: 0.4s;
+  }
+  &__user-link:link,
+  &__user-link:visited,
+  &__user-link:hover,
+  &__user-link:active {
+    color: #000000;
+    text-decoration: none;
+  }
+  &__user-name {
+    padding-left: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
     line-height: 40px;
   }
-
-  &__row1-col1 {
-  }
-
-  &__user-name {
-    font-weight: bold;
-  }
-
   &__user-icon {
     width: 40px;
     height: 40px;
     border: 1px solid #cccccc;
     border-radius: 50%;
   }
-
-  &__tweeted-time {
+  &__user-icon:hover {
+    transition: 0.2s;
+    border: 1px solid #929292;
+  }
+  &__date {
+    width: 1%;
+    padding-left: 5px;
+    padding-right: 5px;
     color: #999999;
   }
 
-  &__row2 {
+  // メインブロック --------------------------------------------------------------
+  &__main {
     display: flex;
     padding-top: 2px;
   }
-
-  &__row2-col1 {
-    padding-left: 5px;
+  &__preview-box {
+    padding-left: 8px;
     padding-right: 10px;
   }
-
-  &__site-image {
+  &__preview-background {
     background-color: #f0f0f0;
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
     border: 1px solid #cccccc;
     border-radius: 8%;
+    position: relative; // 吹き出し表示位置の基準にする
   }
-
-  &__row2-col2 {
-    padding-right: 5px;
+  &__preview-background:hover {
+    background-color: #dfdfdf;
+    border: 1px solid #000000;
+    transition: 0.2s;
   }
-
+  &__preview-background:hover &__annotation {
+    display: block;
+    transition: 0.6s;
+  }
+  &__annotation {
+    display: none;
+    position :absolute;
+    background-color: rgba(0, 0, 0, 0.50);
+    border-radius: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    top: 5%;
+    left: 5%;
+    color: white;
+    font-size: 10px;
+  }
+  &__preview {
+    object-fit: contain;
+    border-radius: 8%;
+    width: 200px;
+    height: 200px;
+  }
+  &__information {
+    padding-right: 10px;
+    width: 100%;
+  }
   &__page-title {
     font-weight: bold;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     padding-bottom: 5px;
   }
-
   &__page-url {
     padding-bottom: 5px;
     border-bottom:  1px solid #cccccc;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
   }
-
   &__tweet-text {
     padding-top: 5px;
   }
 
-  &__row3 {
+  // フッターブロック -------------------------------------------------------------
+  &__footer {
     display: flex;
-    height: 40px;
-    line-height: 40px;
     padding: 5px;
   }
+  &__footer-box {
+    height: 100%;
+    flex: 1; // 子要素を横に均等配置
+    text-align: center;
+  }
+  &__footer-box:hover {
+    background-color: #dfdfdf;
+    border-radius: 5px;
+    transition: 0.2s;
+  }
+  &__footer-link {
+    color: black;
+  }
+  &__footer-link:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
 
-  &__tweet-item {
-    width: 25%;
-    padding-left: 20px;
+// /* 画面の横幅が850px下の際に適用される設定 */
+@media screen and (max-width:850px) {
+  .timeline {
+    &__preview {
+      width: 170px;
+      height: 170px;
+    }
+  }
+}
+// /* 画面の横幅が580px下の際に適用される設定 */
+@media screen and (max-width:580px) {
+  .timeline {
+    &__preview {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}
+// /* 画面の横幅が425px下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .timeline {
+    &__preview {
+      width: 120px;
+      height: 120px;
+    }
+    &__page-title {
+      border-bottom:  1px solid #cccccc;
+    }
+    &__page-url {
+      display: none;
+    }
+    &__footer-text {
+      display: none;
+    }
+    // &__annotation {
+    //   font-size: 5px;
+    // }
+  }
+}
+// /* 画面の横幅が320px下の際に適用される設定 */
+@media screen and (max-width:320px) {
+  .timeline {
+    &__preview {
+      width: 100px;
+      height: 100px;
+    }
   }
 }

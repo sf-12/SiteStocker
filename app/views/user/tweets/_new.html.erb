@@ -8,8 +8,8 @@
     <%= f.text_field :url, type: 'url', placeholder: "サイトのURLを入力", autofocus: true, id: 'new_tweet_url__input', class: 'tweet-new__url-field', :required => true %>
     <br>
     <%# 投稿記事 %>
-    <%= f.label :text, class: 'tweet-new__text-label' %><br>
-    <%= f.text_area :text, placeholder: "紹介文を記入", id: 'new_tweet_text__input', class: 'tweet-new__text-field', rows: '3', :required => true %>
+    <%= f.label :text, '投稿記事（250文字まで）', class: 'tweet-new__text-label' %><br>
+    <%= f.text_area :text, placeholder: "紹介文を記入", id: 'new_tweet_text__input', class: 'tweet-new__text-field', rows: '3', maxlength: '250', :required => true %>
     <br>
     <%# タグ %>
     <%= f.label :tag_list, 'タグ（5つまで）', class: 'tweet-new__tag-label' %><br>

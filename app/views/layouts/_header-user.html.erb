@@ -6,6 +6,7 @@
         SiteStocker
       <% end %>
     </div>
+
     <%# 右寄せ部分 %>
     <div class='header__inner-right'>
       <%= link_to 'マイページ', user_path(current_user.id) %>
@@ -17,5 +18,6 @@
         <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: "user_default.png", size: "36x36" %>
       <% end %>
     </div>
+
   </div>
 </header>
