@@ -2,7 +2,7 @@
 
 class Relationship < ApplicationRecord
   # validation
-  validates :id, uniqueness: { scope: %I[follower_id followee_id] } # 二重にフォローすることはできない
+  validates :follower_id, uniqueness: { scope: %I[follower_id followee_id] } # 二重にフォローすることはできない
   validates :follower_id, presence: true
   validates :followee_id, presence: true
 

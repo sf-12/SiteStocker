@@ -1,3 +1,11 @@
-<% tweet.tag_list.each do |tag| %>
-  <span class='tag-text'><%= tag %></span>
-<% end %>
+<div class='tag__area'>
+  <% tweet.tag_list.each do |tag| %>
+    <object>
+      <%= link_to searches_result_path(target: tag, type: 'タグ') do %>
+        <span class='tag__box'>
+          <span class='tag__text'><%= tag %></span>
+        </span>
+      <% end %>
+    </object>
+  <% end %>
+</div>

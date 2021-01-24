@@ -1,0 +1,67 @@
+<div class='bottom-navigation'>
+
+  <%# ホーム %>
+  <div class='bottom-navigation__box'>
+    <%= link_to  home_path, class: 'left-side__link' do %>
+      <div class='left-side__icon-outer'>
+        <%=image_tag('logo.png', class: 'bottom-navigation__icon') %>
+      </div>
+      <div class='left-side__text'>ホーム</div>
+    <% end %>
+  </div>
+
+  <%# プロフィール %>
+  <div class='bottom-navigation__box'>
+    <%= link_to user_path(current_user.id), class: 'left-side__link' do %>
+      <div class='left-side__icon-outer'>
+        <%= attachment_image_tag user, :image, fallback: "user_default.png",class: 'left-side__icon-profile' %>
+      </div>
+      <div class='left-side__text'>プロフィール</div>
+    <% end %>
+  </div>
+
+  <%# モーダル ボタン(検索) %>
+  <div class='bottom-navigation__box'>
+    <div class='left-side__modal-box'>
+      <div id="search_button_phone_js">
+        <div class='left-side__icon-outer'>
+          <i class="fas fa-search left-side__icon"></i>
+        </div>
+        <div class='left-side__text'>検索する</div>
+      </div>
+    </div>
+  </div>
+
+  <%# モーダル ボタン(投稿) %>
+  <div class='bottom-navigation__box'>
+    <div class='left-side__modal-box'>
+      <div id="tweet_button_phone_js">
+        <div class='left-side__icon-outer'>
+          <i class="fas fa-sticky-note left-side__icon"></i>
+        </div>
+        <div class='left-side__text'>投稿する</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# モーダル (検索) %>
+<%# 背景 %>
+<div id="search_cover_phone_js"  class='left-side__modal-cover'></div>
+
+<%# ウィンドウ %>
+<div id='search_modal_phone_js' class='left-side__modal-content'>
+  <%= render 'user/searches/search_form', search: @search %>
+</div>
+
+<%# モーダル (投稿) %>
+<%# 背景 %>
+<div id="tweet_cover_phone_js"  class='left-side__modal-cover'></div>
+
+<%# ウィンドウ %>
+<div id='tweet_modal_phone_js' class='left-side__modal-content'>
+  <%= render 'user/tweets/new' %>
+</div>
+
+<%# モーダルウィンドウ %>
+<%= javascript_include_tag 'modal.js' %>

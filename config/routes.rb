@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     get 'home' => 'homes#home'
     get 'about' => 'homes#about'
-    resources :tweets, only: %i[new create show edit update destroy] do
+    resources :tweets, only: %i[create show edit update destroy] do
       resources :comments, only: %i[create destroy]
       resource :likes, only: %i[create destroy]
     end

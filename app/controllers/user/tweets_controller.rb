@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class User::TweetsController < ApplicationController
-  def new
-    @tweet = Tweet.new
-  end
-
   def create
     # サイトがデータベースに無ければ保存する
     site = Site.find_by(url: params[:tweet][:url])
@@ -18,7 +14,8 @@ class User::TweetsController < ApplicationController
       # マイページに戻る
       redirect_to user_path(current_user.id)
     else
-      render :new
+      # render :new
+      render request.referer
     end
   end
 
@@ -28,6 +25,8 @@ class User::TweetsController < ApplicationController
     # データは1つだが配列として渡す
     gon.tweet_id_list = [@tweet.id]
     @new_comment = Comment.new
+    # 新規投稿用
+    @new_tweet = Tweet.new
   end
 
   def edit

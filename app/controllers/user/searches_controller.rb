@@ -10,6 +10,8 @@ class User::SearchesController < ApplicationController
     # APIキーと投稿リストを外部APIに渡す
     gon.linkpreview_key = ENV['LINK_PREVIEW_API_KEY']
     gon.tweet_id_list = @tweets.ids
+    # 新規投稿用
+    @new_tweet = Tweet.new
   end
 
   private

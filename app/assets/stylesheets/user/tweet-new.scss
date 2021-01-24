@@ -1,0 +1,63 @@
+.tweet-new {
+  width: 50vw;
+  max-width: 500px;
+
+  &__url-label {
+    margin: 0;
+  }
+  &__url-field {
+    width: 100%;
+  }
+  &__text-label {
+    margin: 0;
+    padding-top: 7px;
+  }
+  &__text-field {
+    width: 100%;
+    resize: none;
+  }
+  &__tag-label {
+    margin: 0;
+  }
+  &__tag-field {
+  }
+  &__is-opened-box {
+    padding-top: 10px;
+    line-height: 35px;
+    position: relative;
+  }
+  &__is-opened-label {
+    padding-top: 3px;
+    padding-left: 30px;
+    line-height: 35px;
+  }
+  &__is-opened-check {
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    bottom:0;
+    left:0;
+    margin:auto;
+    width: 25px;
+    height: 25px;
+  }
+  &__button-box {
+    position: relative;
+  }
+  &__button {
+    width: 100%;
+  }
+  &__close {
+    border-radius: 50%;
+    font-size: 20px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    float: right;
+  }
+  &__close:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+}
