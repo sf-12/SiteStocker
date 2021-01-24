@@ -16,7 +16,7 @@
     width: 600px;
   }
   &__right-side {
-    width: 300px;
+    min-width: 300px;
     padding-left: 20px;
   }
 }
@@ -24,6 +24,7 @@
 // /* 画面の横幅が1100px下の際に適用される設定 */
 @media screen and (max-width:1100px) {
   .home {
+    background-color: white;
     &__right-side {
       display: none;
     }
@@ -50,6 +51,8 @@
 /* 画面の横幅が425px下の際に適用される設定 */
 @media screen and (max-width:425px) {
   .home {
+
+    padding-bottom: 64px;   // 下タブ用
 
     &__left-side {
       display: none;

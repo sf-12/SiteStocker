@@ -1,0 +1,89 @@
+<div class='profile'>
+  <div class='profile__box'>
+    <%# アイコン %>
+    <%= attachment_image_tag user, :image, fallback: "user_default.png", class: 'profile__icon' %>
+
+    <%# ユーザー名 %>
+    <div class='profile__name'><%= user.name %></div>
+
+    <%# 紹介文 %>
+    <div class='profile__text'><%= user.text %></div>
+
+    <%# データ %>
+    <div class='profile__data'>
+
+      <div class='profile__data-box'>
+        <div class='profile__data-content'>
+          投稿<br>
+          <%= user.tweets.where(is_opened: true).count %>
+        </div>
+        <div class='profile__data-content'>
+          コメント<br>
+          <%= user.comments.count %>
+        </div>
+      </div>
+
+      <div class='profile__data-box'>
+
+        <%= link_to user_followings_path(user_id: user.id), class: 'profile__data-content profile__link' do %>
+          フォロー<br>
+          <%= user.followings.count %>
+        <% end %>
+
+        <%= link_to user_followers_path(user_id: user.id), class: 'profile__data-content profile__link' do %>
+          フォロワー<br>
+          <%= user.followers.count %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <%# ボタン %>
+      <%# 自分のページの場合 ----------------------------%>
+      <% if user == current_user %>
+        <%# モーダル ボタン(プロフィール編集) %>
+        <div class='profile__button-box'>
+          <button id='profile_button_js' class='button__black' style='outline: none'>
+            プロフィール編集
+          </button>
+        </div>
+      <% end %>
+
+      <%# 他人のページの場合 ----------------------------%>
+      <% if user != current_user %>
+        <%# フォローされている場合 %>
+        <% if user.following?(current_user) %>
+          <div class='profile__followed-message'>あなたはフォローされています</div>
+        <% end %>
+
+        <% if current_user.following?(user) %>
+          <%# フォローしている場合 %>
+          <div class='profile__button-box'>
+            <%= link_to user_relationship_path(user_id: user, id: current_user), method: :delete, class: 'button__black' do %>
+            フォロー解除
+            <% end %>
+          </div>
+        <% else %>
+          <%# フォローしていない場合 %>
+          <div class='profile__button-box'>
+            <%= link_to user_relationships_path(user_id: user), method: :post, class: 'button__black' do %>
+            フォロー
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>
+
+<%# モーダル (プロフィール編集) %>
+<%# 背景 %>
+<div id="profile_cover_js"  class='profile__modal-cover'></div>
+
+<%# ウィンドウ %>
+<div id='profile_modal_js' class='left-side__modal-content'>
+  <%#= render 'user/tweets/new' %>
+  <%= render 'user/registrations/edit' %>
+</div>
+
+<%# モーダルウィンドウ %>
+<%= javascript_include_tag 'modal.js' %>

@@ -47,3 +47,15 @@ $('#tweet_button_phone_js').click(function(){
 $('#tweet_close_js, #tweet_cover_phone_js').click(function(){
   $('#tweet_cover_phone_js, #tweet_modal_phone_js').fadeTo(200,0).hide();
 });
+
+// プロフィール編集機能======================================
+
+// ウィンドウを表示
+$('#profile_button_js').click(function(){
+  $('#profile_cover_js, #profile_modal_js').fadeTo(200,1);
+  console.log('ウィンドウを表示');
+});
+// ウィンドウを閉じる
+$('#profile_close_js, #profile_cover_js').click(function(){
+  $('#profile_cover_js, #profile_modal_js').fadeTo(200,0).hide();
+});
