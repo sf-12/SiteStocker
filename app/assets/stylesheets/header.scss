@@ -1,20 +1,168 @@
 .header {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #dddddd;
   height: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
   background-color: rgb(50, 50, 50);
 
-  &__inner-left {
-    float: left;
-    padding-left: 10px;
+  &__box {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
-  &__inner-right {
+  &__title-box {
+    float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  &__title {
+    line-height: 40px;
+    font-size: 36px;
+    color: white;
+  }
+  &__title:hover {
+    color: white;
+    text-decoration: none;
+  }
+  &__content-box {
+    padding-top: 10px;
+    padding-bottom: 10px;
     float: right;
     line-height: 40px;
-    padding-right: 10px;
+  }
+  &__content {
+    color: white;
+    padding-left: 20px;
+  }
+  &__content:hover {
+    color: white;
+  }
+
+  // ハンバーガーメニュー ------------------------------------------
+  &__hamburger-checkbox {
+    position: relative;
+    left: -50vh; // 画面外に配置する
+  }
+
+  // &__hamburger-checkboxがチェックされた時、
+  // htmlでそれより後ろに記載されている&__hamburger-boxに対して効く
+  &__hamburger-checkbox:checked ~ &__hamburger-box {
+    right: 0px;
+  }
+
+  // &__hamburger-checkboxがチェックされた時、
+  // htmlでそれより後ろに記載されている&__hamburger-backに対して効く
+  &__hamburger-checkbox:checked ~ &__hamburger-back {
+    position: absolute;
+    z-index: 2; // より大きな z-index はより小さな要素の上に重なる
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba( 0, 0, 0, 0.5);
+  }
+
+  &__hamburger-icon {
+    display: none;
+    float: right;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  &__hamburger-icon:hover{
+    cursor: pointer;
+  }
+  &__icon {
+    width: 38px;
+    height: 38px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
+  }
+  &__hamburger-box {
+    position: absolute;
+    top: 0;
+    right: -130px;
+    z-index: 3; // より大きな z-index はより小さな要素の上に重なる
+    background-color: rgb(50, 50, 50);
+    height: 100%;
+    width: 130px;
+    transition: all 0.2s;
+    margin: 0 auto;
+  }
+  &__hamburger-close {
+    display: block;
+    color: white;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  &__hamburger-close:hover {
+    background-color: #474747;
+  }
+  &__hamburger-content {
+    display: block;
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+  }
+  &__hamburger-content:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #474747;
+  }
+}
+
+// /* 画面の横幅が768px下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .header {
+    width: 100%;
+    height: 50px;
+
+    &__box {
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+    &__title-box {
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    &__title {
+      line-height: 34px;
+      font-size: 30px;
+    }
+    &__content-box {
+      display: none;
+    }
+    &__hamburger-icon {
+      display: block;
+    }
+  }
+}
+
+// /* 画面の横幅が425px下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .header {
+    height: 40px;
+
+    &__box {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+    &__title-box {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    &__title {
+      line-height: 28px;
+      font-size: 22px;
+    }
+    &__hamburger-icon {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+    &__icon {
+      width: 28px;
+      height: 28px;
+    }
   }
 }

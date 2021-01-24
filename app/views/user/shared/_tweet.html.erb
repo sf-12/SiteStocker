@@ -119,28 +119,28 @@
         <%# 編集 %>
         <div class='timeline__footer-box'>
           <object>
-            <div>
-              <%= link_to edit_tweet_path(tweet.id), class: 'timeline__footer-link' do %>
-                <i class="far fa-edit"></i>
-              <% end %>
-            </div>
-            <div>
-              <small class='timeline__footer-text'>編集</small>
-            </div>
+            <%= link_to edit_tweet_path(tweet.id), class: 'timeline__footer-link' do %>
+              <div>
+                  <i class="far fa-edit"></i>
+              </div>
+              <div>
+                <small class='timeline__footer-text'>編集</small>
+              </div>
+            <% end %>
           </object>
         </div>
 
         <%# 削除 %>
         <div class='timeline__footer-box'>
           <object>
-            <div>
-              <%= link_to tweet_path(tweet.id), method: :delete, class: 'timeline__link-show', "data-confirm" => "本当に削除しますか？" do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-            </div>
-            <div>
-              <small class='timeline__footer-text'>削除</small>
-            </div>
+            <%= link_to tweet_path(tweet.id), method: :delete, class: 'timeline__link-show', "data-confirm" => "本当に削除しますか？" do %>
+              <div>
+                  <i class="far fa-trash-alt"></i>
+              </div>
+              <div>
+                <small class='timeline__footer-text'>削除</small>
+              </div>
+            <% end %>
           </object>
         </div>
       <% end %>
