@@ -46,7 +46,7 @@
   // &__hamburger-checkboxがチェックされた時、
   // htmlでそれより後ろに記載されている&__hamburger-boxに対して効く
   &__hamburger-checkbox:checked ~ &__hamburger-box {
-    right: 0px;
+    display: block;
   }
 
   // &__hamburger-checkboxがチェックされた時、
@@ -78,14 +78,14 @@
     background-color: white;
   }
   &__hamburger-box {
+    display: none;
     position: absolute;
     top: 0;
-    right: -130px;
+    right: 0;
     z-index: 3; // より大きな z-index はより小さな要素の上に重なる
     background-color: rgb(50, 50, 50);
     height: 100%;
     width: 130px;
-    transition: all 0.2s;
     margin: 0 auto;
   }
   &__hamburger-close {

@@ -1,0 +1,23 @@
+<div class='profile-edit'>
+  <i class="fas fa-user-edit"> 編集しよう</i>
+  <span id="profile_close_js"><i class="fas fa-times profile-edit__close"></i></span>
+  <%= form_with model: @user, url: user_registration_path, id: 'update_profile', local: true do |f| %>
+    <%= render "user/shared/error_messages", resource: resource %>
+    <%# アイコン %>
+    <%= f.label :image, "アイコン", class: 'profile-edit__label' %><br />
+    <%= attachment_image_tag @user, :image, size: "72x72", fallback: "user_default.png"%><br>
+    <%= f.attachment_field :image, placeholder: "プロフィール画像", class:'profile-edit__image' %>
+    <br>
+    <%# 名前 %>
+    <%= f.label :name, "名前", class: 'profile-edit__label' %><br />
+    <%= f.text_field :name, id: 'update_profile_name__input', class: 'profile-edit__text' %>
+    <br>
+    <%# 自己紹介 %>
+    <%= f.label :text, "自己紹介", class: 'profile-edit__label' %><br />
+    <%= f.text_area :text, id: 'update_profile_text__input', class: 'profile-edit__text' %>
+    <%# 編集ボタン %>
+    <div class='profile-edit__button-box'>
+      <%= f.submit "編集する", class: 'button__black profile-edit__button' %>
+    </div>
+  <% end %>
+</div>

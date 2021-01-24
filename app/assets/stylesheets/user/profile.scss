@@ -1,0 +1,81 @@
+.profile {
+
+  &__box {
+    border-bottom:  1px solid #cccccc;
+    border-left:  1px solid #cccccc;
+    border-right:  1px solid #cccccc;
+    font-size: 14px;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+
+  &__icon {
+    width: 50px;
+    height: 50px;
+  }
+  &__name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  &__text {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  &__data {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+  }
+  &__data-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  &__data-content {
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 110px;
+  }
+  &__button-box {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  &__link {
+    color: black;
+    outline: none;
+  }
+  &__link:hover {
+    text-decoration: none;
+    color: black;
+    background-color: #dfdfdf;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  &__followed-message {
+    padding-top: 8px;
+    color: #999999;
+  }
+  // モーダル（プロフィール編集）
+  &__modal-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background: rgba(0,0,0,0.25);
+    z-index: 1; // より大きな z-index を持つ要素はより小さな要素の上に重なる
+    display: none;
+  }
+}
