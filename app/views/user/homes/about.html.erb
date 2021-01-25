@@ -1,14 +1,31 @@
-SiteStockerは
-<h1>皆さんのおすすめのサイトを見ることができます</h1>
-SiteStockerは
-<h1>自分のおすすめのサイトを投稿できます</h1>
-<h1>閲覧されているサイトを見てみよう</h1>
-<% if user_signed_in? %>
-  <%= link_to home_path do %>
-    <button>タイムラインを見る</button>
-  <% end %>
-<% else %>
-  <%= link_to new_user_registration_path do %>
-    <button>ユーザー登録する</button>
-  <% end %>
-<% end %>
+<div class='about'>
+
+  <div class='about__header'>
+    <div class='about__title'>
+      SiteStocker
+    </div>
+  </div>
+
+  <div class='about__content'>
+    <div class='about__content-title'>見つけよう</div>
+    <div class='about__content-text'>皆さんのおすすめのサイトを見ることができます</div>
+  </div>
+
+  <div class='about__content'>
+    <div class='about__content-title'>共有しよう</div>
+    <div class='about__content-text'>自分のおすすめのサイトを投稿できます</div>
+  </div>
+
+  <div class='about__content'>
+    <div class='about__content-title'>語り合おう</div>
+    <div class='about__content-text'>コメント欄で語り合うことができます</div>
+  </div>
+
+  <div class='about__content-button'>
+    <%= link_to home_path do %>
+      <button class='button__black' style='outline: none'>
+        タイムラインを見る
+      </button>
+    <% end %>
+  </div>
+</div>
