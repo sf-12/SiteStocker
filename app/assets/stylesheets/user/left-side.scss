@@ -1,5 +1,6 @@
 .left-side {
   border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
   background-color: white;
   height: 100%;
 
@@ -83,6 +84,7 @@
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 44px;
+    border-bottom: 1px solid #cccccc;
   }
 
   // モーダルbox============================
@@ -178,6 +180,7 @@
       padding-bottom: 10px;
       padding-left: 20px;
       padding-right: 20px;
+      border-bottom: 1px solid #cccccc;
     }
     &__modal-box:hover {
       background-color: #f0f0f0;

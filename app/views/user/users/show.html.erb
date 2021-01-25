@@ -1,3 +1,4 @@
+<%= render 'layouts/notifications' %>
 <div class="home">
   <div class='home__box'>
     <%# 左サイド %>
@@ -20,6 +21,12 @@
       <%# タグ・ランキング %>
       <%= render 'user/shared/ranking', title: 'タグ・', unit: 'posts', ranking_month: @ranking_tags_month, ranking_year: @ranking_tags_year, ranking_all: @ranking_tags_all, ranking_month_count: @ranking_tags_month_count, ranking_year_count: @ranking_tags_year_count, ranking_all_count: @ranking_tags_all_count %>
     </div>
+
+    <%# 下タブ %>
+    <div class='home__bottom-tab'>
+      <%= render 'user/shared/bottom_navigation', user: current_user %>
+    </div>
+
   </div>
 </div>
 

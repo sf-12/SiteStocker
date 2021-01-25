@@ -6,27 +6,7 @@
   <%= link_to tweet_path(tweet.id), class: 'timeline__link-show' do %>
 
     <%# ヘッダーブロック : ユーザー名、投稿日時 ------------------------------------ %>
-    <div class='timeline__header timeline__table'>
-
-      <%# 投稿ユーザー %>
-      <div class="timeline__cell timeline__text">
-        <object>
-          <%= link_to user_path(tweet.user.id), class: 'timeline__user-link' do %>
-            <div class='timeline__user'>
-              <%# アイコン %>
-              <%= attachment_image_tag tweet.user, :image, fallback: "user_default.png", class: 'timeline__user-icon' %>
-              <%# ユーザー名 %>
-              <span class='timeline__user-name'><%= tweet.user.name %></span>
-            </div>
-          <% end %>
-        </object>
-      </div>
-
-      <%# 投稿日時 %>
-      <div class="timeline__cell timeline__date">
-        <small><%= tweet.created_at_ja %></small>
-      </div>
-    </div>
+    <%= render 'user/shared/tweet_header', tweet: tweet %>
 
     <%# メインブロック : プレビュー、ページ情報 etc ------------------------------- %>
     <div class='timeline__main'>
@@ -121,7 +101,7 @@
           <object>
             <%= link_to edit_tweet_path(tweet.id), class: 'timeline__footer-link' do %>
               <div>
-                  <i class="far fa-edit"></i>
+                <i class="far fa-edit"></i>
               </div>
               <div>
                 <small class='timeline__footer-text'>編集</small>
@@ -135,7 +115,7 @@
           <object>
             <%= link_to tweet_path(tweet.id), method: :delete, class: 'timeline__link-show', "data-confirm" => "本当に削除しますか？" do %>
               <div>
-                  <i class="far fa-trash-alt"></i>
+                <i class="far fa-trash-alt"></i>
               </div>
               <div>
                 <small class='timeline__footer-text'>削除</small>
@@ -148,5 +128,3 @@
 
   <% end %>
 </div>
-
-

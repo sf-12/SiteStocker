@@ -6,11 +6,6 @@ class User::UsersController < ApplicationController
     @user = User.find(params[:id])
 
     # 閲覧者が本人でない場合、非公開の投稿は表示しない
-    # if @user != current_user
-    #   active_tweet = @user.tweets.where(is_opened: true)
-    # else
-    #   active_tweet = @user.tweets
-    # end
     active_tweet = if @user == current_user
                      @user.tweets
                    else
