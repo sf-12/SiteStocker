@@ -22,7 +22,7 @@ class User::SessionsController < Devise::SessionsController
   def new_guest
     user = User.guest_login
     sign_in user
-    flash[:notice__home] = 'ゲストユーザーとしてログインしました'
+    flash[:notice__upper] = 'ゲストユーザーとしてログインしました'
     redirect_to home_path
   end
 

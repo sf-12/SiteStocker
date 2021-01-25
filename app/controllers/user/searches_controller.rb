@@ -10,6 +10,14 @@ class User::SearchesController < ApplicationController
     # APIキーと投稿リストを外部APIに渡す
     gon.linkpreview_key = ENV['LINK_PREVIEW_API_KEY']
     gon.tweet_id_list = @tweets.ids
+    # いいね数ランキング
+    @ranking_likes_month, @ranking_likes_year, @ranking_likes_all = tweet_ranking('likes')
+    # コメント数ランキング
+    @ranking_comments_month, @ranking_comments_year, @ranking_comments_all = tweet_ranking('comments')
+    # タグランキング
+    @ranking_tags_month, @ranking_tags_month_count,
+    @ranking_tags_year, @ranking_tags_year_count,
+    @ranking_tags_all, @ranking_tags_all_count = tag_ranking
     # 新規投稿用
     @new_tweet = Tweet.new
   end
