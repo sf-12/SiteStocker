@@ -1,8 +1,9 @@
 .devise-error-explanation {
   background-color:  rgba(248, 89, 89, 0.795);
   border-radius: 8px;
-  width: 330px;
+  width: 100%;
   font-size: 12px;
+  padding: 3px;
 
   &__ul {
     list-style: none;

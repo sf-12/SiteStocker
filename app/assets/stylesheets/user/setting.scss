@@ -1,0 +1,59 @@
+.setting {
+  padding: 20px;
+  margin: 0 auto;
+  width: 50%;
+
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+  &__content-box {
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    margin-bottom: 15px;
+  }
+  &__content-title {
+    font-weight: bold;
+  }
+  &__content-body {
+    text-align: center;
+  }
+  &__message {
+    text-align: center;
+    width: 100%;
+  }
+  &__content-label {
+    padding-top: 10px;
+  }
+  &__content-field {
+    width: 50%;
+  }
+  &__button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+// /* 画面の横幅が768px下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .setting {
+    width: 70%;
+    &__content-field {
+      width: 70%;
+    }
+  }
+}
+
+// /* 画面の横幅が425px下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .setting {
+    width: 90%;
+    &__content-field {
+      width: 90%;
+    }
+  }
+}
