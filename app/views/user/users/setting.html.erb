@@ -1,31 +1,58 @@
-<h1>設定</h1>
-<h3>パスワード変更</h3>
-<%= form_with model: @user, url: user_registration_path, id: 'update_password', local: true do |f| %>
-  <%= render "user/shared/error_messages", resource: resource %>
-  <%# 現在のパスワード %>
-  <div class="field">
-    <%= f.label :current_password %><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+<div class='setting'>
+  <div class='setting__title'>
+    設定
   </div>
 
-  <%# 新しいパスワード %>
-  <div class="field">
-    <%= f.label :password, '新しいパスワード' %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <%# パスワード変更 %>
+  <div class='setting__content-box'>
+    <div class='setting__content-title'>
+      パスワード変更
+    </div>
+    <div class='setting__content-body'>
+      <%= form_with model: @user, url: user_path(@user.id), id: 'update_password', local: true do |f| %>
+        <%= render "user/shared/error_messages", resource: @user, class: 'update_message' %>
+
+        <%# 現在のパスワード %>
+        <div class='setting__content-label'>
+          <%= f.label :current_password %>
+        </div>
+        <div>
+          <%= f.password_field :current_password, autocomplete: "current-password", :required => true, class:'setting__content-field' %>
+        </div>
+
+        <%# 新しいパスワード %>
+        <div class='setting__content-label'>
+          <%= f.label :password, '新しいパスワード' %>
+        </div>
+          <%= f.password_field :password, autocomplete: "new-password", :required => true, class:'setting__content-field' %>
+
+        <%# 新しいパスワード（確認） %>
+        <div class='setting__content-label'>
+          <%= f.label :password_confirmation, '新しいパスワード (確認)' %>
+        </div>
+        <div>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true, class:'setting__content-field' %>
+        </div>
+
+        <%# ボタン %>
+        <div>
+          <%= f.submit "変更する", class:'button__black setting__button' %>
+        </div>
+
+      <% end %>
+    </div>
   </div>
 
-  <%# 新しいパスワード（確認） %>
-  <div class="field">
-    <%= f.label :password_confirmation, '新しいパスワード (確認)' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <%# 退会 %>
+  <div class='setting__content-box'>
+    <div class='setting__content-title'>
+      退会
+    </div>
+    <div class='setting__content-body'>
+      <%= link_to user_path(current_user.id), method: :delete, "data-confirm" => "本当に退会しますか？" do %>
+        <button class='button__red setting__button' style='outline: none'>退会する</button>
+      <% end %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "変更する" %>
-  </div>
-<% end %>
-
-<h3>退会</h3>
-<%= link_to user_path(current_user.id), method: :delete, "data-confirm" => "本当に退会しますか？" do %>
-  <button>退会する</button>
-<% end %>
+</div>

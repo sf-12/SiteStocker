@@ -30,6 +30,17 @@ class User::UsersController < ApplicationController
     @user = current_user
   end
 
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      sign_in(@user, bypass: true)
+      flash[:notice__upper] = 'パスワードを変更しました'
+      redirect_to user_path(current_user.id)
+    else
+      render :setting
+    end
+  end
+
   def exit; end
 
   def destroy
@@ -37,5 +48,11 @@ class User::UsersController < ApplicationController
     user.update!(is_active: false)
     reset_session
     redirect_to root_path, notice: 'ありがとうございました。またのご利用を心よりお待ちしております。'
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:password)
   end
 end
