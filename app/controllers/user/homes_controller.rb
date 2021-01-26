@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class User::HomesController < ApplicationController
+  # ログインページ、新規登録ページ以外はサインインしていないとアクセスできないが、topページはアクセス可能
+  before_action :authenticate_user!, except: [:top]
+
+  def top; end
+
   def home
     gon.linkpreview_key = ENV['LINK_PREVIEW_API_KEY']
     # 退会済みユーザーの投稿および非公開設定になっている投稿は除外する
