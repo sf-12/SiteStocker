@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  # ログインページ、新規登録ページ以外はサインインしていないとアクセスできない
-  before_action :authenticate_user!
-
   # いいね数orコメント数のランキングを集計して返す
   def tweet_ranking(type)
     buf = if type == 'likes'

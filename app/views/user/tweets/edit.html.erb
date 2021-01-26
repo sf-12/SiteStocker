@@ -1,7 +1,7 @@
 <div class='tweet-edit'>
   <i class="fas fa-edit left-side__search-title"> 編集しよう</i>
   <%= form_with model: @tweet, url: tweet_path, id: 'tweet', local: true do |f| %>
-    <%= render "user/shared/error_messages", resource: resource %>
+    <%= render "shared/error_messages", resource: resource %>
     <%# URL %>
     <%= f.label :url, 'URL', class: 'tweet-new__url-label' %><br>
     <%= f.text_field :url, type: 'url', placeholder: "サイトのURLを入力", autofocus: true, id: 'tweet_url__input', value: @tweet.site.url,class: 'tweet-new__url-field', :required => true %>

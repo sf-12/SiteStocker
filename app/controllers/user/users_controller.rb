@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User::UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     gon.linkpreview_key = ENV['LINK_PREVIEW_API_KEY']
     @user = User.find(params[:id])

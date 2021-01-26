@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User::TweetsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     # サイトがデータベースに無ければ保存する
     site = Site.find_by(url: params[:tweet][:url])
