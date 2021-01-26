@@ -1,0 +1,43 @@
+.admin-login {
+  padding: 30px;
+  margin: 0 auto;
+  width: 50%;
+
+  &__box {
+    padding: 15px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+  }
+  &__label {
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+  &__field {
+    width: 50%;
+  }
+  &__button {
+    margin-top: 15px;
+  }
+}
+
+// /* 画面の横幅が768px下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .admin-login {
+    width: 70%;
+    &__field {
+      width: 70%;
+    }
+  }
+}
+
+// /* 画面の横幅が425px下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .admin-login {
+    width: 90%;
+    &__field {
+      width: 90%;
+    }
+  }
+}
