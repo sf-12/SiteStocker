@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User::SearchesController < ApplicationController
+  before_action :authenticate_user!
+
   def result
     # 検索フォームから取得した情報
     @search_target = params[:target] # 検索対象

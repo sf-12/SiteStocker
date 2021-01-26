@@ -16,7 +16,7 @@
   <div class='main-visual__box-2'>
     <div class='main-visual__box-2-content-1__signup'>
       <div align='center'>
-        <%= render "user/shared/error_messages", resource: resource %>
+        <%= render "shared/error_messages", resource: resource %>
         <%= form_with model: @user, url: user_registration_path, id: 'new_user', local: true do |f| %>
           <table>
             <tr>
