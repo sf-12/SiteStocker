@@ -10,38 +10,18 @@
       <%# サイトURLをAPIに送信する用 %>
       <input id=<%='site_url_js' + @tweet.id.to_s %> type='hidden' value=<%= @tweet.site.url %> >
       <%# タイムライン記事 %>
-      <%= render 'user/shared/tweet', tweet: @tweet %>
+      <%= render 'user/tweets/tweet', tweet: @tweet %>
 
       <%# コメント一覧 %>
-      <% @tweet.comments.each do |comment| %>
-
-        <div class= 'comment__box' >
-          <%# ヘッダーブロック : ユーザー名、投稿日時 %>
-          <%= render 'user/shared/tweet_header', tweet: comment %>
-
-          <%# メインブロック : コメント %>
-          <div class='comment__main'>
-            <div class='comment__text'>
-              <%= comment.text %>
-            </div>
-            <div class='comment__delete-box'>
-              <%# 自分のコメントの場合のみの機能 %>
-              <% if current_user.id == comment.user_id %>
-                <%= link_to tweet_comment_path(@tweet.id, comment.id), method: :delete, class: 'comment__delete' do %>
-                  削除
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-
-        </div>
-      <% end %>
+      <span id="comment_js">
+        <%= render 'user/comments/comment', tweet: @tweet %>
+      </span>
 
       <%# コメントボタン %>
       <div class= 'comment__new-box' >
-      <i class="far fa-comment comment__title"> コメントしよう</i>
-        <%= form_with(model:[@tweet, @new_comment], local: true) do |f| %>
-          <%= f.text_area :text, placeholder: 'コメントを記入',rows: '1', class: 'comment__new-text' %>
+        <i class="far fa-comment comment__title"> コメントしよう</i>
+        <%= form_with(model:[@tweet, @new_comment], remote: true) do |f| %>
+          <%= f.text_area :text, placeholder: 'コメントを記入', class: 'comment__new-text', required: true %>
           <%= f.submit 'コメントする', class: 'button__black comment__new-button' %>
         <% end %>
       </div>

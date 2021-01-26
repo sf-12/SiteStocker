@@ -14,7 +14,6 @@ class User::TweetsController < ApplicationController
       # マイページに戻る
       redirect_to user_path(current_user.id)
     else
-      # render :new
       render request.referer
     end
   end
@@ -62,7 +61,7 @@ class User::TweetsController < ApplicationController
     return unless tweet.user_id == current_user.id
 
     tweet.destroy
-    flash[:error] = '投稿を削除しました'
+    flash[:alert] = '投稿を削除しました'
     redirect_to user_path(current_user.id)
   end
 

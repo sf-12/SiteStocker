@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 投稿IDを頼りに、サイトurlをviewから取得
     // 料金節約のため、普段はAPIを叩かない
-    const SITE_URL = document.getElementById('site_url_js' + elem).value;
-    // const SITE_URL = undefined;
+    // const SITE_URL = document.getElementById('site_url_js' + elem).value;
+    const SITE_URL = undefined;
     console.log('サイトURL: ' + SITE_URL);
 
     // サイトURLが入っていることを確認してAPIを叩く

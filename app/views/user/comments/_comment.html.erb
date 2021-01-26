@@ -1,0 +1,23 @@
+<% @tweet.comments.each do |comment| %>
+  <div class= 'comment__box' >
+
+    <%# ヘッダーブロック : ユーザー名、投稿日時 %>
+    <%= render 'user/shared/tweet_header', tweet: comment %>
+
+    <%# メインブロック : コメント %>
+    <div class='comment__main'>
+      <div class='comment__text'>
+        <%= comment.text %>
+      </div>
+      <div class='comment__delete-box'>
+        <%# 自分のコメントの場合のみの機能 %>
+        <% if current_user.id == comment.user_id %>
+          <%= link_to tweet_comment_path(tweet.id, comment.id), method: :delete, class: 'comment__delete', remote: true do %>
+            削除
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+<% end %>
