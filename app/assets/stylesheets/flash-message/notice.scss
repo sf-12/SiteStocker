@@ -1,13 +1,13 @@
 .notice {
   background-color: rgba(47, 255, 75, 0.76);
-  border-radius: 8px;
-  width: 330px;
+  border-radius: 4px;
+  width: 100%;
   font-size: 12px;
 
-  &__home {
+  &__upper {
     background-color: rgba(47, 255, 75, 0.76);
-    width: 100%;
     margin: 0 auto;
+    width: 100%;
     max-width: 1200px;
     font-size: 12px;
   }

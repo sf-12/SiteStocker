@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User::TweetsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     # サイトがデータベースに無ければ保存する
     site = Site.find_by(url: params[:tweet][:url])
@@ -14,7 +16,6 @@ class User::TweetsController < ApplicationController
       # マイページに戻る
       redirect_to user_path(current_user.id)
     else
-      # render :new
       render request.referer
     end
   end
@@ -25,6 +26,14 @@ class User::TweetsController < ApplicationController
     # データは1つだが配列として渡す
     gon.tweet_id_list = [@tweet.id]
     @new_comment = Comment.new
+    # いいね数ランキング
+    @ranking_likes_month, @ranking_likes_year, @ranking_likes_all = tweet_ranking('likes')
+    # コメント数ランキング
+    @ranking_comments_month, @ranking_comments_year, @ranking_comments_all = tweet_ranking('comments')
+    # タグランキング
+    @ranking_tags_month, @ranking_tags_month_count,
+    @ranking_tags_year, @ranking_tags_year_count,
+    @ranking_tags_all, @ranking_tags_all_count = tag_ranking
     # 新規投稿用
     @new_tweet = Tweet.new
   end
@@ -54,7 +63,7 @@ class User::TweetsController < ApplicationController
     return unless tweet.user_id == current_user.id
 
     tweet.destroy
-    flash[:error] = '投稿を削除しました'
+    flash[:alert] = '投稿を削除しました'
     redirect_to user_path(current_user.id)
   end
 

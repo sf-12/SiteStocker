@@ -1,6 +1,5 @@
 .home {
 
-  background-color: #f6f6f6;
   padding-bottom: 40px;   // フッター用
 
   &__box {
@@ -12,7 +11,6 @@
     width: 300px;
   }
   &__main {
-    background-color: white;
     width: 600px;
   }
   &__right-side {
@@ -24,7 +22,6 @@
 // /* 画面の横幅が1100px下の際に適用される設定 */
 @media screen and (max-width:1100px) {
   .home {
-    background-color: white;
     &__right-side {
       display: none;
     }

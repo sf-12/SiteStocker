@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
 class User::UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     gon.linkpreview_key = ENV['LINK_PREVIEW_API_KEY']
     @user = User.find(params[:id])
 
     # 閲覧者が本人でない場合、非公開の投稿は表示しない
-    # if @user != current_user
-    #   active_tweet = @user.tweets.where(is_opened: true)
-    # else
-    #   active_tweet = @user.tweets
-    # end
     active_tweet = if @user == current_user
                      @user.tweets
                    else
@@ -35,6 +32,17 @@ class User::UsersController < ApplicationController
     @user = current_user
   end
 
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      sign_in(@user, bypass: true)
+      flash[:notice__upper] = 'パスワードを変更しました'
+      redirect_to user_path(current_user.id)
+    else
+      render :setting
+    end
+  end
+
   def exit; end
 
   def destroy
@@ -42,5 +50,11 @@ class User::UsersController < ApplicationController
     user.update!(is_active: false)
     reset_session
     redirect_to root_path, notice: 'ありがとうございました。またのご利用を心よりお待ちしております。'
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:password)
   end
 end

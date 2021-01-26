@@ -3,6 +3,8 @@
 class User::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   before_action :reject_user, only: [:create]
+  before_action :authenticate_user!
+
   # GET /resource/sign_in
   # def new
   #   super
@@ -22,7 +24,7 @@ class User::SessionsController < Devise::SessionsController
   def new_guest
     user = User.guest_login
     sign_in user
-    flash[:notice__home] = 'ゲストユーザーとしてログインしました'
+    flash[:notice__upper] = 'ゲストユーザーとしてログインしました'
     redirect_to home_path
   end
 

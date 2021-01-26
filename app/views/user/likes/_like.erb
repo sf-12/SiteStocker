@@ -1,0 +1,33 @@
+  <% if tweet.liked_by?(current_user) %>
+    <%# 自分がいいねしている場合 %>
+    <object>
+      <%= link_to tweet_likes_path(tweet.id), method: :delete, class: 'timeline__footer-link', remote: true do %>
+        <div>
+          <i class="fas fa-thumbs-up"></i>
+          <%# 件数表示(0件は表示しない) %>
+          <% if tweet.likes.count != 0 %>
+            <%= tweet.likes.count %>
+          <% end %>
+        </div>
+        <div>
+          <small class='timeline__footer-text'>いいね</small>
+        </div>
+      <% end %>
+    </object>
+  <% else %>
+    <%# 自分がいいねしていない場合 %>
+    <object>
+      <%= link_to tweet_likes_path(tweet.id), method: :post, class: 'timeline__footer-link', remote: true do %>
+        <div>
+          <i class="far fa-thumbs-up"></i>
+          <%# 件数表示(0件は表示しない) %>
+          <% if tweet.likes.count != 0 %>
+            <%= tweet.likes.count %>
+          <% end %>
+        </div>
+        <div>
+          <small class='timeline__footer-text'>いいね</small>
+        </div>
+      <% end %>
+    </object>
+<% end %>

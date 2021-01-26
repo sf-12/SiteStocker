@@ -1,12 +1,53 @@
 .comment {
 
-  &__new {
-    width: 200px;
-    height: 65px;
+  &__box {
+    background-color: white;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    font-size: 14px;
+  }
+  &__main {
+    padding: 8px;
+  }
+  &__text {
+    overflow-wrap: anywhere;
+  }
+  &__delete-box {
+    text-align: right;
+  }
+  &__delete {
+    text-align: right;
+    background-color: #f0f0f0;
+    color: black;
+    padding: 3px;
+    border-radius: 5px;
+  }
+  &__delete:hover {
+    color: white;
+    background-color: black;
+    text-decoration: none;
+  }
+  &__new-box {
+    padding: 8px;
+    background-color: white;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+  }
+  &__title {
+    font-weight: bold;
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+  &__new-text {
+    width: 100%;
     resize: none;
   }
-
-  &__list {
-    border-top: 1px solid #cccccc;
+  &__new-button {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 5px 0 5px auto;
   }
 }

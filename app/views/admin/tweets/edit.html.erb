@@ -1,5 +1,5 @@
 <%= form_with model: @tweet, url: admin_tweet_path, id: 'admin_update_tweet', local:  true do |f| %>
-  <%= render "user/shared/error_messages", resource: resource %>
+  <%= render "shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :url %><br />
     <%= f.text_field :url, autofocus: true,value: @site_url, id: 'admin_update_tweet_url__input' %>

@@ -1,0 +1,31 @@
+.about {
+
+  &__header {
+    height: 30vw;
+    background-size: cover;
+    background-position: center; /* 背景画像を中央に配置 */
+    background-image: image-url('route.jpg');
+  }
+  &__title {
+    text-align: center;
+    color: white;
+    font-size: 10vw;
+    line-height: 30vw;
+  }
+  &__content-box {
+    padding-bottom: 40px;
+  }
+  &__content {
+    padding: 20px;
+    text-align: center;
+  }
+  &__content-title {
+    font-size: 20px;
+  }
+  &__content-text {
+  }
+  &__content-button {
+    padding: 20px 20px 40px 20px;
+    text-align: center;
+  }
+}

@@ -37,7 +37,7 @@ Rails.application.routes.draw do
       resource :likes, only: %i[create destroy]
     end
     get 'users/setting' => 'users#setting'
-    resources :users, only: %i[show destroy] do
+    resources :users, only: %i[show destroy update] do
       resources :relationships, only: %i[create destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'

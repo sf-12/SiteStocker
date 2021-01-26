@@ -1,0 +1,22 @@
+<%# ヘッダーブロック : ユーザー名、投稿日時 ------------------------------------ %>
+<div class='timeline__header timeline__table'>
+
+  <%# 投稿ユーザー %>
+  <div class="timeline__cell timeline__text">
+    <object>
+      <%= link_to user_path(tweet.user.id), class: 'timeline__user-link' do %>
+        <div class='timeline__user'>
+          <%# アイコン %>
+          <%= attachment_image_tag tweet.user, :image, fallback: "user_default.png", class: 'timeline__user-icon' %>
+          <%# ユーザー名 %>
+          <span class='timeline__user-name'><%= tweet.user.name %></span>
+        </div>
+      <% end %>
+    </object>
+  </div>
+
+  <%# 投稿日時 %>
+  <div class="timeline__cell timeline__date">
+    <small><%= tweet.created_at_ja %></small>
+  </div>
+</div>

@@ -1,36 +1,29 @@
-<div class='tweet'>
-  <div class='tweet__left bg-primary'>
-    おすすめサイトを共有しよう！
-  </div>
-  <div class='tweet__right bg-light'>
-    <%= form_with model: @tweet, url: tweet_path, id: 'update_tweet', local:  true do |f| %>
-      <%= render "user/shared/error_messages", resource: resource %>
-      <div class="field">
-        <%= f.label :url %><br />
-        <%= f.text_field :url, autofocus: true,value: @site_url, id: 'update_tweet_url__input' %>
-      </div>
+<div class='tweet-edit'>
+  <i class="fas fa-edit left-side__search-title"> 編集しよう</i>
+  <%= form_with model: @tweet, url: tweet_path, id: 'tweet', local: true do |f| %>
+    <%= render "shared/error_messages", resource: resource %>
+    <%# URL %>
+    <%= f.label :url, 'URL', class: 'tweet-new__url-label' %><br>
+    <%= f.text_field :url, type: 'url', placeholder: "サイトのURLを入力", autofocus: true, id: 'tweet_url__input', value: @tweet.site.url,class: 'tweet-new__url-field', :required => true %>
+    <br>
+    <%# 投稿記事 %>
+    <%= f.label :text, '投稿記事（250文字まで）', class: 'tweet-new__text-label' %><br>
+    <%= f.text_area :text, placeholder: "紹介文を記入", id: 'tweet_text__input', class: 'tweet-new__text-field', rows: '3', maxlength: '250', :required => true %>
+    <br>
+    <%# タグ %>
+    <%= f.label :tag_list, 'タグ（5つまで）', class: 'tweet-new__tag-label' %><br>
+    <%= f.text_field :tag_list, value: @tweet.tag_list.join(","), id: 'tweet_tag_list__input', class: 'tag_form_js tweet-new__tag-field' %>
 
-      <div class="field">
-        <%= f.label :text %><br />
-        <%= f.text_area :text, id: 'update_tweet_text__input' %>
-      </div>
-
-      <div class="field">
-        <%= f.label :tag_list %><br />
-        <%= f.text_field :tag_list, value: @tweet.tag_list.join(","), id: 'update_tweet_tag_list__input', class: 'tag_form_js' %>
-      </div>
-
-      <div class="field">
-        <%= f.label :is_opened %><br />
-        <%= f.check_box :is_opened, id: 'update_tweet_is_opened__input' %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "編集する" %>
-      </div>
-    <% end %>
-
-  </div>
+    <%# 公開・非公開 %>
+    <div class='tweet-new__is-opened-box'>
+      <%= f.check_box :is_opened, id: 'tweet_is_opened__input', class: 'tweet-new__is-opened-check' %>
+      <%= f.label :is_opened, '投稿を公開する', for: 'tweet_is_opened__input', class: 'tweet-new__is-opened-label' %>
+    </div>
+    <%# 投稿ボタン %>
+    <div class='tweet-new__button-box'>
+      <%= f.submit "編集する", class: 'button__black tweet-new__button' %>
+    </div>
+  <% end %>
 </div>
 
 <%# tag-itを有効にする %>

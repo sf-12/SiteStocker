@@ -1,6 +1,6 @@
 <h4>プロフィール編集</h4>
 <%= form_with model: @user, url: admin_user_path(@user.id), id: 'admin_update_profile', local: true do |f| %>
-  <%= render "user/shared/error_messages", resource: resource %>
+  <%= render "shared/error_messages", resource: resource %>
 
   <%= f.label :image, "アイコン" %><br />
   <%= attachment_image_tag @user, :image, size: "72x72", fallback: "user_default.png"%><br>
