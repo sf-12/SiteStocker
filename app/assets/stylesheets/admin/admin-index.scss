@@ -1,0 +1,49 @@
+.admin-index {
+  width: 80%;
+  padding-top: 20px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  table {
+    background-color: white;
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #cccccc;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-index {
+    width: 100%;
+    margin-bottom: none;
+    th {
+      display: none;
+    }
+    tr, td {
+      display: block;
+      width: 100%;
+      position: relative;
+      text-align: right;
+    }
+    td:before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    &__id {
+      background-color: #cccccc;
+    }
+  }
+}
