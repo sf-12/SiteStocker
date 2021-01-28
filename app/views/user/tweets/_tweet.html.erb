@@ -16,7 +16,7 @@
         <object>
           <div class='timeline__preview-background'>
             <%= link_to tweet.site.url, target: :_blank, rel: "noopener noreferrer" do %>
-              <img id=<%="lp_image_js" + tweet.id.to_s %> class='timeline__preview'>
+              <img id=<%="lp_image_js" + tweet.id.to_s %> class='timeline__preview' onerror="this.src='<%= asset_path "no-image.png" %>'">
             <% end %>
             <div class='timeline__annotation'>サイトに移動</div>
           </div>
