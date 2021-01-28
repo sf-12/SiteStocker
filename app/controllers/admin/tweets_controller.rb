@@ -19,7 +19,7 @@ class Admin::TweetsController < ApplicationController
   def update
     tweet = Tweet.find(params[:id])
     if tweet.update(tweet_params)
-      redirect_to admin_tweets_path
+      redirect_to admin_tweet_path(tweet.id)
     else
       render :edit
     end

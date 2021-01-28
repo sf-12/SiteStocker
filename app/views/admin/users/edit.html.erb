@@ -1,30 +1,29 @@
-<h4>プロフィール編集</h4>
-<%= form_with model: @user, url: admin_user_path(@user.id), id: 'admin_update_profile', local: true do |f| %>
-  <%= render "shared/error_messages", resource: resource %>
-
-  <%= f.label :image, "アイコン" %><br />
-  <%= attachment_image_tag @user, :image, size: "72x72", fallback: "user_default.png"%><br>
-  <%= f.attachment_field :image, placeholder: "プロフィール画像" %>
-
-  <div class="field">
-    <%= f.label :name, "名前" %><br />
-    <%= f.text_field :name, id: 'admin_update_profile_name__input' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :text, "自己紹介" %><br />
-    <%= f.text_area :text, id: 'admin_update_profile_text__input' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :is_active, "有効会員フラグ" %><br />
-    <%= f.check_box :is_active, id: 'admin_update_profile_text__input' %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "編集する" %>
-  </div>
-<% end %>
-<%= link_to admin_user_path(@user.id) do %>
-  <button>編集しないで戻る</button>
-<% end %>
+<div class='admin-edit'>
+  <%= form_with model: @user, url: admin_user_path(@user.id), local: true do |f| %>
+    <%= render "shared/error_messages", resource: resource %>
+    <%# アイコン %>
+    <%= f.label :image, "アイコン", class: 'admin-edit__label' %>
+    <br>
+    <%= attachment_image_tag @user, :image, size: "72x72", fallback: "user_default.png"%>
+    <br>
+    <%= f.attachment_field :image, placeholder: "プロフィール画像", class: 'admin-edit__field' %>
+    <br>
+    <%# 名前 %>
+    <%= f.label :name, "名前", class: 'admin-edit__label' %>
+    <br>
+    <%= f.text_field :name, class: 'admin-edit__field' %>
+    <br>
+    <%# 自己紹介 %>
+    <%= f.label :text, "自己紹介", class: 'admin-edit__label' %>
+    <br>
+    <%= f.text_area :text, class: 'admin-edit__field' %>
+    <br>
+    <%# 有効会員フラグ %>
+    <%= f.check_box :is_active %>
+    <%= f.label :is_active, "有効会員フラグ", class: 'admin-edit__label' %>
+    <br>
+    <%# 編集ボタン %>
+    <%= f.submit "編集する", class: 'admin-edit__link' %>
+  <% end %>
+  <%= link_to '編集しないで戻る', admin_user_path(@user.id), class: 'admin-edit__link' %>
+</div>

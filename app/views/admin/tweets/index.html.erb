@@ -1,47 +1,44 @@
-<h2>投稿一覧</h2>
-<table style="table-layout:fixed;width:100%;">
-  <!-- テーブルタイトル -->
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>ユーザー名</th>
-      <th>サイト</th>
-      <th>投稿記事</th>
-      <th>タイムライン公開フラグ</th>
-      <th>作成日時</th>
-      <th>更新日時</th>
-      <th></th>
-    </tr>
-  </thead>
-  <!-- テーブル中身 -->
-  <% @tweets.each do |tweet| %>
-    <tbody>
-      <tr>
-        <%# id %>
-        <td><%= tweet.id %></td>
-        <%# 投稿ユーザー %>
-        <td>
-          <%= tweet.user.name %>
-        </td>
-        <%# サイト %>
-        <td style="word-wrap:break-word;"><%= tweet.site.url %></td>
-        <%# 投稿記事 %>
-        <td><%= tweet.text %></td>
-        <%# タイムライン公開フラグ %>
-        <td><%= tweet.is_opened %></td>
-        <%# 作成日時 %>
-        <td><%= tweet.created_at_ja %></td>
-        <%# 更新日時 %>
-        <td><%= tweet.updated_at_ja %></td>
-        <%# 詳細画面 %>
-        <td>
-          <%= link_to admin_tweet_path(tweet.id) do %>
-            <button>詳細</button>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  <% end %>
-</table>
+<div class='admin-index'>
 
-<%= paginate @tweets %>
+  <div class='admin-index__title'>投稿一覧</div>
+  <table border=1>
+    <!-- テーブルタイトル -->
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ユーザー名</th>
+        <th>サイト</th>
+        <th>投稿記事</th>
+        <th>タイムライン公開フラグ</th>
+        <th>作成日時</th>
+        <th>更新日時</th>
+        <th></th>
+      </tr>
+    </thead>
+    <!-- テーブル中身 -->
+    <% @tweets.each do |tweet| %>
+      <tbody>
+        <tr>
+          <%# id %>
+          <td data-label='id' class='admin-index__id'><%= tweet.id %></td>
+          <%# 投稿ユーザー %>
+          <td data-label='投稿ユーザー'><%= tweet.user.name %></td>
+          <%# サイト %>
+          <td data-label='サイト'><%= tweet.site.url %></td>
+          <%# 投稿記事 %>
+          <td data-label='投稿記事'><%= tweet.text %></td>
+          <%# タイムライン公開フラグ %>
+          <td data-label='タイムライン公開フラグ'><%= tweet.is_opened %></td>
+          <%# 作成日時 %>
+          <td data-label='作成日時'><%= tweet.created_at_ja %></td>
+          <%# 更新日時 %>
+          <td data-label='更新日時'><%= tweet.updated_at_ja %></td>
+          <%# 詳細画面 %>
+          <td><%= link_to '詳細', admin_tweet_path(tweet.id) %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+
+  <%= paginate @tweets %>
+</div>

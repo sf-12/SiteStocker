@@ -1,41 +1,39 @@
-<h2>コメント一覧</h2>
-<table style="table-layout:fixed;width:100%;">
-  <!-- テーブルタイトル -->
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>ユーザー名</th>
-      <th>ツイートID</th>
-      <th>コメント</th>
-      <th></th>
-    </tr>
-  </thead>
-  <!-- テーブル中身 -->
-  <% @comments.each do |comment| %>
-    <tbody>
+<div class='admin-index'>
+
+  <div class='admin-index__title'>コメント一覧</div>
+  <table border=1>
+    <!-- テーブルタイトル -->
+    <thead>
       <tr>
-        <%# ID %>
-        <td><%= comment.id %></td>
-        <%# ユーザー名 %>
-        <td><%= comment.user.name %></td>
-        <%# ツイートID %>
-        <td>
-          <%= link_to admin_tweet_path(comment.tweet.id) do %>
-            <%= comment.tweet.id %>
-          <% end %>
-        </td>
-        <%# コメント %>
-        <td><%= comment.text %></td>
-
-        <%# 詳細画面 %>
-        <td>
-          <%= link_to admin_comment_path(comment.id) do %>
-            <button>詳細</button>
-          <% end %>
-        </td>
+        <th>ID</th>
+        <th>ユーザー名</th>
+        <th>ツイートID</th>
+        <th>コメント</th>
+        <th></th>
       </tr>
-    </tbody>
-  <% end %>
-</table>
+    </thead>
+    <!-- テーブル中身 -->
+    <% @comments.each do |comment| %>
+      <tbody>
+        <tr>
+          <%# ID %>
+          <td data-label='id' class='admin-index__id'><%= comment.id %></td>
+          <%# ユーザー名 %>
+          <td data-label='ユーザー名'><%= comment.user.name %></td>
+          <%# ツイートID %>
+          <td data-label='ツイートID'>
+            <%= link_to admin_tweet_path(comment.tweet.id) do %>
+              <%= comment.tweet.id %>
+            <% end %>
+          </td>
+          <%# コメント %>
+          <td data-label='コメント'><%= comment.text %></td>
+          <%# 詳細画面 %>
+          <td><%= link_to '詳細', admin_comment_path(comment.id) %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
 
-<%= paginate @comments %>
+  <%= paginate @comments %>
+</div>

@@ -1,6 +1,16 @@
 .tweet-edit {
   width: 50vw;
   max-width: 500px;
-  margin: 0 auto;
-  padding-top: 15px;
+  margin: 20px auto;
+  padding: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  background-color: white;
+
+  &__button {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

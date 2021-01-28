@@ -1,0 +1,23 @@
+.admin-edit {
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  width: 50%;
+  max-width: 500px;
+  background-color: white;
+  margin: 0 auto;
+  word-wrap: break-word;
+  margin-top: 10vh;
+  padding: 15px;
+
+  &__label {
+    padding-top: 5px;
+    font-weight: bold;
+  }
+  &__field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  &__link {
+    margin-top: 10px;
+  }
+}
