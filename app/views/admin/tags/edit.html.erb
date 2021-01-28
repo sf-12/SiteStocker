@@ -1,19 +1,16 @@
-<%= form_with model: @tag, url: admin_tag_path, id: 'admin_update_tag', local:  true do |f| %>
-  <%= render "shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true,value: @tag, id: 'admin_update_tag_name__input' %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit "編集する" %>
-  </div>
-<% end %>
-<%= link_to admin_tag_path(@tag.id) do %>
-  <button>編集しないで戻る</button>
-<% end %>
+<div class='admin-edit'>
+  <%= form_with model: @tag, url: admin_tag_path, local: true do |f| %>
+    <%= render "shared/error_messages", resource: resource %>
+    <%# タグ名 %>
+    <%= f.label :name, 'タグ名', class: 'admin-edit__label' %>
+    <br>
+    <%= f.text_field :name, autofocus: true,value: @tag, class: 'admin-edit__field' %>
+    <br>
+    <%# 編集ボタン %>
+    <%= f.submit "編集する", class: 'admin-edit__link' %>
+  <% end %>
+  <%= link_to '編集しないで戻る', admin_tag_path(@tag.id), class: 'admin-edit__link' %>
+</div>
 
 <%# tag-itを有効にする %>
 <%= javascript_include_tag 'tag-input.js' %>

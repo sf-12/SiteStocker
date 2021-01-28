@@ -20,7 +20,7 @@ class Admin::TagsController < ApplicationController
   def update
     tag = ActsAsTaggableOn::Tag.find(params[:id])
     if tag.update(tag_params)
-      redirect_to admin_tags_path
+      redirect_to admin_tag_path(tag.id)
     else
       render :edit
     end
