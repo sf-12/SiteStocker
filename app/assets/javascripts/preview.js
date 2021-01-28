@@ -38,11 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // ページ概要
           // document.getElementById('mydescription_js' + elem).innerHTML = response.description
           // サイト画像
-          if (response.image != "") {
-              document.getElementById('lp_image_js' + elem).src = response.image
-          } else {
-            document.getElementById('lp_image_js' + elem).src = '/no-image.png'
-          }
+          document.getElementById('lp_image_js' + elem).src = response.image
           // ページ URL
           // document.getElementById('myurl_js' + elem).innerHTML = response.url
           // サイトURL
