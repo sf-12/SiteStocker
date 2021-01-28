@@ -37,7 +37,7 @@ https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoa
 <br>
 
 ## 開発環境
-- OS:MacOS<br>
+- OS：MacOS<br>
   Docker / Docker-Compose
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
