@@ -1,14 +1,12 @@
-<%= form_with model: @comment, url: admin_comment_path, id: 'admin_update_comment', local:  true do |f| %>
-  <%= render "shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_field :text, autofocus: true, id: 'admin_update_comment__input' %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "編集する" %>
-  </div>
-<% end %>
-<%= link_to admin_comment_path(@comment.id) do %>
-  <button>編集しないで戻る</button>
-<% end %>
+<div class='admin-edit'>
+  <%= form_with model: @comment, url: admin_comment_path, local: true do |f| %>
+    <%= render "shared/error_messages", resource: resource %>
+    <%# コメント %>
+    <%= f.label :text, class: 'admin-edit__label' %>
+    <br>
+    <%= f.text_field :text, autofocus: true, class: 'admin-edit__field' %>
+    <%# 編集ボタン %>
+    <%= f.submit "編集する", class: 'admin-edit__link' %>
+  <% end %>
+  <%= link_to '編集しないで戻る', admin_comment_path(@comment.id), class: 'admin-edit__link' %>
+</div>
