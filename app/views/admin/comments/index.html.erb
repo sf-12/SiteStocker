@@ -27,13 +27,9 @@
             <% end %>
           </td>
           <%# コメント %>
-          <td data-label='コメント'>
-            <%= comment.text %>
-          </td>
+          <td data-label='コメント'><%= comment.text %></td>
           <%# 詳細画面 %>
-          <td>
-            <%= link_to '詳細', admin_comment_path(comment.id) %>
-          </td>
+          <td><%= link_to '詳細', admin_comment_path(comment.id) %></td>
         </tr>
       </tbody>
     <% end %>

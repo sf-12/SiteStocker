@@ -18,7 +18,7 @@ class Admin::CommentsController < ApplicationController
   def update
     comment = Comment.find(params[:id])
     if comment.update(comment_params)
-      redirect_to admin_comments_path
+      redirect_to admin_comment_path(comment.id)
     else
       render :edit
     end

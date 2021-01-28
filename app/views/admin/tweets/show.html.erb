@@ -1,28 +1,49 @@
-<%# id %>
-<%= @tweet.id %><br>
-<%# ユーザーID %>
-<%= @tweet.user.id %><br>
-<%# ユーザー名 %>
-<%= @tweet.user.name %><br>
-<%# サイトID %>
-<%= @tweet.site.id %><br>
-<%# サイトURL %>
-<%= @tweet.site.url %><br>
-<%# 投稿記事 %>
-<%= @tweet.text %><br>
-<%# タグ %>
-<% @tweet.tag_list.each do |tag| %>
-  <span class='tag-text'><%= tag %></span>
-<% end %><br>
-<%# 登録日時 %>
-<%= @tweet.created_at_ja %><br>
-<%# 更新日時 %>
-<%= @tweet.updated_at_ja %><br>
-<%# 編集 %>
-<%= link_to edit_admin_tweet_path(@tweet.id) do %>
-  <button>編集</button>
-<% end %>
-<%# 一覧 %>
-<%= link_to admin_tweets_path do %>
-  <button>投稿一覧に戻る</button>
-<% end %>
+<div class=admin-show>
+  <table border=1>
+    <tr>
+      <th>投稿ID</th>
+      <td><%= @tweet.id %></td>
+    </tr>
+    <tr>
+      <th>ユーザーID</th>
+      <td><%= @tweet.user.id %></td>
+    </tr>
+    <tr>
+      <th>ユーザー名</th>
+      <td><%= @tweet.user.name %></td>
+    </tr>
+    <tr>
+      <th>サイトID</th>
+      <td ><%= @tweet.site.id %></td>
+    </tr>
+    <tr>
+      <th>サイトURL</th>
+      <td style='word-wrap: break-word'><%= @tweet.site.url %></td>
+    </tr>
+    <tr>
+      <th>投稿記事</th>
+      <td><%= @tweet.text %></td>
+    </tr>
+    <tr>
+      <th>タグ</th>
+      <td>
+        <% @tweet.tag_list.each do |tag| %>
+          <span class='tag-text'><%= tag %></span>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>登録日時</th>
+      <td><%= @tweet.created_at_ja %></td>
+    </tr>
+    <tr>
+      <th>更新日時</th>
+      <td><%= @tweet.updated_at_ja %></td>
+    </tr>
+  </table>
+
+  <%# 編集 %>
+  <%= link_to '編集', edit_admin_tweet_path(@tweet.id) %><br>
+  <%# 一覧 %>
+  <%= link_to '投稿一覧に戻る', admin_tweets_path %>
+</div>

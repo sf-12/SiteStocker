@@ -6,7 +6,17 @@
   background-color: white;
   text-align: center;
   margin: 0 auto;
-  word-wrap: break-word;
   margin-top: 10vh;
   padding: 15px;
+
+  table {
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    table-layout: fixed;
+  }
+  th, td {
+    word-wrap: break-word;
+  }
 }
