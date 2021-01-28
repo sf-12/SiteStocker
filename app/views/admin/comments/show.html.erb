@@ -1,18 +1,47 @@
 <div class=admin-show>
-  <%# id %>
-  <%= @comment.id %><br>
-  <%# ユーザー名 %>
-  <%= @comment.user.name %><br>
-  <%# 投稿ID %>
-  <%= @comment.tweet.id %><br>
-  <%# 投稿内容 %>
-  <%= @comment.tweet.text %><br>
-  <%# コメント内容 %>
-  <%= @comment.text %><br>
-  <%# 登録日時 %>
-  <%= @comment.created_at_ja %><br>
-  <%# 更新日時 %>
-  <%= @comment.updated_at_ja %><br>
+  <table border=1>
+    <tr>
+      <th>投稿ユーザーID</th>
+      <td><%= @comment.tweet.user.id %></td>
+    </tr>
+    <tr>
+      <th>投稿ユーザー名</th>
+      <td><%= @comment.tweet.user.name %></td>
+    </tr>
+    <tr>
+      <th>投稿ID</th>
+      <td><%= @comment.tweet.id %></td>
+    </tr>
+    <tr>
+      <th>投稿内容</th>
+      <td><%= @comment.tweet.text %></td>
+    </tr>
+    <tr>
+      <th>コメントユーザーID</th>
+      <td><%= @comment.user.id %></td>
+    </tr>
+    <tr>
+      <th>コメントユーザー名</th>
+      <td><%= @comment.user.name %></td>
+    </tr>
+    <tr>
+      <th>コメントID</th>
+      <td><%= @comment.id %></td>
+    </tr>
+    <tr>
+      <th>コメント内容</th>
+      <td><%= @comment.text %></td>
+    </tr>
+    <tr>
+      <th>コメント登録日時</th>
+      <td><%= @comment.created_at_ja %></td>
+    </tr>
+    <tr>
+      <th>コメント更新日時</th>
+      <td><%= @comment.updated_at_ja %></td>
+    </tr>
+  </table>
+
   <%# 編集 %>
   <%= link_to '編集', edit_admin_comment_path(@comment.id) %><br>
   <%# 一覧 %>

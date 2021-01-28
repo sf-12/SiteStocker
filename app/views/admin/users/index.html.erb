@@ -38,10 +38,8 @@
           <td data-label='登録日時'><%= user.created_at_ja %></td>
           <%# 更新日時 %>
           <td data-label='更新日時'><%= user.updated_at_ja %></td>
-          <%# 編集画面 %>
-          <td>
-            <%= link_to '詳細', admin_user_path(user.id) %>
-          </td>
+          <%# 詳細画面 %>
+          <td><%= link_to '詳細', admin_user_path(user.id) %></td>
         </tr>
       </tbody>
     <% end %>
