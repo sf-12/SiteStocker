@@ -1,5 +1,9 @@
 # SiteStocker
 
+
+
+
+
 ## サイト概要
 おすすめのWebサイトを管理したり、紹介し合ったりできるサイトです。<br>
 <br>
@@ -13,9 +17,6 @@
 いままで知らなかった便利なサイトや面白いサイトがたくさんあることに気づきました。<br>
 もしWebサイトを紹介し合うことができるコミュニティがあったら、<br>
 もっと面白くて便利なサイトを知ることができると思い、制作することにしました。<br>
-<br>
-また、お気に入り登録しているWebサイトが増えると管理が煩雑になり困っていたので、<br>
-タグで分類したり、メモをつけたりして管理ができると便利だなと思ったのも制作のきっかけです。<br>
 <br>
 
 ### ターゲットユーザ
@@ -31,16 +32,24 @@
 - 便利・面白いサイトを探したい、紹介したいとき<br>
 <br>
 
-## 設計書
-<br>
-<br>
-
 ## 機能一覧
-https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoahkU/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoahkU/edit?usp=sharing<br>
+<br>
 
 ## 開発環境
 - OS：MacOS<br>
+  Docker / Docker-Compose
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Visual Studio Code
+<br>
+<br>
+
+## インフラ構成図
+![インフラ構成図](https://user-images.githubusercontent.com/49280097/106122472-16c90f80-619c-11eb-8940-7f54f617024e.png)
+<br>
+<br>
+
+## ER図
+![ER図](https://user-images.githubusercontent.com/49280097/106114389-d913b900-6192-11eb-8132-cb5a117780e8.png)
