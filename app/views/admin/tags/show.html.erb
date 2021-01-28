@@ -1,18 +1,29 @@
-<%# id %>
-<%= @tag.id %><br>
-<%# name %>
-<%= @tag.name %><br>
-<%# 作成日時 %>
-<%= @tag_created_at %><br>
-<%# 更新日時 %>
-<%= @tag_updated_at %><br>
-<%# 使用回数 %>
-<%= @tag.taggings_count %><br>
-<%# 編集 %>
-<%= link_to edit_admin_tag_path(@tag.id) do %>
-  <button>編集</button>
-<% end %>
-<%# 一覧 %>
-<%= link_to admin_tags_path do %>
-  <button>タグ一覧に戻る</button>
-<% end %>
+<div class=admin-show>
+  <table border=1>
+    <tr>
+      <th>タグID</th>
+      <td><%= @tag.id %></td>
+    </tr>
+    <tr>
+      <th>タグ名</th>
+      <td><%= @tag.name %></td>
+    </tr>
+    <tr>
+      <th>使用回数</th>
+      <td><%= @tag.taggings_count %></td>
+    </tr>
+    <tr>
+      <th>作成日時</th>
+      <td><%= @tag_created_at %></td>
+    </tr>
+    <tr>
+      <th>更新日時</th>
+      <td><%= @tag_updated_at %></td>
+    </tr>
+  </table>
+
+  <%# 編集 %>
+  <%= link_to '編集', edit_admin_tag_path(@tag.id) %><br>
+  <%# 一覧 %>
+  <%= link_to 'タグ一覧に戻る', admin_tags_path %>
+</div>
