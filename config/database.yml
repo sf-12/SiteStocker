@@ -10,14 +10,18 @@ default: &default
 development:
   <<: *default
   database: myapp_development
-  # host: db
-  host: localhost
+  # docker用
+  host: db
+  # ローカル用
+  # host: localhost
 
 test:
   <<: *default
   database: myapp_test
-  # host: <%= ENV.fetch("DB_HOST_TEST") { 'db' } %>
-  host: <%= ENV.fetch("DB_HOST_TEST") { 'localhost' } %>
+  # docker用
+  host: <%= ENV.fetch("DB_HOST_TEST") { 'db' } %>
+  # ローカル用
+  # host: <%= ENV.fetch("DB_HOST_TEST") { 'localhost' } %>
 
 production:
   <<: *default

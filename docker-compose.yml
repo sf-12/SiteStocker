@@ -6,8 +6,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ''
       TZ: "Asia/Tokyo"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
-      - mysql-data:/var/lib/mysql:delegated
+      - mysql-data:/var/lib/mysql
 
   app:
     build:
@@ -16,8 +17,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/myapp:delegated
-      - sockets:/myapp/tmp/sockets:delegated
+      - .:/myapp
+      - sockets:/myapp/tmp/sockets
     tty: true
     stdin_open: true
     depends_on:
@@ -30,9 +31,9 @@ services:
       context: .
       dockerfile: ./nginx/Dockerfile
     volumes:
-      - public-data:/myapp/public:delegated
-      - tmp-data:/myapp/tmp:delegated
-      - sockets:/myapp/tmp/sockets:delegated
+      - public-data:/myapp/public
+      - tmp-data:/myapp/tmp
+      - sockets:/myapp/tmp/sockets
     ports:
       - 80:80
     depends_on:
