@@ -1,19 +1,40 @@
 <header class='header'>
-  <div class='header__inner'>
+  <div class='header__box'>
     <%# 左寄せ部分 %>
-    <div class='header__inner-left'>
-      <%= link_to admin_path do %>
-        <%=image_tag('logo.png', size: '54x36') %>
-      <% end %>
+    <div class='header__title-box'>
+      <%= link_to 'SiteStocker', admin_path, class: 'header__title' %>
     </div>
     <%# 右寄せ部分 %>
-    <div class='header__inner-right'>
-      <%= link_to 'ホーム', admin_path %>
-      <%= link_to 'ユーザー一覧', admin_users_path %>
-      <%= link_to '投稿一覧', admin_tweets_path %>
-      <%= link_to 'タグ一覧', admin_tags_path %>
-      <%= link_to 'コメント一覧', admin_comments_path %>
-      <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
+    <div class='header__content-box'>
+      <%= link_to 'ホーム', admin_path, class: 'header__content' %>
+      <%= link_to 'ユーザー一覧', admin_users_path, class: 'header__content' %>
+      <%= link_to '投稿一覧', admin_tweets_path, class: 'header__content' %>
+      <%= link_to 'タグ一覧', admin_tags_path, class: 'header__content' %>
+      <%= link_to 'コメント一覧', admin_comments_path, class: 'header__content' %>
+      <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'header__content' %>
     </div>
+
+    <%# 右寄せ部分 (画面幅小さい時用のハンバーガーメニュー) %>
+    <%# チェックボックス %>
+    <input id='admin_header_checkbox' class='header__hamburger-checkbox' type='checkbox'>
+    <%# アイコン %>
+    <label for='admin_header_checkbox' class='header__hamburger-icon'>
+      <div class='header__icon header__icon__admin'>
+        <i class="fas fa-bars"></i>
+      </div>
+    </label>
+    <%# コンテンツ %>
+    <div class='header__hamburger-box'>
+      <label for='admin_header_checkbox' class='header__hamburger-close'><i class="fas fa-times"></i></label>
+      <%= link_to 'ホーム', admin_path, class: 'header__hamburger-content' %>
+      <%= link_to 'ユーザー一覧', admin_users_path, class: 'header__hamburger-content' %>
+      <%= link_to '投稿一覧', admin_tweets_path, class: 'header__hamburger-content' %>
+      <%= link_to 'タグ一覧', admin_tags_path, class: 'header__hamburger-content' %>
+      <%= link_to 'コメント一覧', admin_comments_path, class: 'header__hamburger-content' %>
+      <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'header__hamburger-content' %>
+    </div>
+    <%# 背景 %>
+    <label for='admin_header_checkbox' class='header__hamburger-back'></label>
+
   </div>
 </header>
