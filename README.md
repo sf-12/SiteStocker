@@ -1,5 +1,5 @@
 # SiteStocker
-![サイト画像](https://user-images.githubusercontent.com/49280097/106328910-ed0b0800-62c3-11eb-8402-24362911d20a.png)
+![サイト画像](https://user-images.githubusercontent.com/49280097/106329334-97832b00-62c4-11eb-8cd4-73f5a325478e.png)
 <br>
 
 ![サイト画像-レスポンシブ](https://user-images.githubusercontent.com/49280097/106328658-88e84400-62c3-11eb-9d9b-3e50f664cd1c.png)
