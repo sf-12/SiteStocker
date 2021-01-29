@@ -11,32 +11,19 @@
   <%= title %>ランキング
 </div>
 <div class='ranking__content'>
-  <ul class='nav nav-pills ranking__span-ul'>
-    <li class='nav-item ranking__span-li'>
-      <a href="#ranking_likes_month" class="nav-link active ranking__span-a" data-toggle="tab">月間</a>
-    </li>
-    <li class='nav-item ranking__span-li'>
-      <a href="#ranking_likes_year" class="nav-link ranking__span-a" data-toggle="tab">年間</a>
-    </li>
-    <li class='nav-item ranking__span-li'>
-      <a href="#ranking_likes_all" class="nav-link ranking__span-a" data-toggle="tab">全期間</a>
-    </li>
-  </ul>
-  <% if unit == 'posts' %>
-    <%#  タグ・ランキングの場合 %>
-    <div class="tab-content">
-      <div id="ranking_likes_month" class="tab-pane active">
-        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_month, count: ranking_month_count %>
-      </div>
-      <div id="ranking_likes_year" class="tab-pane">
-        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_year, count: ranking_year_count %>
-      </div>
-      <div id="ranking_likes_all" class="tab-pane">
-        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_all, count: ranking_all_count %>
-      </div>
-    </div>
-  <% else %>
-    <%# 投稿関連のランキングの場合 %>
+  <% if unit == 'likes' %>
+    <%# いいね数ランキングの場合 %>
+    <ul class='nav nav-pills ranking__span-ul'>
+      <li class='nav-item ranking__span-li'>
+        <a href="#ranking_likes_month" class="nav-link active ranking__span-a" data-toggle="tab">月間</a>
+      </li>
+      <li class='nav-item ranking__span-li'>
+        <a href="#ranking_likes_year" class="nav-link ranking__span-a" data-toggle="tab">年間</a>
+      </li>
+      <li class='nav-item ranking__span-li'>
+        <a href="#ranking_likes_all" class="nav-link ranking__span-a" data-toggle="tab">全期間</a>
+      </li>
+    </ul>
     <div class="tab-content">
       <div id="ranking_likes_month" class="tab-pane active">
         <%= render 'user/shared/ranking_tweet', unit: unit, tweets: ranking_month %>
@@ -46,6 +33,54 @@
       </div>
       <div id="ranking_likes_all" class="tab-pane">
         <%= render 'user/shared/ranking_tweet', unit: unit, tweets: ranking_all %>
+      </div>
+    </div>
+  <% elsif unit == 'comments' %>
+    <%# コメント数ランキングの場合 %>
+    <ul class='nav nav-pills ranking__span-ul'>
+      <li class='nav-item ranking__span-li'>
+        <a href="#ranking_comments_month" class="nav-link active ranking__span-a" data-toggle="tab">月間</a>
+      </li>
+      <li class='nav-item ranking__span-li'>
+        <a href="#ranking_comments_year" class="nav-link ranking__span-a" data-toggle="tab">年間</a>
+      </li>
+      <li class='nav-item ranking__span-li'>
+        <a href="#ranking_comments_all" class="nav-link ranking__span-a" data-toggle="tab">全期間</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="ranking_comments_month" class="tab-pane active">
+        <%= render 'user/shared/ranking_tweet', unit: unit, tweets: ranking_month %>
+      </div>
+      <div id="ranking_comments_year" class="tab-pane">
+        <%= render 'user/shared/ranking_tweet', unit: unit, tweets: ranking_year %>
+      </div>
+      <div id="ranking_comments_all" class="tab-pane">
+        <%= render 'user/shared/ranking_tweet', unit: unit, tweets: ranking_all %>
+      </div>
+    </div>
+  <% else %>
+    <%#  タグ・ランキングの場合 %>
+    <ul class='nav nav-pills ranking__span-ul'>
+      <li class='nav-item ranking__span-li'>
+        <a href="#ranking_tags_month" class="nav-link active ranking__span-a" data-toggle="tab">月間</a>
+      </li>
+      <li class='nav-item ranking__span-li'>
+        <a href="#ranking_tags_year" class="nav-link ranking__span-a" data-toggle="tab">年間</a>
+      </li>
+      <li class='nav-item ranking__span-li'>
+        <a href="#ranking_tags_all" class="nav-link ranking__span-a" data-toggle="tab">全期間</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div id="ranking_tags_month" class="tab-pane active">
+        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_month, count: ranking_month_count %>
+      </div>
+      <div id="ranking_tags_year" class="tab-pane">
+        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_year, count: ranking_year_count %>
+      </div>
+      <div id="ranking_tags_all" class="tab-pane">
+        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_all, count: ranking_all_count %>
       </div>
     </div>
   <% end %>

@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
     ranking_month = buf.span_month.order(Arel.sql('count(tweet_id) desc')).limit(10).pluck(:tweet_id)
     ranking_year = buf.span_year.order(Arel.sql('count(tweet_id) desc')).limit(10).pluck(:tweet_id)
     ranking_all = buf.order(Arel.sql('count(tweet_id) desc')).limit(10).pluck(:tweet_id)
+    logger.debug "ranking_month: #{ranking_month}"
+    logger.debug "ranking_year: #{ranking_year}"
+    logger.debug "ranking_all: #{ranking_all}"
     [ranking_month, ranking_year, ranking_all]
   end
 
