@@ -24,11 +24,11 @@ class ApplicationController < ActionController::Base
   def tag_ranking
     buf = ActsAsTaggableOn::Tagging.where(taggable_id: Tweet.where(is_opened: true)).group(:tag_id)
     # 月間
-    month_buf = buf.where(created_at: tagging_span_month).order(Arel.sql('count(tag_id) desc')).limit(10)
+    month_buf = buf.where(taggable_id: Tweet.span_month).order(Arel.sql('count(tag_id) desc')).limit(10)
     ranking_month = month_buf.pluck(:tag_id)
     ranking_month_count = month_buf.count.values
     # 年間
-    year_buf = buf.where(created_at: tagging_span_year).order(Arel.sql('count(tag_id) desc')).limit(10)
+    year_buf = buf.where(taggable_id: Tweet.span_year).order(Arel.sql('count(tag_id) desc')).limit(10)
     ranking_year = year_buf.pluck(:tag_id)
     ranking_year_count = year_buf.count.values
     # 全期間
