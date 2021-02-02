@@ -29,11 +29,12 @@
           フォロー<br>
           <%= user.followings.count %>
         <% end %>
-
-        <%= link_to user_followers_path(user_id: user.id), class: 'profile__data-content profile__link' do %>
-          フォロワー<br>
-          <%= user.followers.count %>
-        <% end %>
+          <%= link_to user_followers_path(user_id: user.id), class: 'profile__data-content profile__link' do %>
+            <span id='follower_number_js'>
+              フォロワー<br>
+              <%= user.followers.count %>
+            </span>
+          <% end %>
       </div>
 
     </div>
@@ -56,21 +57,10 @@
           <div class='profile__followed-message'>あなたはフォローされています</div>
         <% end %>
 
-        <% if current_user.following?(user) %>
-          <%# フォローしている場合 %>
-          <div class='profile__button-box'>
-            <%= link_to user_relationship_path(user_id: user, id: current_user), method: :delete, class: 'button__black' do %>
-            フォロー解除
-            <% end %>
-          </div>
-        <% else %>
-          <%# フォローしていない場合 %>
-          <div class='profile__button-box'>
-            <%= link_to user_relationships_path(user_id: user), method: :post, class: 'button__black' do %>
-            フォロー
-            <% end %>
-          </div>
-        <% end %>
+        <%# フォロー・フォロー解除ボタン %>
+        <div id='follow_button_js'>
+          <%= render 'user/relationships/follow_button', user: user %>
+        </div>
       <% end %>
   </div>
 </div>
@@ -81,7 +71,6 @@
 
 <%# ウィンドウ %>
 <div id='profile_modal_js' class='left-side__modal-content'>
-  <%#= render 'user/tweets/new' %>
   <%= render 'user/registrations/edit' %>
 </div>
 

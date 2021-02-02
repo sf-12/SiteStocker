@@ -1,0 +1,3 @@
+<%# フォロー・フォロー解除ボタンの切り替え & フォロワー数の更新 %>
+$('#follow_button_js').html("<%= j(render 'user/relationships/follow_button', user: @user) %>");
+$('#follower_number_js').html("フォロワー<br><%= @user.followers.count %>");
