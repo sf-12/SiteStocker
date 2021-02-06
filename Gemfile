@@ -70,6 +70,8 @@ gem 'acts-as-taggable-on'
 gem 'jquery-ui-rails'
 # 初期データ作成に使用
 gem 'seed-fu'
+# S3へのアクセス
+gem 'refile-s3', github: 'refile/refile-s3', ref: '768d60d4e5e5e6a00a874767018ff8e31b1da3cd'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
