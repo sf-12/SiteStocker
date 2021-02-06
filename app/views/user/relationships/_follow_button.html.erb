@@ -1,0 +1,16 @@
+<%# フォロー・フォロー解除ボタン %>
+<% if current_user.following?(user) %>
+  <%# フォローしている場合 %>
+  <div class='profile__button-box'>
+    <%= link_to user_relationship_path(user_id: user, id: current_user), method: :delete, class: 'button__outline-black', remote: true do %>
+      フォロー解除
+    <% end %>
+  </div>
+<% else %>
+  <%# フォローしていない場合 %>
+  <div class='profile__button-box'>
+    <%= link_to user_relationships_path(user_id: user), method: :post, class: 'button__black', remote: true do %>
+      フォロー
+    <% end %>
+  </div>
+<% end %>
