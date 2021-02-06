@@ -7,7 +7,7 @@
       <%= link_to user_path(tweet.user.id), class: 'timeline__user-link' do %>
         <div class='timeline__user'>
           <%# アイコン %>
-          <%= attachment_image_tag tweet.user, :image, fallback: "user_default.png", class: 'timeline__user-icon' %>
+          <%= image_tag tweet.user.image_url, class: 'timeline__user-icon' %>
           <%# ユーザー名 %>
           <span class='timeline__user-name'><%= tweet.user.name %></span>
         </div>

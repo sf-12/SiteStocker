@@ -24,7 +24,7 @@
           <td data-label='id' class='admin-index__id'><%= user.id %></td>
           <%# アイコン %>
           <td data-label='アイコン'>
-            <%= attachment_image_tag user, :image, format: 'jpeg', fallback: "user_default.png", size: "36x36" %>
+            <%= image_tag user.image_url, size: "36x36" %>
           </td>
           <%# 名前 %>
           <td data-label='名前'><%= user.name %></td>

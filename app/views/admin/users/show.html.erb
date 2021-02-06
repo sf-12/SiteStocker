@@ -6,7 +6,7 @@
     </tr>
     <tr>
       <th>アイコン</th>
-      <td><%= attachment_image_tag @user, :image, format: 'jpeg', fallback: "user_default.png", size: "36x36" %></td>
+      <td><%= image_tag @user.image_url, size: "36x36" %></td>
     </tr>
     <tr>
       <th>名前</th>

@@ -5,7 +5,7 @@
     <%= render "shared/error_messages", resource: resource %>
     <%# アイコン %>
     <%= f.label :image, "アイコン", class: 'profile-edit__label' %><br />
-    <%= attachment_image_tag @user, :image, size: "72x72", fallback: "user_default.png"%><br>
+    <%= image_tag @user.image_url, size: "72x72" %><br>
     <%= f.attachment_field :image, placeholder: "プロフィール画像", class:'profile-edit__image' %>
     <br>
     <%# 名前 %>
