@@ -18,6 +18,7 @@ class Admin::UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if user.update(user_params)
+      sleep(3) # S3への画像反映のタイムラグを考慮して3秒待機
       redirect_to admin_user_path(user.id)
     else
       render :edit
