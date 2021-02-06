@@ -86,4 +86,13 @@ class User < ApplicationRecord
   def following?(user)
     self.followings.include?(user)
   end
+
+  # ユーザープロフィール画像保存先S3のURLを取得する
+  def image_url
+    if self.image_id.nil?
+      'https://sitestocker-image-files-resized.s3-ap-northeast-1.amazonaws.com/store/user_default-thumbnail.png'
+    else
+      "https://sitestocker-image-files-resized.s3-ap-northeast-1.amazonaws.com/store/#{self.image_id}-thumbnail."
+    end
+  end
 end

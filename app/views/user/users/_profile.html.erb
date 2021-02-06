@@ -1,7 +1,7 @@
 <div class='profile'>
   <div class='profile__box'>
     <%# アイコン %>
-    <%= attachment_image_tag user, :image, fallback: "user_default.png", class: 'profile__icon' %>
+    <%= image_tag user.image_url, class: 'profile__icon' %>
 
     <%# ユーザー名 %>
     <div class='profile__name'><%= user.name %></div>

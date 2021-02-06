@@ -19,7 +19,7 @@
     <input id='header_checkbox' class='header__hamburger-checkbox' type='checkbox'>
     <%# アイコン %>
     <label for='header_checkbox' class='header__hamburger-icon'>
-      <%= attachment_image_tag current_user, :image, format: 'jpeg', fallback: "user_default.png", class: 'header__icon' %>
+      <%= image_tag current_user.image_url, class: 'header__icon' %>
     </label>
     <%# コンテンツ %>
     <div class='header__hamburger-box'>

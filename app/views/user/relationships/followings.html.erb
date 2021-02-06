@@ -17,7 +17,7 @@
           <tbody>
             <tr>
               <td>
-                <%= attachment_image_tag follow, :image, size:'40x40', fallback: 'user_default.png' %>
+                <%= image_tag follow.image_url, size:'40x40' %>
               </td>
               <td>
                 <%= follow.name %>

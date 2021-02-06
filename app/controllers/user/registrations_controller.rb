@@ -44,7 +44,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   # 新規登録時にemailとpasswordのほかに追加で入力してもらう情報
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name image_id text is_active])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name image text is_active])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -71,6 +71,7 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # ユーザー情報更新後の遷移先をオーバーライド
   def after_update_path_for(_resource)
+    sleep(3) # S3への画像反映のタイムラグを考慮して3秒待機
     user_path(current_user.id)
   end
 end

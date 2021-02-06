@@ -8,7 +8,7 @@
           <%# 順位 %>
           <td rowspan='2' class='ranking__rank'><%= i+1 %></td>
           <%# ユーザーアイコン %>
-          <td class='ranking__icon-box'><%= attachment_image_tag Tweet.find(tweet).user, :image, fallback: "user_default.png", class: 'ranking__icon' %></td>
+          <td class='ranking__icon-box'><%= image_tag Tweet.find(tweet).user.image_url, class: 'ranking__icon' %></td>
           <%# ユーザー名 %>
           <td><%= Tweet.find(tweet).user.name.truncate(10) %></td>
           <%# 件数 %>

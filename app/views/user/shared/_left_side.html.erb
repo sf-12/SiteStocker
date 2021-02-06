@@ -13,7 +13,7 @@
       <%# マイページ %>
       <%= link_to user_path(current_user.id), class: 'left-side__link' do %>
         <div class='left-side__icon-outer'>
-          <%= attachment_image_tag user, :image, fallback: "user_default.png",class: 'left-side__icon-profile' %>
+          <%= image_tag user.image_url, class: 'left-side__icon-profile' %>
         </div>
         <div class='left-side__text'>マイページ</div>
       <% end %>
