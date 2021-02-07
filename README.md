@@ -49,7 +49,8 @@ https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoa
 <br>
 
 ## インフラ構成図
-![インフラ構成図](https://user-images.githubusercontent.com/49280097/106122472-16c90f80-619c-11eb-8940-7f54f617024e.png)
+![インフラ構成図](https://user-images.githubusercontent.com/49280097/107141709-13890d00-696e-11eb-8940-b27b79c35e56.png)
+
 <br>
 <br>
 
