@@ -1,5 +1,9 @@
 version: 2.1
 
+# slackへの通知のためにorbを使用する
+orbs:
+  slack: circleci/slack@4.2.1
+
 # 共通事項の設定
 executors:
   with_db:
@@ -62,6 +66,7 @@ jobs:
               exit 0
             fi
             bundle exec cap production deploy
+      - slack/status
 
 # 実行順序の制御
 workflows:
