@@ -2,7 +2,7 @@ version: 2.1
 
 # slackへの通知のためにorbを使用する
 orbs:
-  slack: circleci/slack@4.2.1
+  slack: circleci/slack@3.4.2
 
 # 共通事項の設定
 executors:
