@@ -1,4 +1,6 @@
-# SiteStocker
+# SiteStocker [![sf-12](https://circleci.com/gh/sf-12/SiteStocker.svg?style=shield)](https://app.circleci.com/pipelines/github/sf-12/SiteStocker) [![Maintainability](https://api.codeclimate.com/v1/badges/46c8c4a0be7ec7f6a636/maintainability)](https://codeclimate.com/github/sf-12/SiteStocker/maintainability)
+
+
 ![サイト画像](https://user-images.githubusercontent.com/49280097/106329334-97832b00-62c4-11eb-8cd4-73f5a325478e.png)
 <br>
 
