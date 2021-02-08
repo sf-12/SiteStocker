@@ -3,6 +3,7 @@
 class User::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   before_action :reject_user, only: [:create]
+  before_action :initialize_guest_user, only: [:destroy]
   before_action :authenticate_user!
 
   # GET /resource/sign_in
@@ -16,9 +17,9 @@ class User::SessionsController < Devise::SessionsController
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+  end
 
   # 簡単ログイン機能
   def new_guest
@@ -54,5 +55,15 @@ class User::SessionsController < Devise::SessionsController
 
     flash[:alert] = '退会済みのアカウントです'
     redirect_to new_user_session_path
+  end
+
+  # ログアウト時にゲストユーザーのプロフィールを初期化する
+  def initialize_guest_user
+    return unless current_user.email == 'guest@example.com'
+
+    current_user.name = 'ゲストユーザー'
+    current_user.is_active = true
+    current_user.text = 'よろしくお願いします！'
+    current_user.image_id = nil
   end
 end

@@ -47,7 +47,17 @@ class User::UsersController < ApplicationController
 
   def destroy
     user = current_user
-    user.update!(is_active: false)
+    if user.email == 'guest@example.com'
+      # ゲストユーザーは退会させず、プロフィールを初期化
+      user.name = 'ゲストユーザー'
+      user.is_active = true
+      user.text = 'よろしくお願いします！'
+      user.image_id = nil
+    else
+      # 一般ユーザーは退会させる
+      user.is_active = false
+    end
+    user.save
     reset_session
     redirect_to root_path, notice: 'ありがとうございました。またのご利用を心よりお待ちしております。'
   end
