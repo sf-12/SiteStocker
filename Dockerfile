@@ -1,8 +1,8 @@
 FROM ruby:2.7.1
 ENV TZ=Asia/Tokyo
 
-RUN apt-get update
-RUN apt-get install -y \
+RUN apt-get update \
+    install -y \
     default-mysql-client \
     nodejs
 

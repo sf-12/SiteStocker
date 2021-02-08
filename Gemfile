@@ -110,4 +110,6 @@ group :test do
   gem 'rspec-rails'
   # System Spec用にChromeDriverを導入する
   gem 'webdrivers'
+  # カバレッジを表示
+  gem 'simplecov'
 end
