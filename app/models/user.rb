@@ -55,9 +55,6 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.password_confirmation = user.password
     end
-    find_by!(email: 'guest@example.com') do |user|
-      user.update(name: 'ゲストユーザー', is_active: 'true', text: 'よろしくお願いします！')
-    end
   end
 
   # [devise用]パスワード入力なしで情報を更新する
