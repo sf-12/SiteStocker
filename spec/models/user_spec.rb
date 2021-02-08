@@ -62,7 +62,6 @@ RSpec.describe User, type: :model do
     it '退会フラグがなければ無効な状態であること' do
       user = FactoryBot.build(:user, is_active: nil)
       user.valid?
-      p user.errors[:is_active]
       expect(user.errors[:is_active]).to include('は一覧にありません')
     end
   end

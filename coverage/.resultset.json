@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/models/admin.rb": {
+      "/myapp/app/models/admin.rb": {
         "lines": [
           null,
           null,
@@ -13,7 +13,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/models/application_record.rb": {
+      "/myapp/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -38,7 +38,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/models/user.rb": {
+      "/myapp/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -140,7 +140,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/admin/comments_helper.rb": {
+      "/myapp/app/helpers/admin/comments_helper.rb": {
         "lines": [
           null,
           null,
@@ -148,7 +148,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/admin/homes_helper.rb": {
+      "/myapp/app/helpers/admin/homes_helper.rb": {
         "lines": [
           null,
           null,
@@ -156,7 +156,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/admin/tags_helper.rb": {
+      "/myapp/app/helpers/admin/tags_helper.rb": {
         "lines": [
           null,
           null,
@@ -164,7 +164,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/admin/tweets_helper.rb": {
+      "/myapp/app/helpers/admin/tweets_helper.rb": {
         "lines": [
           null,
           null,
@@ -172,7 +172,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/admin/users_helper.rb": {
+      "/myapp/app/helpers/admin/users_helper.rb": {
         "lines": [
           null,
           null,
@@ -180,7 +180,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/application_helper.rb": {
+      "/myapp/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -202,7 +202,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/user/comments_helper.rb": {
+      "/myapp/app/helpers/user/comments_helper.rb": {
         "lines": [
           null,
           null,
@@ -210,7 +210,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/user/homes_helper.rb": {
+      "/myapp/app/helpers/user/homes_helper.rb": {
         "lines": [
           null,
           null,
@@ -218,7 +218,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/user/likes_helper.rb": {
+      "/myapp/app/helpers/user/likes_helper.rb": {
         "lines": [
           null,
           null,
@@ -226,7 +226,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/user/relationships_helper.rb": {
+      "/myapp/app/helpers/user/relationships_helper.rb": {
         "lines": [
           null,
           null,
@@ -234,7 +234,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/user/searches_helper.rb": {
+      "/myapp/app/helpers/user/searches_helper.rb": {
         "lines": [
           null,
           null,
@@ -242,7 +242,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/user/tweets_helper.rb": {
+      "/myapp/app/helpers/user/tweets_helper.rb": {
         "lines": [
           null,
           null,
@@ -250,7 +250,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/helpers/user/users_helper.rb": {
+      "/myapp/app/helpers/user/users_helper.rb": {
         "lines": [
           null,
           null,
@@ -258,38 +258,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/models/comment.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/models/like.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/models/relationship.rb": {
+      "/myapp/app/models/comment.rb": {
         "lines": [
           null,
           null,
@@ -305,7 +274,38 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/models/site.rb": {
+      "/myapp/app/models/like.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/myapp/app/models/relationship.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/myapp/app/models/site.rb": {
         "lines": [
           null,
           null,
@@ -318,7 +318,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/models/tweet.rb": {
+      "/myapp/app/models/tweet.rb": {
         "lines": [
           null,
           null,
@@ -350,7 +350,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/homes_controller.rb": {
+      "/myapp/app/controllers/user/homes_controller.rb": {
         "lines": [
           null,
           null,
@@ -394,7 +394,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/application_controller.rb": {
+      "/myapp/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -448,7 +448,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/registrations_controller.rb": {
+      "/myapp/app/controllers/user/registrations_controller.rb": {
         "lines": [
           null,
           null,
@@ -529,7 +529,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/sessions_controller.rb": {
+      "/myapp/app/controllers/user/sessions_controller.rb": {
         "lines": [
           null,
           null,
@@ -591,7 +591,7 @@
           null
         ]
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/mailers/application_mailer.rb": {
+      "/myapp/app/channels/application_cable/channel.rb": {
         "lines": [
           null,
           null,
@@ -603,45 +603,9 @@
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/jobs/application_job.rb": {
+      "/myapp/app/channels/application_cable/connection.rb": {
         "lines": [
           null,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/admin/comments_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
           null,
           0,
           0,
@@ -651,59 +615,7 @@
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/admin/tags_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/admin/users_controller.rb": {
+      "/myapp/app/controllers/admin/comments_controller.rb": {
         "lines": [
           null,
           null,
@@ -730,7 +642,6 @@
           0,
           0,
           0,
-          0,
           null,
           0,
           null,
@@ -742,7 +653,20 @@
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/admin/sessions_controller.rb": {
+      "/myapp/app/controllers/admin/homes_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/myapp/app/controllers/admin/sessions_controller.rb": {
         "lines": [
           null,
           null,
@@ -795,20 +719,7 @@
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/admin/homes_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/admin/tweets_controller.rb": {
+      "/myapp/app/controllers/admin/tags_controller.rb": {
         "lines": [
           null,
           null,
@@ -822,35 +733,10 @@
           0,
           0,
           0,
-          null,
-          0,
-          0,
           0,
           0,
           null,
           0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/comments_controller.rb": {
-        "lines": [
-          null,
-          null,
           0,
           0,
           null,
@@ -858,9 +744,6 @@
           0,
           0,
           0,
-          0,
-          0,
-          null,
           0,
           0,
           0,
@@ -871,25 +754,14 @@
           0,
           0,
           0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/likes_controller.rb": {
-        "lines": [
           null,
           null,
-          0,
-          0,
-          null,
-          0,
           0,
           0,
           0,
           0,
           null,
-          0,
+          null,
           0,
           0,
           0,
@@ -899,49 +771,7 @@
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/passwords_controller.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/users_controller.rb": {
+      "/myapp/app/controllers/admin/tweets_controller.rb": {
         "lines": [
           null,
           null,
@@ -952,27 +782,6 @@
           0,
           0,
           null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
           0,
           0,
           0,
@@ -981,15 +790,9 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
           null,
           0,
-          null,
+          0,
           0,
           0,
           0,
@@ -1007,7 +810,7 @@
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/tweets_controller.rb": {
+      "/myapp/app/controllers/admin/users_controller.rb": {
         "lines": [
           null,
           null,
@@ -1015,18 +818,9 @@
           0,
           null,
           0,
-          null,
           0,
           0,
           null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
           0,
           0,
           0,
@@ -1037,18 +831,9 @@
           null,
           0,
           0,
-          null,
-          0,
-          null,
-          0,
-          null,
           0,
           0,
           0,
-          null,
-          0,
-          0,
-          null,
           0,
           0,
           0,
@@ -1059,6 +844,14 @@
           0,
           0,
           0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/myapp/app/controllers/user/comments_controller.rb": {
+        "lines": [
+          null,
           null,
           0,
           0,
@@ -1066,9 +859,6 @@
           0,
           0,
           0,
-          0,
-          0,
-          null,
           0,
           0,
           0,
@@ -1088,7 +878,103 @@
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/searches_controller.rb": {
+      "/myapp/app/controllers/user/likes_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/myapp/app/controllers/user/passwords_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/myapp/app/controllers/user/relationships_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/myapp/app/controllers/user/searches_controller.rb": {
         "lines": [
           null,
           null,
@@ -1151,7 +1037,88 @@
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/controllers/user/relationships_controller.rb": {
+      "/myapp/app/controllers/user/tweets_controller.rb": {
+        "lines": [
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/myapp/app/controllers/user/users_controller.rb": {
         "lines": [
           null,
           null,
@@ -1161,19 +1128,54 @@
           0,
           0,
           0,
-          0,
+          null,
           null,
           0,
           0,
-          0,
-          0,
-          null,
           0,
           0,
           0,
           0,
           null,
           0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
           0,
           0,
           0,
@@ -1182,19 +1184,17 @@
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/channels/application_cable/connection.rb": {
+      "/myapp/app/jobs/application_job.rb": {
         "lines": [
           null,
           null,
           0,
-          0,
-          0,
           0
         ],
         "branches": {
         }
       },
-      "/Users/fukasawashunsuke/Documents/portforio/SiteStocker/app/channels/application_cable/channel.rb": {
+      "/myapp/app/mailers/application_mailer.rb": {
         "lines": [
           null,
           null,
@@ -1207,6 +1207,6 @@
         }
       }
     },
-    "timestamp": 1612747207
+    "timestamp": 1612755239
   }
 }
