@@ -48,12 +48,9 @@ https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoa
 - JSライブラリ：jQuery
 - IDE：Visual Studio Code
 <br>
-<br>
 
 ## インフラ構成図
-![インフラ構成図](https://user-images.githubusercontent.com/49280097/107141709-13890d00-696e-11eb-8940-b27b79c35e56.png)
-
-<br>
+![インフラ構成図](https://user-images.githubusercontent.com/49280097/107325863-dba8d380-6aed-11eb-9155-ac1779cbfdb7.png)
 <br>
 
 ## ER図
