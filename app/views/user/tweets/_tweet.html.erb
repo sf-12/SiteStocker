@@ -78,7 +78,7 @@
         <%# 編集 %>
         <div class='timeline__footer-box'>
           <object>
-            <%= link_to edit_tweet_path(tweet.id), class: 'timeline__footer-link' do %>
+            <%= link_to edit_tweet_path(tweet.id), class: 'timeline__footer-link', id: 'edit_tweet_path__test' do %>
               <div>
                 <i class="far fa-edit"></i>
               </div>
@@ -92,7 +92,7 @@
         <%# 削除 %>
         <div class='timeline__footer-box'>
           <object>
-            <%= link_to tweet_path(tweet.id), method: :delete, class: 'timeline__link-show', "data-confirm" => "本当に削除しますか？" do %>
+            <%= link_to tweet_path(tweet.id), method: :delete, class: 'timeline__link-show', id: 'delete_tweet_path__test', data: {confirm: "本当に削除しますか？"} do %>
               <div>
                 <i class="far fa-trash-alt"></i>
               </div>
