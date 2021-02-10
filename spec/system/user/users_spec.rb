@@ -138,7 +138,6 @@ RSpec.describe 'Users', type: :system do
         find('#edit_user_button__test').click
         expect(page).to have_content '田中次郎'
       end
-
     end
 
     context '他人のプロフィール画面の場合' do
