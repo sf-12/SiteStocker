@@ -100,4 +100,57 @@ RSpec.describe 'Users', type: :system do
       expect(page).to have_current_path '/home'
     end
   end
+
+  describe 'プロフィール変更' do
+    context '自分のプロフィール画面の場合' do
+      # あらかじめユーザーを作成しておく
+      let(:user) { FactoryBot.create(:user) }
+
+      it 'プロフィール変更ボタンがある' do
+        sign_in user
+        visit user_path(user.id)
+        expect(page).to have_content 'プロフィール編集'
+      end
+
+      it 'プロフィール変更ボタンをおすとウィンドウが表示される' do
+        sign_in user
+        visit user_path(user.id)
+        find('#profile_button_js').click
+        expect(page).to have_content '編集しよう'
+      end
+
+      it 'プロフィール変更するとプロフィールページに遷移する' do
+        sign_in user
+        visit user_path(user.id)
+        find('#profile_button_js').click
+        # ユーザー名の編集
+        fill_in 'update_profile_name__input', with: '田中次郎'
+        find('#edit_user_button__test').click
+        expect(page).to have_current_path user_path(user.id)
+      end
+
+      it 'プロフィールが変更されている' do
+        sign_in user
+        visit user_path(user.id)
+        find('#profile_button_js').click
+        # ユーザー名の編集
+        fill_in 'update_profile_name__input', with: '田中次郎'
+        find('#edit_user_button__test').click
+        expect(page).to have_content '田中次郎'
+      end
+
+    end
+
+    context '他人のプロフィール画面の場合' do
+      # あらかじめユーザーを作成しておく
+      let(:user) { FactoryBot.create(:user) }
+      let(:another_user) { FactoryBot.create(:user) }
+
+      it 'プロフィール変更ボタンがない' do
+        sign_in user
+        visit user_path(another_user.id)
+        expect(page).not_to have_content 'プロフィール編集'
+      end
+    end
+  end
 end
