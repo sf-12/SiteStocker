@@ -7,11 +7,11 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= f.label :email, class: 'admin-login__label' %>
       <br>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true, class: 'admin-login__field' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true, class: 'admin-login__field', id: 'log_in_admin_email__input' %>
       <br>
       <%= f.label :password, class: 'admin-login__label' %>
       <br>
-      <%= f.password_field :password, autocomplete: "current-password", :required => true, class: 'admin-login__field' %>
+      <%= f.password_field :password, autocomplete: "current-password", :required => true, class: 'admin-login__field', id: 'log_in_admin_password__input' %>
       <br>
 
       <%# ボタン %>
