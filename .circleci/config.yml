@@ -1,5 +1,9 @@
 version: 2.1
 
+# slackへの通知のためにorbを使用する
+orbs:
+  slack: circleci/slack@3.4.2
+
 # 共通事項の設定
 executors:
   with_db:
@@ -10,6 +14,7 @@ executors:
           - DB_USERNAME: 'root'
           - BUNDLE_PATH: vendor/bundle
           - RAILS_ENV: test
+          - CC_TEST_REPORTER_ID: 734c8287e45eedd43d806e2de2424fff1c80fc348db0a1e3654ff32da0557068
       - image: circleci/mysql:5.7-ram
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
@@ -46,8 +51,16 @@ jobs:
           name: データベースのセットアップ
           command: bundle exec rails db:create
       - run:
+          name: Code Climateへのテストカバレッジ送信のためにtest-reporterを設定
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
           name: RSpecを実行
-          command: bundle exec rspec
+          command: |
+            ./cc-test-reporter before-build
+            bundle exec rspec
+            ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
       - run:
           name: RuboCopを実行
           command: bundle exec rubocop
@@ -62,6 +75,11 @@ jobs:
               exit 0
             fi
             bundle exec cap production deploy
+      # slackに結果を送信
+      - slack/status:
+          success_message: ':circleci-pass: $CIRCLE_BRANCH のデプロイが完了しました\n:github_octocat: User：$CIRCLE_USERNAME'
+          failure_message: ':circleci-fail: $CIRCLE_BRANCH のデプロイが失敗しました\n:github_octocat: User：$CIRCLE_USERNAME'
+          webhook: '${SLACK_WEBHOOK}'
 
 # 実行順序の制御
 workflows:

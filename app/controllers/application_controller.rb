@@ -37,14 +37,4 @@ class ApplicationController < ActionController::Base
     ranking_all_count = all_buf.count.values
     [ranking_month, ranking_month_count, ranking_year, ranking_year_count, ranking_all, ranking_all_count]
   end
-
-  # 今月1ヶ月間
-  def tagging_span_month
-    Time.now.in_time_zone.all_month
-  end
-
-  # 今年1年間
-  def tagging_span_year
-    Time.now.in_time_zone.all_year
-  end
 end

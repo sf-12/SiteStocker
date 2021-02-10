@@ -1,4 +1,6 @@
-# SiteStocker
+# SiteStocker [![sf-12](https://circleci.com/gh/sf-12/SiteStocker.svg?style=shield)](https://app.circleci.com/pipelines/github/sf-12/SiteStocker) [![Maintainability](https://api.codeclimate.com/v1/badges/46c8c4a0be7ec7f6a636/maintainability)](https://codeclimate.com/github/sf-12/SiteStocker/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/46c8c4a0be7ec7f6a636/test_coverage)](https://codeclimate.com/github/sf-12/SiteStocker/test_coverage)
+
+
 ![サイト画像](https://user-images.githubusercontent.com/49280097/106329334-97832b00-62c4-11eb-8cd4-73f5a325478e.png)
 <br>
 
@@ -46,11 +48,9 @@ https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoa
 - JSライブラリ：jQuery
 - IDE：Visual Studio Code
 <br>
-<br>
 
 ## インフラ構成図
-![インフラ構成図](https://user-images.githubusercontent.com/49280097/106122472-16c90f80-619c-11eb-8940-7f54f617024e.png)
-<br>
+![インフラ構成図](https://user-images.githubusercontent.com/49280097/107325863-dba8d380-6aed-11eb-9155-ac1779cbfdb7.png)
 <br>
 
 ## ER図
