@@ -1,3 +1,4 @@
+<%= render 'layouts/notifications' %>
 <div class='setting'>
   <div class='setting__title'>
     設定
@@ -17,26 +18,26 @@
           <%= f.label :current_password %>
         </div>
         <div>
-          <%= f.password_field :current_password, autocomplete: "current-password", :required => true, class:'setting__content-field' %>
+          <%= f.password_field :current_password, autocomplete: "current-password", :required => true, class:'setting__content-field', id: 'setting_now_password__input' %>
         </div>
 
         <%# 新しいパスワード %>
         <div class='setting__content-label'>
           <%= f.label :password, '新しいパスワード' %>
         </div>
-          <%= f.password_field :password, autocomplete: "new-password", :required => true, class:'setting__content-field' %>
+          <%= f.password_field :password, autocomplete: "new-password", :required => true, class:'setting__content-field', id: 'setting_new_password__input' %>
 
         <%# 新しいパスワード（確認） %>
         <div class='setting__content-label'>
           <%= f.label :password_confirmation, '新しいパスワード (確認)' %>
         </div>
         <div>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true, class:'setting__content-field' %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true, class:'setting__content-field', id: 'setting_new_password_confirm__input' %>
         </div>
 
         <%# ボタン %>
         <div>
-          <%= f.submit "変更する", class:'button__black setting__button' %>
+          <%= f.submit "変更する", class:'button__black setting__button', id: 'setting_password_button__test' %>
         </div>
 
       <% end %>

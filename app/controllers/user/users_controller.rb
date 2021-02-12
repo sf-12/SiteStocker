@@ -39,6 +39,7 @@ class User::UsersController < ApplicationController
       flash[:notice__upper] = 'パスワードを変更しました'
       redirect_to user_path(current_user.id)
     else
+      flash[:warning] = '現在のパスワードが違います'
       render :setting
     end
   end

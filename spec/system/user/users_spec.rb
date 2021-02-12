@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :system do
+RSpec.describe 'System Users', type: :system do
   describe '新規ユーザー登録' do
     context '登録に成功する場合' do
       it '新規ユーザー登録画面に遷移する' do

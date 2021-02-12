@@ -8,7 +8,7 @@ class User::HomesController < ApplicationController
     # 管理者側でログインしている場合はログアウトする
     if admin_signed_in?
       sign_out_and_redirect(current_admin)
-      flash[:alert] = '管理者側サイトはサインアウトしました'
+      flash[:warning] = '管理者側サイトはサインアウトしました'
     end
 
     # ユーザー側でログインしている場合はホーム画面へ移動
