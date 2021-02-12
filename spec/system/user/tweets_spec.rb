@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Tweets', type: :system do
+RSpec.describe 'System Tweets', type: :system do
   # あらかじめユーザーを作成しておく
   let(:user) { FactoryBot.create(:user) }
 
