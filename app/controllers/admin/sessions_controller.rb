@@ -42,6 +42,6 @@ class Admin::SessionsController < Devise::SessionsController
     return unless user_signed_in?
 
     sign_out(current_user)
-    flash[:alert] = 'ユーザー側サイトはサインアウトしました'
+    flash[:warning] = 'ユーザー側サイトはサインアウトしました'
   end
 end

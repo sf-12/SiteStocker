@@ -63,7 +63,7 @@ class User::TweetsController < ApplicationController
     return unless tweet.user_id == current_user.id
 
     tweet.destroy
-    flash[:alert] = '投稿を削除しました'
+    flash[:warning] = '投稿を削除しました'
     redirect_to user_path(current_user.id)
   end
 
