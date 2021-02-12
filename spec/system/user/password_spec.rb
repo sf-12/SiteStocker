@@ -53,7 +53,7 @@ RSpec.describe 'System Passwords', type: :system do
         sign_in user
         visit users_setting_path
         # パスワードを変更する
-        change_password(user.password, 'newpassword')
+        change_password(user.password, 'newpassword', 'newpassword')
         # ログアウトする
         find('#header_logout_test').click
         # ログインする
@@ -76,7 +76,7 @@ RSpec.describe 'System Passwords', type: :system do
         visit users_setting_path
         # パスワードを変更する
         change_password('wrongpassword', 'newpassword', 'newpassword')
-        expect(page).to have_current_path users_setting_path
+        expect(page).to have_current_path user_path(user.id)
       end
 
       it 'フラッシュメッセージが表示される' do
@@ -84,7 +84,7 @@ RSpec.describe 'System Passwords', type: :system do
         visit users_setting_path
         # パスワードを変更する
         change_password('wrongpassword', 'newpassword', 'newpassword')
-        expect(page).to have_content '現在のパスワードが違います'
+        expect(page).to have_content '現在のパスワードは不正な値です'
       end
     end
 
@@ -97,7 +97,7 @@ RSpec.describe 'System Passwords', type: :system do
         visit users_setting_path
         # パスワードを変更する
         change_password(user.password, 'new', 'new')
-        expect(page).to have_current_path users_setting_path
+        expect(page).to have_current_path user_path(user.id)
       end
 
       it 'フラッシュメッセージが表示される' do
@@ -118,7 +118,7 @@ RSpec.describe 'System Passwords', type: :system do
         visit users_setting_path
         # パスワードを変更する
         change_password('wrongpassword', 'newpassword', 'newpassword')
-        expect(page).to have_current_path users_setting_path
+        expect(page).to have_current_path user_path(user.id)
       end
 
       it 'フラッシュメッセージが表示される' do
@@ -126,7 +126,7 @@ RSpec.describe 'System Passwords', type: :system do
         visit users_setting_path
         # パスワードを変更する
         change_password('wrongpassword', 'newpassword', 'passwordnew')
-        expect(page).to have_content 'a'
+        expect(page).to have_content 'パスワード（確認）とパスワードの入力が一致しません'
       end
     end
   end
