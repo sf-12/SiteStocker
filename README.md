@@ -26,7 +26,6 @@
 - 性別：男女問わない<br>
 - ネットサーフィンをよくする人<br>
 - お気に入り登録してあるWebサイトが多く、整理したいと思っている人<br>
-<br>
 
 ### 主な利用シーン
 - 便利なサイトや面白いサイトを探したいとき、紹介したいとき
@@ -44,7 +43,6 @@
   - タグ機能
   - ランキング機能
   - 検索機能
-
 - 管理者側
   - ログイン、ログアウト機能
   - ユーザーの一覧表示、詳細表示、編集機能
@@ -52,7 +50,7 @@
   - タグの一覧表示、詳細表示、編集機能
   - コメントの一覧表示、詳細表示、編集機能
 
-※その他詳細は[こちら](https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoahkU/edit?usp=sharing)をご覧ください。<br>
+その他詳細は[こちら](https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoahkU/edit?usp=sharing)をご覧ください。<br>
 
 ## 取り入れた技術
 - 環境構築にDocker, Docker-Composeを使用
@@ -64,7 +62,6 @@
 - CSVファイルでseedデータを管理(seed-fu)
 - GitHub、Circle CI、Code Climateを連携し、コードの保守性とテストカバレッジを把握
 - Circle CIとSlackを連携し、デプロイの成功/失敗を通知
-<br>
 
 ## インフラ構成図
 ![インフラ構成図](https://user-images.githubusercontent.com/49280097/107325863-dba8d380-6aed-11eb-9155-ac1779cbfdb7.png)
