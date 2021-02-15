@@ -6,24 +6,20 @@
 
 ![サイト画像-レスポンシブ](https://user-images.githubusercontent.com/49280097/106328658-88e84400-62c3-11eb-9d9b-3e50f664cd1c.png)
 <br>
-<br>
 
 ## サイト概要
 おすすめのWebサイトを投稿できるSNSです。<br>
-みんなの投稿を閲覧したり、自分で投稿したり、コメント欄で語り合ったりできます。
-<br>
+みんなの投稿を閲覧したり、自分で投稿したり、コメント欄で語り合ったりできます。<br>
 
 ### サイトテーマ
 お気に入りのサイトを<br>
 見つけよう 共有しよう 語り合おう<br>
-<br>
 
 ### テーマを選んだ理由
 ポートフォリオ作成のためにいろいろなWebサイトを閲覧していたら、<br>
 いままで知らなかった便利なサイトや面白いサイトがたくさんあることに気づきました。<br>
 もしWebサイトを紹介し合うことができるコミュニティがあったら、<br>
 もっと面白くて便利なサイトを知ることができると思い、制作することにしました。<br>
-<br>
 
 ### ターゲットユーザ
 - 年齢：20代〜50代<br>
@@ -36,7 +32,6 @@
 - 便利なサイトや面白いサイトを探したいとき、紹介したいとき
 - お気に入りのWebサイトが増えすぎて管理に困っているとき
 - お気に入りのWebサイトにメモやタグをつけて管理したいとき<br>
-<br>
 
 ## 機能一覧
 - ユーザー側
@@ -57,8 +52,7 @@
   - タグの一覧表示、詳細表示、編集機能
   - コメントの一覧表示、詳細表示、編集機能
 
-その他詳細は[こちら](https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoahkU/edit?usp=sharing)をご覧ください。<br>
-<br>
+※その他詳細は[こちら](https://docs.google.com/spreadsheets/d/1ZBZLLgjB8m_0iXxOnhGBY6VyVq8xN-p1pnhqeyoahkU/edit?usp=sharing)をご覧ください。<br>
 
 ## 取り入れた技術
 - 環境構築にDocker, Docker-Composeを使用
@@ -71,16 +65,13 @@
 - GitHub、Circle CI、Code Climateを連携し、コードの保守性とテストカバレッジを把握
 - Circle CIとSlackを連携し、デプロイの成功/失敗を通知
 <br>
-<br>
 
 ## インフラ構成図
 ![インフラ構成図](https://user-images.githubusercontent.com/49280097/107325863-dba8d380-6aed-11eb-9155-ac1779cbfdb7.png)
 <br>
-<br>
 
 ## ER図
 ![ER図](https://user-images.githubusercontent.com/49280097/106114389-d913b900-6192-11eb-8132-cb5a117780e8.png)
-<br>
 <br>
 
 ## 開発環境
@@ -90,4 +81,3 @@
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Visual Studio Code
-<br>
