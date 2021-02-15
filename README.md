@@ -62,13 +62,13 @@
 
 ## 取り入れた技術
 - 環境構築にDocker, Docker-Composeを使用
-- Rubocopを用いて静的解析を実施
-- Rspecでテストを実施
+- RuboCopを用いて静的解析を実施
+- RSpecでテストを実施
 - Circle CIで自動テスト
 - Capistranoで自動デプロイ
 - 外部API ( LinkPreview ) を用いてプレビュー画像を取得
 - CSVファイルでseedデータを管理(seed-fu)
-- Github、Circle CI、Code Climateを連携し、コードの保守性とテストカバレッジを把握
+- GitHub、Circle CI、Code Climateを連携し、コードの保守性とテストカバレッジを把握
 - Circle CIとSlackを連携し、デプロイの成功/失敗を通知
 <br>
 <br>
