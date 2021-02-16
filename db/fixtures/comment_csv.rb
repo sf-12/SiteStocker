@@ -3,12 +3,12 @@
 require 'csv'
 
 csv = CSV.read('db/fixtures/comment.csv')
-csv.each do |comment|
-  id = comment[0]
-  tweet_id = comment[1]
-  user_id = comment[2]
-  text = comment[3]
-  created_at = comment[4]
+csv.each_with_index do |comment, index|
+  id = index + 1
+  tweet_id = comment[0]
+  user_id = comment[1]
+  text = comment[2]
+  created_at = comment[3]
 
   Comment.seed(:id) do |s|
     s.id = id
