@@ -3,13 +3,13 @@
 require 'csv'
 
 csv = CSV.read('db/fixtures/user.csv')
-csv.each do |user|
-  id = user[0]
-  name = user[1]
-  email = user[2]
-  text = user[3]
-  is_active = user[4]
-  created_at = user[5]
+csv.each_with_index do |user, index|
+  id = index + 1
+  name = user[0]
+  email = user[1]
+  text = user[2]
+  is_active = user[3]
+  created_at = user[4]
 
   User.seed(:id) do |s|
     s.id = id

@@ -3,13 +3,13 @@
 require 'csv'
 
 csv = CSV.read('db/fixtures/tweet.csv')
-csv.each do |tweet|
-  id = tweet[0]
-  user_id = tweet[1]
-  site_id = tweet[2]
-  text = tweet[3]
-  is_opened = tweet[4]
-  created_at = tweet[5]
+csv.each_with_index do |tweet, index|
+  id = index + 1
+  user_id = tweet[0]
+  site_id = tweet[1]
+  text = tweet[2]
+  is_opened = tweet[3]
+  created_at = tweet[4]
 
   Tweet.seed(:id) do |s|
     s.id = id

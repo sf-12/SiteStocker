@@ -3,10 +3,10 @@
 require 'csv'
 
 csv = CSV.read('db/fixtures/tagging.csv')
-csv.each do |tagging|
-  id = tagging[0]
-  taggable_id = tagging[1]
-  tag_id = tagging[2]
+csv.each_with_index do |tagging, index|
+  id = index + 1
+  taggable_id = tagging[0]
+  tag_id = tagging[1]
 
   ActsAsTaggableOn::Tagging.seed(:id) do |s|
     s.id = id
