@@ -5,24 +5,24 @@ class ApplicationController < ActionController::Base
   def tweet_ranking(type)
     buf = if type == 'likes'
             # いいね数
-            Tweet.where(is_opened: true).joins(:likes).select('tweets.*, likes.*').group(:tweet_id)
+            Tweet.where(is_opened: true,
+                        user_id: User.active).joins(:likes).select('tweets.*, likes.*').group(:tweet_id)
           else
             # コメント数
-            Tweet.where(is_opened: true).joins(:comments).select('tweets.*, comments.*').group(:tweet_id)
+            Tweet.where(is_opened: true,
+                        user_id: User.active).joins(:comments).select('tweets.*, comments.*').group(:tweet_id)
           end
     # 月間・年間・全期間
     ranking_month = buf.span_month.order(Arel.sql('count(tweet_id) desc')).limit(10).pluck(:tweet_id)
     ranking_year = buf.span_year.order(Arel.sql('count(tweet_id) desc')).limit(10).pluck(:tweet_id)
     ranking_all = buf.order(Arel.sql('count(tweet_id) desc')).limit(10).pluck(:tweet_id)
-    logger.debug "ranking_month: #{ranking_month}"
-    logger.debug "ranking_year: #{ranking_year}"
-    logger.debug "ranking_all: #{ranking_all}"
     [ranking_month, ranking_year, ranking_all]
   end
 
   # タグのランキングを集計して返す
   def tag_ranking
-    buf = ActsAsTaggableOn::Tagging.where(taggable_id: Tweet.where(is_opened: true)).group(:tag_id)
+    buf = ActsAsTaggableOn::Tagging.where(taggable_id: Tweet.where(is_opened: true,
+                                                                   user_id: User.active)).group(:tag_id)
     # 月間
     month_buf = buf.where(taggable_id: Tweet.span_month).order(Arel.sql('count(tag_id) desc')).limit(10)
     ranking_month = month_buf.pluck(:tag_id)

@@ -1,8 +1,9 @@
 <%# 引数1　unit   単位 %>
 <%# 引数2　tags ランキングの結果 %>
+<%# 引数3　period ランキングの期間 %>
 <% tags.each_with_index do |tag, i| %>
   <div class='ranking__table-box'>
-    <%= link_to searches_result_path(target: ActsAsTaggableOn::Tag.find(tag).name, value: 'タグ'), class: 'ranking__table-link' do %>
+    <%= link_to searches_result_path(target: ActsAsTaggableOn::Tag.find(tag).name, value: 'タグ', period: period), class: 'ranking__table-link' do %>
       <table class='ranking__table'>
         <tr>
           <%# 順位 %>
