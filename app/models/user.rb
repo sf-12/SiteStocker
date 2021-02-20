@@ -6,6 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
+  # 検索ロジック用
+  scope :active, -> { where(is_active: true) }
+
   # refile
   attachment :image
 
