@@ -41,8 +41,9 @@ Metrics/BlockLength:
     - 'spec/**/*'
     - 'config/routes.rb'
 
+# メソッドの行数の最大値
 Metrics/MethodLength:
-  Max: 20
+  Max: 30
 
 # --------RSpec--------
 # contextが'when','with','without'で始まらなくてもよい

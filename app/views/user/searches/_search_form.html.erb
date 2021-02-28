@@ -8,4 +8,7 @@
   <%= f.select :type, [["ユーザー", "ユーザー"], ["投稿記事", "投稿記事"], ["投稿URL", "投稿URL"], ["タグ", "タグ"]] , {}, { class: 'left-side__select-form'} %>
   <br>
   <%= f.submit :検索, class: 'left-side__submit-form button__black button__wide' %>
+
+  <%# 検索期間（今のところは全期間に固定） %>
+  <%= f.hidden_field :period, :value=>"all" %>
 <% end %>

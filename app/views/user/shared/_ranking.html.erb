@@ -7,6 +7,7 @@
 <%# 引数6 ranking_month_count 集計数(月間) %>
 <%# 引数7 ranking_year_count  集計数(年間) %>
 <%# 引数8 ranking_all_count   集計数(全期間) %>
+<%# 引数9 period              集計期間 %>
 <div class='ranking__title'>
   <%= title %>ランキング
 </div>
@@ -74,13 +75,13 @@
     </ul>
     <div class="tab-content">
       <div id="ranking_tags_month" class="tab-pane active">
-        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_month, count: ranking_month_count %>
+        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_month, count: ranking_month_count, period: "month" %>
       </div>
       <div id="ranking_tags_year" class="tab-pane">
-        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_year, count: ranking_year_count %>
+        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_year, count: ranking_year_count, period: "year" %>
       </div>
       <div id="ranking_tags_all" class="tab-pane">
-        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_all, count: ranking_all_count %>
+        <%= render 'user/shared/ranking_tag', unit: unit, tags: ranking_all, count: ranking_all_count, period: "all" %>
       </div>
     </div>
   <% end %>
