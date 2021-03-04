@@ -15,6 +15,7 @@ AllCops:
     - tmp/**/*
     - vendor/**/*
     - bin/**/*
+    - node_modules/**/*
 
 # --------Layout--------
 # １行の長さ
