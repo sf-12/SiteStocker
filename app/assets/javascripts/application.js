@@ -17,6 +17,9 @@
 //= require jquery-ui
 //= require tag-it
 //= require activestorage
+//= require react
+//= require react_ujs
+//= require components
 
 $(function(){
   setTimeout("$('.time-limit').fadeOut('slow')", 2000)
